@@ -1,6 +1,6 @@
-# Testing Guide
+# Testing Guide - Comprehensive Patterns
 
-Complete testing setup and strategy for the Union of Relative Strangers project.
+Complete reference for testing React components in the James A. Jacobs demo site.
 
 ---
 
@@ -9,141 +9,369 @@ Complete testing setup and strategy for the Union of Relative Strangers project.
 We follow these principles:
 
 1. **Test user behavior**, not implementation details
-2. **Accessibility first** - test keyboard navigation and ARIA
-3. **Tailwind verification** - ensure classes are applied correctly
-4. **Mock external dependencies** - use MSW for API calls
-5. **Fast feedback** - tests should run in <1 second
+2. **Accessibility first** - test keyboard navigation and ARIA attributes
+3. **Tailwind verification** - ensure utility classes are applied correctly
+4. **Mock external dependencies** - use MSW for API calls (when needed)
+5. **Fast feedback** - tests should run quickly (<2s total)
 
 ---
 
-## Test Coverage
+## Complete Setup Guide
 
-### Current Status (62 tests, 100% passing)
+### 1. Install Dependencies
 
+```bash
+cd demo-site
+
+# Add to package.json manually, then run:
+npm install
+
+# Testing core
+npm install --save-dev vitest @vitest/ui jsdom
+
+# React Testing Library
+npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+
+# Optional: API mocking
+npm install --save-dev msw
 ```
-✓ src/components/Button.test.tsx     (32 tests)
-✓ src/components/Layout.test.tsx     (17 tests)
-✓ src/pages/Timeline.test.tsx        (13 tests)
-```
 
-**Coverage by Category:**
-- Component rendering: 15 tests
-- User interactions: 12 tests
-- Accessibility (ARIA): 10 tests
-- Tailwind styling: 15 tests
-- Snapshot testing: 5 tests
-- Data validation: 5 tests
-
----
-
-## Test Infrastructure
-
-### Tools & Libraries
-
-| Tool | Version | Purpose |
-|------|---------|---------|
-| Vitest | 3.0.0 | Test runner |
-| @vitest/ui | 3.0.0 | Browser UI |
-| @vitest/coverage-v8 | 3.0.0 | Coverage reports |
-| @testing-library/react | 16.1.0 | Component testing |
-| @testing-library/jest-dom | 6.6.3 | Custom matchers |
-| @testing-library/user-event | 14.5.2 | User simulation |
-| MSW | 2.8.2 | API mocking |
-| jsdom | 25.0.1 | DOM environment |
-
-### Configuration Files
+### 2. Configuration Files
 
 **vitest.config.ts:**
 ```typescript
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom',
-    setupFiles: ['./src/test/setupTests.ts'],
-    globals: true,
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
-      exclude: ['node_modules/', 'src/test/', '**/*.d.ts', 'dist/'],
+    globals: true,              // No need to import describe/it/expect
+    environment: 'jsdom',       // Browser-like environment
+    setupFiles: './src/setupTests.ts',
+    css: true,                  // Parse CSS (important for Tailwind)
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
 })
 ```
 
-**src/test/setupTests.ts:**
-- Imports @testing-library/jest-dom matchers
-- Starts MSW server
-- Cleans up after each test
-- Mocks window.matchMedia
+**package.json scripts:**
+```json
+{
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage"
+  }
+}
+```
+
+### 3. Test Setup File
+
+**src/setupTests.ts:**
+```typescript
+import '@testing-library/jest-dom'
+import { cleanup } from '@testing-library/react'
+import { afterEach, vi } from 'vitest'
+
+// Cleanup after each test
+afterEach(() => {
+  cleanup()
+})
+
+// Mock window.matchMedia (for responsive tests)
+if (typeof window !== 'undefined') {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: vi.fn().mockImplementation(query => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
+  })
+
+  // Mock IntersectionObserver (for scroll animations)
+  global.IntersectionObserver = class IntersectionObserver {
+    constructor() {}
+    disconnect() {}
+    observe() {}
+    takeRecords() {
+      return []
+    }
+    unobserve() {}
+  } as any // eslint-disable-line @typescript-eslint/no-explicit-any
+}
+```
 
 ---
 
-## Test Examples
+## Complete Component Test Example
 
-### 1. Button Component (32 tests)
+### Button Component with Full Coverage
 
-**Coverage:**
-- ✅ 4 variants (primary, secondary, outline, ghost)
-- ✅ 3 sizes (sm, md, lg)
-- ✅ Loading and disabled states
-- ✅ User interactions (click, keyboard)
-- ✅ Accessibility (ARIA, focus)
-- ✅ Tailwind class verification
-- ✅ Forward refs
-- ✅ Snapshot testing
-
-**Sample Test:**
+**src/components/Button.tsx:**
 ```typescript
-it('renders primary variant with correct Tailwind classes', () => {
-  render(<Button variant="primary">Primary</Button>)
-  const button = screen.getByRole('button')
-  
-  expect(button).toHaveClass('bg-[#8B3F8B]')
-  expect(button).toHaveClass('text-white')
-  expect(button).toHaveClass('hover:bg-[#6B2F6B]')
-})
+import { ButtonHTMLAttributes, forwardRef } from 'react'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
+  loading?: boolean
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', size = 'md', loading = false, children, disabled, className = '', ...props }, ref) => {
+    const baseClasses = 'rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
+
+    const variantClasses = {
+      primary: 'bg-emerald-700 text-white hover:bg-emerald-800 focus:ring-emerald-500',
+      secondary: 'bg-amber-600 text-white hover:bg-amber-700 focus:ring-amber-500',
+      outline: 'border-2 border-emerald-700 text-emerald-700 hover:bg-emerald-50 focus:ring-emerald-500',
+      ghost: 'text-emerald-700 hover:bg-emerald-50 focus:ring-emerald-500',
+    }
+
+    const sizeClasses = {
+      sm: 'px-3 py-1.5 text-sm',
+      md: 'px-4 py-2 text-base',
+      lg: 'px-6 py-3 text-lg',
+    }
+
+    return (
+      <button
+        ref={ref}
+        className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+        disabled={disabled || loading}
+        aria-busy={loading}
+        {...props}
+      >
+        {loading && (
+          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 inline" aria-hidden="true" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+        )}
+        {children}
+      </button>
+    )
+  }
+)
+
+Button.displayName = 'Button'
 ```
 
-### 2. Layout Component (17 tests)
-
-**Coverage:**
-- ✅ Navigation rendering
-- ✅ Active link highlighting
-- ✅ Tailwind color verification
-- ✅ Responsive grid classes
-- ✅ Semantic HTML structure
-- ✅ External link attributes
-
-**Sample Test:**
+**src/components/Button.test.tsx:**
 ```typescript
-it('highlights active link on home page', () => {
-  renderWithRouter(<Layout><div/></Layout>, { route: '/' })
-  const homeLink = screen.getByRole('link', { name: /home/i })
-  
-  expect(homeLink).toHaveClass('text-[#D4AF37]')
-  expect(homeLink).toHaveClass('font-semibold')
-})
-```
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Button } from './Button'
 
-### 3. Timeline Page (13 tests)
+describe('Button Component', () => {
+  // Basic Rendering
+  describe('rendering', () => {
+    it('renders with children', () => {
+      render(<Button>Click me</Button>)
+      expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument()
+    })
 
-**Coverage:**
-- ✅ Event data rendering
-- ✅ Chronological sorting
-- ✅ Event type badges
-- ✅ Tailwind utility classes
-- ✅ Date formatting
-- ✅ Location icons
+    it('applies custom className', () => {
+      render(<Button className="custom-class">Button</Button>)
+      expect(screen.getByRole('button')).toHaveClass('custom-class')
+    })
 
-**Sample Test:**
-```typescript
-it('displays events in reverse chronological order', () => {
-  const { container } = render(<Timeline />)
-  const eventTitles = Array.from(container.querySelectorAll('h3'))
-    .map(el => el.textContent)
-  
-  expect(eventTitles[0]).toBe('Cracking the Trunk') // Newest
-  expect(eventTitles[4]).toBe('First Zoom Gathering') // Oldest
+    it('forwards ref correctly', () => {
+      const ref = { current: null }
+      render(<Button ref={ref}>Button</Button>)
+      expect(ref.current).toBeInstanceOf(HTMLButtonElement)
+    })
+  })
+
+  // Variant Testing
+  describe('variants', () => {
+    it('renders primary variant (default)', () => {
+      render(<Button>Primary</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('bg-emerald-700', 'text-white')
+    })
+
+    it('renders secondary variant', () => {
+      render(<Button variant="secondary">Secondary</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('bg-amber-600', 'text-white')
+    })
+
+    it('renders outline variant', () => {
+      render(<Button variant="outline">Outline</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('border-2', 'border-emerald-700')
+    })
+
+    it('renders ghost variant', () => {
+      render(<Button variant="ghost">Ghost</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('text-emerald-700', 'hover:bg-emerald-50')
+    })
+  })
+
+  // Size Testing
+  describe('sizes', () => {
+    it('renders medium size (default)', () => {
+      render(<Button>Medium</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('px-4', 'py-2', 'text-base')
+    })
+
+    it('renders small size', () => {
+      render(<Button size="sm">Small</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('px-3', 'py-1.5', 'text-sm')
+    })
+
+    it('renders large size', () => {
+      render(<Button size="lg">Large</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('px-6', 'py-3', 'text-lg')
+    })
+  })
+
+  // Loading State
+  describe('loading state', () => {
+    it('shows loading spinner when loading', () => {
+      render(<Button loading>Loading</Button>)
+      const svg = screen.getByRole('button').querySelector('svg')
+      expect(svg).toBeInTheDocument()
+      expect(svg).toHaveClass('animate-spin')
+    })
+
+    it('disables button when loading', () => {
+      render(<Button loading>Loading</Button>)
+      expect(screen.getByRole('button')).toBeDisabled()
+    })
+
+    it('sets aria-busy when loading', () => {
+      render(<Button loading>Loading</Button>)
+      expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true')
+    })
+
+    it('hides spinner from screen readers', () => {
+      render(<Button loading>Loading</Button>)
+      const svg = screen.getByRole('button').querySelector('svg')
+      expect(svg).toHaveAttribute('aria-hidden', 'true')
+    })
+  })
+
+  // Disabled State
+  describe('disabled state', () => {
+    it('disables button when disabled prop is true', () => {
+      render(<Button disabled>Disabled</Button>)
+      expect(screen.getByRole('button')).toBeDisabled()
+    })
+
+    it('does not trigger onClick when disabled', async () => {
+      const handleClick = vi.fn()
+      const user = userEvent.setup()
+      render(<Button disabled onClick={handleClick}>Disabled</Button>)
+
+      await user.click(screen.getByRole('button'))
+      expect(handleClick).not.toHaveBeenCalled()
+    })
+  })
+
+  // User Interactions
+  describe('interactions', () => {
+    it('calls onClick when clicked', async () => {
+      const handleClick = vi.fn()
+      const user = userEvent.setup()
+      render(<Button onClick={handleClick}>Click</Button>)
+
+      await user.click(screen.getByRole('button'))
+      expect(handleClick).toHaveBeenCalledTimes(1)
+    })
+
+    it('can be focused with keyboard', async () => {
+      const user = userEvent.setup()
+      render(<Button>Focus</Button>)
+
+      await user.tab()
+      expect(screen.getByRole('button')).toHaveFocus()
+    })
+
+    it('triggers on Enter key', async () => {
+      const handleClick = vi.fn()
+      const user = userEvent.setup()
+      render(<Button onClick={handleClick}>Enter</Button>)
+
+      const button = screen.getByRole('button')
+      button.focus()
+      await user.keyboard('{Enter}')
+
+      expect(handleClick).toHaveBeenCalled()
+    })
+
+    it('triggers on Space key', async () => {
+      const handleClick = vi.fn()
+      const user = userEvent.setup()
+      render(<Button onClick={handleClick}>Space</Button>)
+
+      const button = screen.getByRole('button')
+      button.focus()
+      await user.keyboard(' ')
+
+      expect(handleClick).toHaveBeenCalled()
+    })
+  })
+
+  // Accessibility
+  describe('accessibility', () => {
+    it('has focus ring classes', () => {
+      render(<Button>Focus</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('focus:outline-none', 'focus:ring-2')
+    })
+
+    it('is keyboard navigable', async () => {
+      const user = userEvent.setup()
+      render(
+        <>
+          <Button>First</Button>
+          <Button>Second</Button>
+        </>
+      )
+
+      await user.tab()
+      expect(screen.getByRole('button', { name: 'First' })).toHaveFocus()
+
+      await user.tab()
+      expect(screen.getByRole('button', { name: 'Second' })).toHaveFocus()
+    })
+  })
+
+  // Tailwind Classes
+  describe('tailwind classes', () => {
+    it('includes base transition classes', () => {
+      render(<Button>Transition</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('transition-colors', 'rounded-md')
+    })
+
+    it('includes hover classes for primary variant', () => {
+      render(<Button variant="primary">Hover</Button>)
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('hover:bg-emerald-800')
+    })
+  })
 })
 ```
 
@@ -151,34 +379,30 @@ it('displays events in reverse chronological order', () => {
 
 ## API Mocking with MSW
 
-### Mock Handlers
+### Setup MSW (Optional)
 
 **src/test/mocks/handlers.ts:**
 ```typescript
 import { http, HttpResponse } from 'msw'
 
 export const handlers = [
-  // GET /api/photos
-  http.get('/api/photos', () => {
+  // Mock successful API call
+  http.get('/api/contact-submissions', () => {
     return HttpResponse.json([
-      {
-        id: '1',
-        title: 'Family Reunion 2024',
-        branch: 'harriet-johnston-bowdoin',
-        // ... full photo object
-      },
+      { id: 1, name: 'John Doe', email: 'john@example.com', message: 'Test message' },
     ])
   }),
 
-  // POST /api/photos  
-  http.post('/api/photos', async () => {
+  // Mock POST request
+  http.post('/api/contact', async ({ request }) => {
+    const data = await request.json()
     return HttpResponse.json(
-      { id: '2', title: 'New Upload' },
+      { id: 2, ...data, status: 'submitted' },
       { status: 201 }
     )
   }),
 
-  // Error case
+  // Mock error response
   http.get('/api/error', () => {
     return HttpResponse.json(
       { error: 'Internal Server Error' },
@@ -188,193 +412,305 @@ export const handlers = [
 ]
 ```
 
-### Using Mocks in Tests
+**src/test/mocks/server.ts:**
+```typescript
+import { setupServer } from 'msw/node'
+import { handlers } from './handlers'
+
+export const server = setupServer(...handlers)
+```
+
+**Update src/setupTests.ts:**
+```typescript
+import { server } from './test/mocks/server'
+import { beforeAll, afterEach, afterAll } from 'vitest'
+
+// Start server before all tests
+beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
+
+// Reset handlers after each test
+afterEach(() => server.resetHandlers())
+
+// Clean up after all tests
+afterAll(() => server.close())
+```
+
+### Using MSW in Tests
 
 ```typescript
 import { server } from '../test/mocks/server'
+import { http, HttpResponse } from 'msw'
 
 it('handles API errors gracefully', async () => {
-  // Override handler for this test
+  // Override handler for this specific test
   server.use(
-    http.get('/api/photos', () => {
-      return HttpResponse.json({ error: 'Not found' }, { status: 404 })
+    http.get('/api/contact-submissions', () => {
+      return HttpResponse.json(
+        { error: 'Not found' },
+        { status: 404 }
+      )
     })
   )
 
-  render(<PhotoGallery />)
-  
+  render(<ContactList />)
+
   await waitFor(() => {
-    expect(screen.getByText(/error/i)).toBeInTheDocument()
+    expect(screen.getByText(/error loading/i)).toBeInTheDocument()
   })
 })
 ```
 
 ---
 
-## Test Utilities
+## Testing React Router Components
 
-**src/test/utils.tsx:**
-
-### renderWithRouter
+### Testing with MemoryRouter
 
 ```typescript
+import { MemoryRouter } from 'react-router-dom'
+
+describe('Header Component', () => {
+  it('highlights active link', () => {
+    render(
+      <MemoryRouter initialEntries={['/about']}>
+        <Header />
+      </MemoryRouter>
+    )
+
+    const aboutLink = screen.getByRole('link', { name: /about/i })
+    expect(aboutLink).toHaveClass('text-emerald-700', 'font-semibold')
+  })
+
+  it('navigates to different pages', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Header />
+      </MemoryRouter>
+    )
+
+    await user.click(screen.getByRole('link', { name: /services/i }))
+    // Verify navigation occurred (check URL or rendered content)
+  })
+})
+```
+
+### Helper for Routing Tests
+
+**src/test/utils.tsx:**
+```typescript
+import { ReactElement } from 'react'
+import { render, RenderOptions } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+
+interface WrapperProps {
+  children: React.ReactNode
+}
+
 export function renderWithRouter(
   ui: ReactElement,
   { route = '/', ...renderOptions }: RenderOptions & { route?: string } = {}
 ) {
-  window.history.pushState({}, 'Test page', route)
+  const Wrapper = ({ children }: WrapperProps) => (
+    <MemoryRouter initialEntries={[route]}>
+      {children}
+    </MemoryRouter>
+  )
 
-  return render(ui, {
-    wrapper: ({ children }) => <BrowserRouter>{children}</BrowserRouter>,
-    ...renderOptions,
-  })
+  return render(ui, { wrapper: Wrapper, ...renderOptions })
 }
 ```
 
-### Mock Data Generators
-
+**Usage:**
 ```typescript
-export const mockPhoto = (overrides = {}) => ({
-  id: '1',
-  title: 'Test Photo',
-  branch: 'john-taylor-johnston',
-  uploadedBy: 'user_123',
-  // ... defaults with overrides
-})
+import { renderWithRouter } from '../test/utils'
 
-export const mockUser = (overrides = {}) => ({
-  id: 'user_123',
-  email: 'test@example.com',
-  branch: 'emily-johnston-de-forest',
-  isAdmin: false,
-  ...overrides,
+it('shows active state on about page', () => {
+  renderWithRouter(<Header />, { route: '/about' })
+  expect(screen.getByRole('link', { name: /about/i })).toHaveClass('active')
 })
 ```
 
 ---
 
-## Tailwind Class Testing
+## Testing Async Operations
 
-### Testing Utility Classes
+### waitFor and findBy Queries
 
 ```typescript
-it('has correct padding classes', () => {
-  render(<Component />)
-  const element = screen.getByRole('main')
-  
-  expect(element).toHaveClass('px-4')
-  expect(element).toHaveClass('sm:px-6')
-  expect(element).toHaveClass('lg:px-8')
+import { waitFor } from '@testing-library/react'
+
+it('loads data asynchronously', async () => {
+  render(<ProjectsList />)
+
+  // Wait for loading to complete
+  await waitFor(() => {
+    expect(screen.getByText('Sewer Air Testing')).toBeInTheDocument()
+  })
+})
+
+// Or use findBy (combines getBy + waitFor)
+it('loads data with findBy', async () => {
+  render(<ProjectsList />)
+
+  const project = await screen.findByText('Sewer Air Testing')
+  expect(project).toBeInTheDocument()
 })
 ```
 
-### Testing Custom Colors
+### Testing Form Submissions
 
 ```typescript
-it('uses heritage purple color', () => {
+it('submits contact form', async () => {
+  const user = userEvent.setup()
+  const onSubmit = vi.fn()
+
+  render(<ContactForm onSubmit={onSubmit} />)
+
+  // Fill out form
+  await user.type(screen.getByLabelText(/name/i), 'John Doe')
+  await user.type(screen.getByLabelText(/email/i), 'john@example.com')
+  await user.type(screen.getByLabelText(/message/i), 'Test message')
+
+  // Submit
+  await user.click(screen.getByRole('button', { name: /submit/i }))
+
+  // Verify
+  await waitFor(() => {
+    expect(onSubmit).toHaveBeenCalledWith({
+      name: 'John Doe',
+      email: 'john@example.com',
+      message: 'Test message',
+    })
+  })
+})
+```
+
+---
+
+## Tailwind Class Testing Patterns
+
+### Testing Responsive Classes
+
+```typescript
+it('has responsive padding classes', () => {
+  render(<Section />)
+  const section = screen.getByRole('region')
+
+  expect(section).toHaveClass('px-4')      // Mobile
+  expect(section).toHaveClass('sm:px-6')   // Tablet
+  expect(section).toHaveClass('lg:px-8')   // Desktop
+})
+```
+
+### Testing Custom Theme Colors
+
+```typescript
+it('uses emerald theme colors', () => {
   render(<Button variant="primary">Click</Button>)
   const button = screen.getByRole('button')
-  
-  expect(button).toHaveClass('bg-[#8B3F8B]')
-  expect(button).toHaveClass('focus:ring-[#8B3F8B]')
+
+  expect(button).toHaveClass('bg-emerald-700')
+  expect(button).toHaveClass('focus:ring-emerald-500')
 })
 ```
 
 ### Testing Conditional Classes
 
 ```typescript
-it('applies hover state for non-active links', () => {
-  renderWithRouter(<Navigation />, { route: '/' })
-  const photosLink = screen.getByRole('link', { name: /photos/i })
-  
-  expect(photosLink).toHaveClass('hover:text-[#D4AF37]')
-  expect(photosLink).not.toHaveClass('font-semibold')
+it('applies different classes based on active state', () => {
+  const { rerender } = render(<NavLink active={false} />)
+  const link = screen.getByRole('link')
+
+  expect(link).toHaveClass('text-gray-600')
+  expect(link).not.toHaveClass('text-emerald-700')
+
+  rerender(<NavLink active={true} />)
+
+  expect(link).toHaveClass('text-emerald-700')
+  expect(link).toHaveClass('font-semibold')
 })
 ```
 
 ---
 
-## Accessibility Testing
+## Common Testing Patterns
 
-### Keyboard Navigation
-
-```typescript
-import userEvent from '@testing-library/user-event'
-
-it('can be focused with keyboard', async () => {
-  const user = userEvent.setup()
-  render(<Button>Click Me</Button>)
-  
-  await user.tab()
-  
-  expect(screen.getByRole('button')).toHaveFocus()
-})
-
-it('triggers on Enter key', async () => {
-  const handleClick = vi.fn()
-  const user = userEvent.setup()
-  
-  render(<Button onClick={handleClick}>Click</Button>)
-  const button = screen.getByRole('button')
-  
-  button.focus()
-  await user.keyboard('{Enter}')
-  
-  expect(handleClick).toHaveBeenCalled()
-})
-```
-
-### ARIA Attributes
+### Query Priority (Accessibility-First)
 
 ```typescript
-it('has proper ARIA attributes when loading', () => {
-  render(<Button loading>Loading</Button>)
-  const button = screen.getByRole('button')
-  
-  expect(button).toHaveAttribute('aria-busy', 'true')
-  expect(button).toBeDisabled()
-})
+// 1. Prefer role-based queries
+screen.getByRole('button', { name: /submit/i })
+screen.getByRole('textbox', { name: /email/i })
 
-it('spinner is hidden from screen readers', () => {
-  render(<Button loading>Loading</Button>)
-  const spinner = button.querySelector('svg')
-  
-  expect(spinner).toHaveAttribute('aria-hidden', 'true')
-})
+// 2. Use label text
+screen.getByLabelText('Email Address')
+
+// 3. Use visible text
+screen.getByText('Welcome back')
+
+// 4. Use placeholder (less ideal)
+screen.getByPlaceholderText('Enter email')
+
+// 5. Avoid test IDs (last resort)
+screen.getByTestId('submit-button')
 ```
 
----
-
-## Snapshot Testing
+### Mocking Functions
 
 ```typescript
-it('matches snapshot for primary variant', () => {
-  const { container } = render(<Button variant="primary">Primary</Button>)
-  expect(container.firstChild).toMatchSnapshot()
-})
+import { vi } from 'vitest'
+
+// Simple mock
+const mockFn = vi.fn()
+
+// Mock with return value
+const mockGetUser = vi.fn().mockReturnValue({ id: 1, name: 'John' })
+
+// Mock async function
+const mockFetchData = vi.fn().mockResolvedValue({ data: 'test' })
+
+// Mock with different returns on successive calls
+const mockCounter = vi.fn()
+  .mockReturnValueOnce(1)
+  .mockReturnValueOnce(2)
+  .mockReturnValueOnce(3)
 ```
 
-**Update snapshots:**
-```bash
-npm test -- -u
-```
+### Debugging Tests
 
-Snapshots stored in `__snapshots__/` directories.
+```typescript
+// Print entire document
+screen.debug()
+
+// Print specific element
+screen.debug(screen.getByRole('button'))
+
+// Get suggested queries
+screen.logTestingPlaygroundURL()
+
+// Check what roles are available
+const { container } = render(<Component />)
+console.log(prettyDOM(container))
+```
 
 ---
 
 ## Running Tests
 
-### Development
+### Development Commands
 
 ```bash
-# Watch mode (re-runs on file changes)
-npm test
+cd demo-site
+
+# Watch mode (recommended for development)
+npm run test:watch
 
 # Run once
-npm run test:run
+npm test
 
-# UI mode (browser-based)
+# UI mode (visual browser-based runner)
 npm run test:ui
 
 # With coverage
@@ -382,148 +718,43 @@ npm run test:coverage
 open coverage/index.html
 ```
 
-### CI/CD
+### Pre-Push Hook
 
-Tests run automatically:
-- **Pre-commit hook**: Runs all tests
-- **Pre-push hook**: Runs tests + build verification
-- **GitHub Actions**: On every push (future)
+Tests automatically run before every `git push`:
+- TypeScript type check
+- ESLint
+- Build verification
 
----
-
-## Coverage Reports
-
-**Excluded from coverage:**
-- `node_modules/`
-- `src/test/`
-- `**/*.d.ts`
-- `**/*.config.*`
-- `dist/`
-
-**Target coverage:** 80% overall
-- Components: 90%
-- Pages: 70%
-- Utilities: 80%
+See [docs/TESTING.md](TESTING.md) for hook configuration.
 
 ---
 
-## Best Practices
+## Best Practices Summary
 
-### 1. Test User Behavior
-
-```typescript
-// ❌ Bad - testing implementation
-expect(component.state.count).toBe(1)
-
-// ✅ Good - testing user-visible behavior
-expect(screen.getByText('Count: 1')).toBeInTheDocument()
-```
-
-### 2. Prefer Accessible Queries
-
-```typescript
-// Prefer (in order):
-screen.getByRole('button', { name: /submit/i })
-screen.getByLabelText('Email')
-screen.getByText('Welcome')
-
-// Avoid:
-screen.getByTestId('submit-button')
-container.querySelector('.button')
-```
-
-### 3. Test Accessibility
-
-```typescript
-it('is keyboard accessible', async () => {
-  const user = userEvent.setup()
-  render(<Form />)
-  
-  await user.tab() // Focus first input
-  await user.keyboard('test@example.com')
-  await user.tab() // Focus next input
-  await user.keyboard('password')
-  await user.keyboard('{Enter}') // Submit
-  
-  expect(screen.getByText(/success/i)).toBeInTheDocument()
-})
-```
-
-### 4. One Assertion Per Concept
-
-```typescript
-// ❌ Bad - too many unrelated assertions
-it('works correctly', () => {
-  expect(button).toHaveClass('bg-blue')
-  expect(button).toHaveTextContent('Click')
-  expect(onClick).toHaveBeenCalled()
-})
-
-// ✅ Good - focused tests
-it('has correct styling', () => {
-  expect(button).toHaveClass('bg-blue')
-})
-
-it('calls onClick when clicked', async () => {
-  await user.click(button)
-  expect(onClick).toHaveBeenCalled()
-})
-```
+1. ✅ **Test user behavior** - Click buttons, fill forms, read text
+2. ✅ **Use accessible queries** - `getByRole`, `getByLabelText`, `getByText`
+3. ✅ **Test accessibility** - Keyboard navigation, ARIA attributes, focus management
+4. ✅ **Verify Tailwind classes** - Ensure styles are applied correctly
+5. ✅ **Mock external dependencies** - Use MSW for API calls
+6. ✅ **One concept per test** - Keep tests focused and descriptive
+7. ✅ **Avoid implementation details** - Don't test state, props, or internals
+8. ✅ **Use userEvent over fireEvent** - Simulates real user interactions
+9. ✅ **Cleanup automatically** - React Testing Library handles this
+10. ✅ **Run tests in watch mode** - Get instant feedback
 
 ---
 
-## Debugging Tests
+## Resources
 
-### Print DOM
-
-```typescript
-screen.debug() // Print entire document
-screen.debug(screen.getByRole('button')) // Print specific element
-```
-
-### UI Mode
-
-```bash
-npm run test:ui
-```
-
-Opens browser with:
-- Live test results
-- Component inspection
-- Time-travel debugging
-
-### Find Available Queries
-
-```typescript
-screen.logTestingPlaygroundURL()
-// Opens: testing-playground.com with your component
-```
+- **Vitest**: https://vitest.dev/
+- **React Testing Library**: https://testing-library.com/react
+- **jest-dom matchers**: https://github.com/testing-library/jest-dom
+- **User Event**: https://testing-library.com/docs/user-event/intro
+- **MSW (API Mocking)**: https://mswjs.io/
+- **Testing Playground**: https://testing-playground.com/
 
 ---
 
-## Future Test Plans
-
-### Phase 2: Authentication Tests
-- Login/logout flows
-- Protected route guards
-- User registration with branch selection
-- Session persistence
-
-### Phase 3: Photo Gallery Tests
-- Upload flow
-- Image preview
-- Branch filtering
-- Tag search
-- Delete confirmation
-
-### Phase 4: Stories Tests
-- Rich text editor
-- Story creation/editing
-- Comment threading
-- Branch filtering
-
----
-
-**Last Updated**: February 2025  
-**Test Count**: 62 passing  
-**Coverage**: TBD (run `npm run test:coverage`)
+**Last Updated**: February 2026
+**Project**: James A. Jacobs Demo Site
+**Current Tests**: 9 passing (6 utility + 3 component smoke tests)
