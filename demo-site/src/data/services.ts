@@ -7,7 +7,7 @@ export const services: Service[] = [
     {
         title: 'Expert Witness & Litigation Support',
         description:
-            'Forensic geology analysis and expert witness testimony for groundwater contamination, remediation cost disputes, oil & gas valuation, and environmental contracting cases. Over 23 cases with experience in depositions, court testimony, and technical report preparation.',
+            'Forensic geology analysis and expert witness testimony for groundwater contamination, remediation cost disputes, oil & gas valuation, pipeline spills, and environmental contracting cases. Over 23 cases with experience in depositions, court testimony, and technical report preparation. Licensed as a Professional Geologist in 9 states (AK, AR, CA, ID, OR, PA, TX, WA, WY) — practices nationwide.',
         icon: '⚖️',
     },
     {
@@ -57,4 +57,7 @@ export const industriesServed = [
     'Utilities',
     'Insurance',
     'Education',
+    'Construction',
+    'Railroads',
+    'Airports',
 ]

@@ -8,6 +8,7 @@ export const siteDescription =
 export const heroStats: Stat[] = [
     { value: '40+', label: 'Years Experience' },
     { value: '5', label: 'Books Published' },
+    { value: '100+', label: 'Articles Published' },
     { value: '1,000+', label: 'Projects Managed' },
     { value: '23', label: 'Expert Witness Cases' },
 ]

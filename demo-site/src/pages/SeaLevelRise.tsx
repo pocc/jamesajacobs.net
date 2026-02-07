@@ -176,8 +176,34 @@ export default function SeaLevelRise() {
                 </div>
             </section>
 
-            {/* Broader Impacts */}
+            {/* Field Instrumentation */}
             <section className="bg-surface py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="max-w-3xl">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Field Instrumentation</h2>
+                            <SectionDivider />
+                            <p className="mt-6 text-text-secondary leading-relaxed">
+                                Since 2022, 20 permanent Solinst Levelogger sensors have been
+                                installed across 16 wells in three study areas: Manzanita
+                                (7 groundwater wells + 3 surface water locations), Tamalpais
+                                Valley (4 groundwater wells + 1 surface water location), and
+                                Atchison Village (2 monitoring wells + 3 existing irrigation wells).
+                                Sensors record every 15 minutes with Barologgers providing
+                                hourly barometric compensation.
+                            </p>
+                            <p className="mt-4 text-text-secondary leading-relaxed">
+                                During Water Year 2023, data collection coincided with 15
+                                atmospheric rivers and 27 days exceeding tidal trigger height,
+                                providing extensive flood event documentation.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Broader Impacts */}
+            <section className="bg-white py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="max-w-3xl">

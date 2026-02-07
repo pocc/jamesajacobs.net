@@ -5,7 +5,7 @@ import SectionDivider from '../components/SectionDivider'
 import { services, servicesIntro, industriesServed } from '../data/services'
 
 const audiences = [
-    { icon: '\u2696\uFE0F', title: 'Attorneys & Legal Teams', desc: 'Expert witness testimony, forensic geology analysis, depositions, and technical reports for environmental litigation.', cta: 'Discuss Your Case', to: '/contact' },
+    { icon: '\u2696\uFE0F', title: 'Attorneys & Legal Teams', desc: 'Expert witness testimony and forensic geology for environmental litigation. Licensed P.G. in 9 states (AK, AR, CA, ID, OR, PA, TX, WA, WY) — practices nationwide. 23 cases, depositions, and technical reports.', cta: 'Discuss Your Case', to: '/contact' },
     { icon: '\uD83C\uDFDB\uFE0F', title: 'Regulatory Agencies', desc: 'Vapor intrusion assessment, compliance evaluation, and professional training for EPA, state boards, and health departments.', cta: 'Request Consultation', to: '/contact' },
     { icon: '\uD83D\uDD27', title: 'Sewer & Water Utilities', desc: 'Sewer air testing, legacy infrastructure mapping, overflow monitoring, and capital project prioritization.', cta: 'Schedule Assessment', to: '/contact' },
     { icon: '\uD83C\uDFE2', title: 'Property Owners & Developers', desc: 'Phase I/II environmental site assessments, due diligence, contamination forensics, and remediation planning.', cta: 'Get a Site Assessment', to: '/contact' },
@@ -17,7 +17,8 @@ const trustPoints = [
     { value: '40+', label: 'Years of field experience' },
     { value: '23', label: 'Expert witness cases' },
     { value: '1,000+', label: 'Projects completed' },
-    { value: '5', label: 'Published books' },
+    { value: '100+', label: 'Articles published' },
+    { value: '9', label: 'State P.G. licenses' },
 ]
 
 export default function Services() {

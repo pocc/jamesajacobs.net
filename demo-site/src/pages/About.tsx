@@ -198,13 +198,14 @@ export default function About() {
                         <div className="max-w-3xl space-y-6 text-text-secondary leading-relaxed text-base md:text-lg mt-6">
                             <p>
                                 As a publicly elected community services district board
-                                member since 2003, he has evaluated numerous environmental
-                                challenges, solved sustainability problems, and worked with
-                                others as a team leader and member to develop agency policies.
-                                He has been a commissioner of a local wastewater treatment
-                                plant with a $14 million annual budget and $36 million in
-                                capital projects, and a director of a community services
-                                district (sewage collection, refuse/recycling, and park and
+                                member since 2003 (Board President 2005-2006, re-elected 2022),
+                                he has evaluated numerous environmental challenges, solved
+                                sustainability problems, and worked with others as a team leader
+                                and member to develop agency policies. He has been a representative
+                                to the Sewerage Agency of Southern Marin (SASM) since 2003, serving
+                                as SASM President from 2009-2011, with a $14 million annual budget
+                                and $36 million in capital projects. He also directs a community
+                                services district (sewage collection, refuse/recycling, and park and
                                 recreation services) with an $11 million annual budget and
                                 over $19 million in capital projects.
                             </p>
