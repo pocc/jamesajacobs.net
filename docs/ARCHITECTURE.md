@@ -133,11 +133,44 @@ demo-site/
 │       ├── Teaching.tsx        # Renamed from WorkshopsClasses
 │       ├── Services.tsx
 │       ├── GeologyAndBeer.tsx
-│       └── Contact.tsx
+│       ├── Contact.tsx
+│       ├── ExpertWitness.tsx   # Audience: Attorneys & Legal
+│       ├── ForConsultants.tsx  # Audience: Environmental Consultants
+│       ├── Utilities.tsx       # Audience: Water/Sewer Utilities
+│       ├── RealEstate.tsx      # Audience: Property Owners
+│       ├── OilGas.tsx          # Audience: Oil & Gas Industry
+│       ├── Community.tsx       # Audience: Community Groups
+│       └── Speaking.tsx        # Audience: Conference Organizers
 └── ...config files (tsconfig, eslint, etc.)
 ```
 
-### Route Map
+### Navigation Structure (6 main tabs)
+```
+Home
+About
+Services ▼
+  ├─ Attorneys & Legal Teams       → /expert-witness
+  ├─ Environmental Consultants      → /for-consultants
+  ├─ Utilities & Infrastructure     → /utilities
+  ├─ Property Owners & Real Estate  → /real-estate
+  ├─ Oil & Gas Industry             → /oil-gas
+  ├─ Community Support              → /community
+  ├─ Speaking & Workshops           → /speaking
+  └─ All Services                   → /services
+Research ▼
+  ├─ Overview                       → /research
+  ├─ Sea Level Rise                 → /research/sea-level-rise
+  ├─ Sewer Systems                  → /research/sewer-systems
+  ├─ Wetlands                       → /research/wetlands
+  └─ Safe Water                     → /research/safe-water
+Publications ▼
+  ├─ Books                          → /books
+  ├─ Teaching & Workshops           → /teaching
+  └─ Geology & Beer                 → /geology-and-beer
+Contact
+```
+
+### Route Map (19 routes total)
 ```
 /                              → Home
 /about                         → About (expanded CV)
@@ -151,6 +184,13 @@ demo-site/
 /services                      → Services
 /geology-and-beer              → Geology & Beer
 /contact                       → Contact
+/expert-witness                → For Attorneys & Legal Teams
+/for-consultants               → For Environmental Consultants
+/utilities                     → For Utilities & Infrastructure
+/real-estate                   → For Property Owners & Real Estate
+/oil-gas                       → For Oil & Gas Industry
+/community                     → Community Support
+/speaking                      → Speaking & Workshops
 ```
 
 ### Build & Deploy
@@ -158,5 +198,25 @@ demo-site/
 cd demo-site
 npm run dev      # Local dev server
 npm run build    # Build to ../demo/
+npm test         # Run all tests
+npm run lint     # Run ESLint
 ```
+
 The `/demo/` directory is committed to the repo and served at `https://jamesajacobs.net/demo/`.
+
+### Pre-Push Quality Checks
+
+A Git pre-push hook (`.git/hooks/pre-push`) runs automatically before every push to ensure code quality:
+
+1. **TypeScript type check** — Runs `npm run build` silently to verify no type errors
+2. **ESLint** — Runs `npm run lint` to enforce code style and catch potential bugs
+3. **Build verification** — Ensures `demo/index.html` exists (catches broken builds)
+
+If any check fails, the push is **blocked** and you'll see error output with instructions to fix.
+
+**To bypass the hook** (not recommended):
+```bash
+git push --no-verify
+```
+
+See `docs/TESTING.md` for full testing documentation.

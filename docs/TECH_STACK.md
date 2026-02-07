@@ -86,8 +86,23 @@ See `DESIGN_SYSTEM.md` for full details on colors, typography tokens, component 
 | `@types/react` / `@types/react-dom` | React type definitions |
 
 ### Testing
-No automated testing infrastructure is currently in place. Manual verification:
-- Local static preview: `python3 -m http.server 8000` from project root, visit `http://localhost:8000/demo/`
-- Check all 12 routes render correctly
-- Test responsive at 375px, 768px, 1024px, 1440px
-- Verify no console errors
+| Package | Version | Purpose |
+|---|---|---|
+| Vitest | 2.1.8 | Test runner (Vite-native, faster than Jest) |
+| jsdom | 26.0.0 | DOM implementation for Node.js test environment |
+| @testing-library/react | 16.1.0 | React component testing utilities |
+| @testing-library/jest-dom | 6.6.3 | Custom matchers for DOM assertions |
+| @testing-library/user-event | 14.5.2 | User interaction simulation |
+| @vitest/ui | 2.2.0 | Visual test UI (optional) |
+
+**Commands:**
+- `npm test` — Run all tests once (CI mode)
+- `npm run test:watch` — Watch mode (re-runs on file changes)
+- `npm run test:ui` — Visual UI (browser-based test runner)
+
+**Pre-Push Hook:**
+- Automatically runs TypeScript check, ESLint, and all tests before every `git push`
+- Prevents broken code from being pushed to the repository
+- See `docs/TESTING.md` for full documentation
+
+**Current Coverage:** 9 tests (6 utility, 3 component smoke tests)
