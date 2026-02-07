@@ -16,7 +16,10 @@ export default function Header() {
     }, [])
 
     useEffect(() => {
+        // Close mobile menu when route changes
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMobileOpen(false)
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setOpenDropdown(null)
     }, [location.pathname])
 

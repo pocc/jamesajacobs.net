@@ -13,6 +13,8 @@ export default function ScrollReveal({ children, className = '', stagger = false
     useEffect(() => {
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         if (prefersReduced) {
+            // Immediately show content if user prefers reduced motion
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsVisible(true)
             return
         }

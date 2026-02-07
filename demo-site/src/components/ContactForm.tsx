@@ -47,7 +47,7 @@ export default function ContactForm() {
                 const data = await response.json()
                 setError(data.error || 'Failed to send message. Please try again.')
             }
-        } catch (err) {
+        } catch {
             setError(
                 'Network error. Please email directly to geojimj@gmail.com or jjacobs@clearwatergroup.com'
             )
