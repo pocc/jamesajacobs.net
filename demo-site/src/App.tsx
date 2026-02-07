@@ -2,17 +2,16 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
-import Books from './pages/Books'
-import Contact from './pages/Contact'
-import Services from './pages/Services'
-import Publications from './pages/Publications'
+import Research from './pages/Research'
 import SeaLevelRise from './pages/SeaLevelRise'
-import SewerOverflows from './pages/SewerOverflows'
-import SewerAirVI from './pages/SewerAirVI'
+import SewerSystems from './pages/SewerSystems'
 import Wetlands from './pages/Wetlands'
-import WorkshopsClasses from './pages/WorkshopsClasses'
 import SafeWater from './pages/SafeWater'
+import BooksAndPublications from './pages/BooksAndPublications'
+import Teaching from './pages/Teaching'
+import Services from './pages/Services'
 import GeologyAndBeer from './pages/GeologyAndBeer'
+import Contact from './pages/Contact'
 
 export default function App() {
     return (
@@ -21,17 +20,16 @@ export default function App() {
                 <Route element={<Layout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/books" element={<Books />} />
-                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/research" element={<Research />} />
+                    <Route path="/research/sea-level-rise" element={<SeaLevelRise />} />
+                    <Route path="/research/sewer-systems" element={<SewerSystems />} />
+                    <Route path="/research/wetlands" element={<Wetlands />} />
+                    <Route path="/research/safe-water" element={<SafeWater />} />
+                    <Route path="/books" element={<BooksAndPublications />} />
+                    <Route path="/teaching" element={<Teaching />} />
                     <Route path="/services" element={<Services />} />
-                    <Route path="/publications" element={<Publications />} />
-                    <Route path="/sea-level-rise" element={<SeaLevelRise />} />
-                    <Route path="/sewer-overflows" element={<SewerOverflows />} />
-                    <Route path="/sewer-air-vi" element={<SewerAirVI />} />
-                    <Route path="/wetlands" element={<Wetlands />} />
-                    <Route path="/workshops-classes" element={<WorkshopsClasses />} />
-                    <Route path="/safe-water" element={<SafeWater />} />
                     <Route path="/geology-and-beer" element={<GeologyAndBeer />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Route>
             </Routes>
         </HashRouter>

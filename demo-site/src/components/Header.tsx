@@ -1,152 +1,162 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
-const researchLinks = [
-    { to: '/sea-level-rise', label: 'Sea Level Rise' },
-    { to: '/sewer-overflows', label: 'Sewer Overflows' },
-    { to: '/sewer-air-vi', label: 'Sewer Air & VI' },
-    { to: '/wetlands', label: 'Wetlands' },
-    { to: '/safe-water', label: 'Safe Water' },
-    { to: '/geology-and-beer', label: 'Geology & Beer' },
-]
-
-const mainLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/services', label: 'Services' },
-    { to: '/books', label: 'Books' },
-    { to: '/publications', label: 'Publications' },
-    { to: '/workshops-classes', label: 'Workshops' },
-    { to: '/contact', label: 'Contact' },
-]
+import { navItems } from '../data/siteConfig'
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false)
     const [researchOpen, setResearchOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
     const location = useLocation()
+    const isHome = location.pathname === '/'
 
-    const isActive = (path: string) => location.pathname === path
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40)
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
 
-    const isResearchActive = researchLinks.some(l => isActive(l.to))
+    useEffect(() => {
+        setMobileOpen(false)
+        setResearchOpen(false)
+    }, [location.pathname])
+
+    const headerBg = scrolled || !isHome
+        ? 'bg-primary shadow-md'
+        : 'bg-primary/80 backdrop-blur-sm'
 
     return (
-        <header className="bg-primary text-white sticky top-0 z-50 shadow-md">
-            <div className="max-w-6xl mx-auto px-4">
-                <div className="flex items-center justify-between h-16">
-                    <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-                        <span className="font-serif text-xl font-semibold tracking-tight">James A. Jacobs</span>
-                        <span className="hidden sm:inline text-accent text-sm font-light">Ph.D., P.G., C.H.G.</span>
-                    </Link>
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
+            <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+                {/* Brand */}
+                <Link to="/" className="flex items-center gap-3 text-white no-underline hover:text-white">
+                    <span className="font-serif text-lg font-bold tracking-tight">
+                        James A. Jacobs
+                    </span>
+                    <span className="hidden sm:inline text-white/50 text-sm font-mono">
+                        Ph.D., P.G., C.H.G.
+                    </span>
+                </Link>
 
-                    {/* Desktop Nav */}
-                    <nav className="hidden lg:flex items-center gap-1">
-                        {mainLinks.map(link => (
-                            <Link
-                                key={link.to}
-                                to={link.to}
-                                className={`px-3 py-2 rounded text-sm font-medium transition-colors ${
-                                    isActive(link.to)
-                                        ? 'bg-white/20 text-white'
-                                        : 'text-white/80 hover:text-white hover:bg-white/10'
-                                }`}
+                {/* Desktop Nav */}
+                <nav className="hidden lg:flex items-center gap-1">
+                    {navItems.map((item) =>
+                        item.children ? (
+                            <div
+                                key={item.label}
+                                className="relative"
+                                onMouseEnter={() => setResearchOpen(true)}
+                                onMouseLeave={() => setResearchOpen(false)}
                             >
-                                {link.label}
-                            </Link>
-                        ))}
-
-                        {/* Research Dropdown */}
-                        <div
-                            className="relative"
-                            onMouseEnter={() => setResearchOpen(true)}
-                            onMouseLeave={() => setResearchOpen(false)}
-                        >
-                            <button
-                                className={`px-3 py-2 rounded text-sm font-medium transition-colors flex items-center gap-1 ${
-                                    isResearchActive
-                                        ? 'bg-white/20 text-white'
-                                        : 'text-white/80 hover:text-white hover:bg-white/10'
-                                }`}
-                            >
-                                Research
-                                <svg className={`w-3.5 h-3.5 transition-transform ${researchOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-                            {researchOpen && (
-                                <div className="absolute right-0 top-full mt-0.5 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                                    {researchLinks.map(link => (
-                                        <Link
-                                            key={link.to}
-                                            to={link.to}
-                                            className={`block px-4 py-2 text-sm transition-colors ${
-                                                isActive(link.to)
-                                                    ? 'bg-primary/10 text-primary font-medium'
-                                                    : 'text-gray-700 hover:bg-gray-100'
-                                            }`}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    </nav>
-
-                    {/* Mobile Hamburger */}
-                    <button
-                        className="lg:hidden p-2 rounded hover:bg-white/10 transition-colors"
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {mobileOpen ? (
-                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        ) : (
-                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        )}
-                    </button>
-                </div>
-
-                {/* Mobile Nav */}
-                {mobileOpen && (
-                    <nav className="lg:hidden pb-4 border-t border-white/20 pt-2">
-                        {mainLinks.map(link => (
-                            <Link
-                                key={link.to}
-                                to={link.to}
-                                onClick={() => setMobileOpen(false)}
-                                className={`block px-3 py-2 rounded text-sm font-medium transition-colors ${
-                                    isActive(link.to)
-                                        ? 'bg-white/20 text-white'
-                                        : 'text-white/80 hover:text-white hover:bg-white/10'
-                                }`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        <div className="mt-2 pt-2 border-t border-white/20">
-                            <span className="block px-3 py-1 text-xs font-semibold text-accent uppercase tracking-wider">Research</span>
-                            {researchLinks.map(link => (
                                 <Link
-                                    key={link.to}
-                                    to={link.to}
-                                    onClick={() => setMobileOpen(false)}
-                                    className={`block px-3 py-2 pl-6 rounded text-sm font-medium transition-colors ${
-                                        isActive(link.to)
-                                            ? 'bg-white/20 text-white'
-                                            : 'text-white/80 hover:text-white hover:bg-white/10'
+                                    to={item.to}
+                                    className={`px-3 py-2 text-sm font-medium transition-colors no-underline rounded-md ${
+                                        location.pathname.startsWith('/research')
+                                            ? 'text-accent'
+                                            : 'text-white/80 hover:text-white'
                                     }`}
                                 >
-                                    {link.label}
+                                    {item.label}
+                                    <svg
+                                        className="inline-block w-3.5 h-3.5 ml-0.5 -mt-0.5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
                                 </Link>
-                            ))}
-                        </div>
-                    </nav>
-                )}
+                                {researchOpen && (
+                                    <div className="absolute top-full left-0 pt-1">
+                                        <div className="bg-white rounded-xl shadow-xl border border-surface-dark/30 py-2 min-w-[220px]">
+                                            {item.children.map((child) => (
+                                                <Link
+                                                    key={child.to}
+                                                    to={child.to}
+                                                    className={`block px-4 py-2 text-sm no-underline transition-colors ${
+                                                        location.pathname === child.to
+                                                            ? 'text-accent-dark bg-surface'
+                                                            : 'text-text hover:bg-surface hover:text-accent-dark'
+                                                    }`}
+                                                >
+                                                    {child.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <Link
+                                key={item.to}
+                                to={item.to}
+                                className={`px-3 py-2 text-sm font-medium transition-colors no-underline rounded-md ${
+                                    location.pathname === item.to
+                                        ? 'text-accent'
+                                        : 'text-white/80 hover:text-white'
+                                }`}
+                            >
+                                {item.label}
+                            </Link>
+                        )
+                    )}
+                </nav>
+
+                {/* Mobile Toggle */}
+                <button
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    className="lg:hidden text-white p-2"
+                    aria-label="Toggle menu"
+                >
+                    {mobileOpen ? (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    ) : (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    )}
+                </button>
             </div>
+
+            {/* Mobile Menu — Full Screen Overlay */}
+            {mobileOpen && (
+                <div className="lg:hidden fixed inset-0 top-16 bg-primary z-40 overflow-y-auto">
+                    <nav className="flex flex-col p-6 gap-1">
+                        {navItems.map((item) => (
+                            <div key={item.label}>
+                                <Link
+                                    to={item.to}
+                                    className={`block px-4 py-3 text-lg font-medium rounded-lg no-underline transition-colors ${
+                                        location.pathname === item.to
+                                            ? 'text-accent bg-primary-light'
+                                            : 'text-white/80 hover:text-white hover:bg-primary-light'
+                                    }`}
+                                >
+                                    {item.label}
+                                </Link>
+                                {item.children && (
+                                    <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary-light pl-4">
+                                        {item.children.map((child) => (
+                                            <Link
+                                                key={child.to}
+                                                to={child.to}
+                                                className={`block px-3 py-2 text-sm rounded-md no-underline transition-colors ${
+                                                    location.pathname === child.to
+                                                        ? 'text-accent'
+                                                        : 'text-white/60 hover:text-white'
+                                                }`}
+                                            >
+                                                {child.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </nav>
+                </div>
+            )}
         </header>
     )
 }

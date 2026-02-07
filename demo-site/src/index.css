@@ -1,16 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #1e3a5f;
-    --color-primary-light: #2a4f7f;
-    --color-primary-dark: #152d4a;
-    --color-accent: #c9a96e;
-    --color-accent-light: #d4ba85;
-    --color-accent-dark: #b8954d;
-    --color-surface: #f8f7f4;
-    --color-surface-dark: #edeae3;
-    --font-sans: "Inter", system-ui, sans-serif;
-    --font-serif: "Playfair Display", Georgia, serif;
+    /* Primary — Deep Basalt */
+    --color-primary: #2c3e2d;
+    --color-primary-light: #3d5340;
+    --color-primary-dark: #1a2a1c;
+
+    /* Accent — Copper Ore */
+    --color-accent: #c17f59;
+    --color-accent-light: #d4996f;
+    --color-accent-dark: #a86840;
+
+    /* Slate Blue — Links & water */
+    --color-slate: #5a7d8a;
+    --color-slate-light: #7a9daa;
+
+    /* Surface — Sandstone */
+    --color-surface: #f5f0e8;
+    --color-surface-mid: #e8dfd2;
+    --color-surface-dark: #d4c8b5;
+
+    /* Text */
+    --color-text: #2d2a26;
+    --color-text-secondary: #6b6560;
+
+    /* Typography */
+    --font-sans: "Source Sans 3", system-ui, sans-serif;
+    --font-serif: "Source Serif 4", Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
@@ -20,13 +37,72 @@
 
     body {
         font-family: var(--font-sans);
-        color: #333;
-        background-color: #fff;
+        color: var(--color-text);
+        background-color: var(--color-surface);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
 
     h1, h2, h3, h4 {
         font-family: var(--font-serif);
+        color: var(--color-primary);
+    }
+
+    a {
+        color: var(--color-slate);
+    }
+
+    a:hover {
+        color: var(--color-accent-dark);
+    }
+}
+
+/* Scroll reveal animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Stagger children */
+.stagger-children > * {
+    opacity: 0;
+}
+.stagger-children.is-visible > *:nth-child(1) { animation: fadeUp 0.6s ease-out 0ms forwards; }
+.stagger-children.is-visible > *:nth-child(2) { animation: fadeUp 0.6s ease-out 100ms forwards; }
+.stagger-children.is-visible > *:nth-child(3) { animation: fadeUp 0.6s ease-out 200ms forwards; }
+.stagger-children.is-visible > *:nth-child(4) { animation: fadeUp 0.6s ease-out 300ms forwards; }
+.stagger-children.is-visible > *:nth-child(5) { animation: fadeUp 0.6s ease-out 400ms forwards; }
+.stagger-children.is-visible > *:nth-child(6) { animation: fadeUp 0.6s ease-out 500ms forwards; }
+.stagger-children.is-visible > *:nth-child(7) { animation: fadeUp 0.6s ease-out 600ms forwards; }
+.stagger-children.is-visible > *:nth-child(8) { animation: fadeUp 0.6s ease-out 700ms forwards; }
+
+/* Stat counter animation */
+@keyframes countUp {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-count-up {
+    animation: countUp 0.5s ease-out forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .stagger-children > *,
+    .animate-count-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

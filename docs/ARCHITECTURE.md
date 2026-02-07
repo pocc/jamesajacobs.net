@@ -61,3 +61,102 @@ There is no client-server data flow. All content is static HTML served directly 
 
 ## Migration Status
 The project is in the process of migrating from GoDaddy-exported pages to clean, hand-written HTML/CSS. See `README.md` for pages that still need work.
+
+---
+
+## Demo Site (React SPA)
+
+A modern React-based redesign lives in `/demo-site/` and is served at `/demo/`.
+
+### Tech Stack
+- **Framework:** React 19 + TypeScript
+- **Build:** Vite 7
+- **Styling:** Tailwind CSS v4 (utility classes + custom theme tokens)
+- **Routing:** React Router 7 with `HashRouter` (for static hosting compatibility)
+- **Fonts:** Google Fonts — Source Serif 4 (headings), Source Sans 3 (body), JetBrains Mono (data/stats)
+
+### Design System — "Strata"
+Geological stratification theme with earth tones:
+- **Primary:** Deep Basalt `#2c3e2d` (dark green-brown)
+- **Accent:** Copper Ore `#c17f59` (warm oxidized copper)
+- **Links:** Slate Blue `#5a7d8a`
+- **Surface:** Sandstone `#f5f0e8` (warm parchment background)
+- **Text:** Warm near-black `#2d2a26`
+
+### Structure
+```
+demo-site/
+├── index.html              # Entry HTML (Google Fonts, #root mount)
+├── package.json            # Dependencies (React 19, Vite 7, Tailwind 4)
+├── vite.config.ts          # Base path /demo/, output to ../demo
+├── src/
+│   ├── main.tsx            # React root render
+│   ├── App.tsx             # HashRouter + route definitions
+│   ├── index.css           # Tailwind import + theme tokens
+│   ├── types/
+│   │   └── index.ts        # TypeScript interfaces for all data
+│   ├── data/               # Content extracted from components
+│   │   ├── siteConfig.ts   # Site-wide config, nav, colors
+│   │   ├── books.ts        # Book catalog
+│   │   ├── publications.ts # Publications by category
+│   │   ├── research.ts     # Research area definitions
+│   │   ├── credentials.ts  # Credentials & education
+│   │   ├── projects.ts     # Selected project descriptions
+│   │   ├── teaching.ts     # Teaching history & workshops
+│   │   ├── services.ts     # Service offerings
+│   │   └── sponsors.ts     # Sponsors, grants, donors
+│   ├── components/         # Shared UI components
+│   │   ├── Layout.tsx
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroPage.tsx
+│   │   ├── ScrollReveal.tsx
+│   │   ├── SectionDivider.tsx
+│   │   ├── StatBar.tsx
+│   │   ├── BentoGrid.tsx
+│   │   ├── BookCard.tsx
+│   │   ├── ResearchCard.tsx
+│   │   ├── TimelineVertical.tsx
+│   │   ├── Tag.tsx
+│   │   ├── PullQuote.tsx
+│   │   ├── Breadcrumb.tsx
+│   │   └── ContactForm.tsx
+│   └── pages/              # Route-level page components
+│       ├── Home.tsx
+│       ├── About.tsx
+│       ├── Research.tsx        # Hub page for all research areas
+│       ├── SeaLevelRise.tsx
+│       ├── SewerSystems.tsx    # Merged Overflows + Air & VI
+│       ├── Wetlands.tsx
+│       ├── SafeWater.tsx
+│       ├── BooksAndPublications.tsx  # Merged Books + Publications
+│       ├── Teaching.tsx        # Renamed from WorkshopsClasses
+│       ├── Services.tsx
+│       ├── GeologyAndBeer.tsx
+│       └── Contact.tsx
+└── ...config files (tsconfig, eslint, etc.)
+```
+
+### Route Map
+```
+/                              → Home
+/about                         → About (expanded CV)
+/research                      → Research Hub (bento grid)
+/research/sea-level-rise       → Sea Level Rise
+/research/sewer-systems        → Sewer Systems (merged)
+/research/wetlands             → Wetlands
+/research/safe-water           → Safe Water
+/books                         → Books & Publications (merged)
+/teaching                      → Teaching (renamed)
+/services                      → Services
+/geology-and-beer              → Geology & Beer
+/contact                       → Contact
+```
+
+### Build & Deploy
+```bash
+cd demo-site
+npm run dev      # Local dev server
+npm run build    # Build to ../demo/
+```
+The `/demo/` directory is committed to the repo and served at `https://jamesajacobs.net/demo/`.
