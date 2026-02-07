@@ -25,7 +25,7 @@
 | Abbreviation | Full Title |
 |-------------|-----------|
 | Ph.D. | Doctor of Philosophy in Geology |
-| P.G. | Professional Geologist (State of California) |
+| P.G. | Professional Geologist — licensed in 9 states (AK, AR, CA, ID, OR, PA, TX, WA, WY) |
 | C.H.G. | Certified Hydrogeologist |
 | C.P.G. | Certified Professional Geologist (AIPG) |
 | C.Pet.G. | Certified Petroleum Geologist |
@@ -46,6 +46,7 @@ Additional: Licensed well driller, general engineering contractor.
 - **Project types:** EPA Superfund sites, military bases, oil field properties, agricultural/industrial sites
 - **Current focus:** Forensic analysis of subsurface events — pipe breaks, contaminant spills, oil & gas valuation, groundwater contamination
 - **Expert witness** in 23 court cases involving groundwater contamination, remediation, and environmental contracting disputes
+- **Industries served:** Oil & Gas, Mining, Real Estate, Government, Legal, Utilities, Insurance, Education, Construction, Railroads, Airports
 
 ---
 
@@ -65,13 +66,18 @@ Additional: Licensed well driller, general engineering contractor.
 
 ## Public Service
 
-- **2003–2026:** Publicly elected commissioner of a local wastewater treatment plant
-  - Annual budget: $14 million USD
-  - Capital projects: $36 million USD
-- **Director** of a community services district
-  - Annual budget: $11 million USD
-  - Capital projects: over $19 million USD
+- **2003–2026:** Publicly elected board member, Tamalpais Community Services District (TCSD)
+  - Board President 2005–2006; re-elected 2022
+  - Annual budget: $11 million USD; capital projects: over $19 million USD
+  - Services: sewage collection, refuse/recycling, park & recreation
+- **2003–present:** Representative to Sewerage Agency of Southern Marin (SASM)
+  - SASM President 2009–2011
+  - Annual budget: $14 million USD; capital projects: $36 million USD
 - Promoted sustainable environmental practices; agency certified as green business
+  - 2013 Marin County Green Business of the Year (recycling of e-waste, fluorescent bulbs, medicines, batteries)
+  - 1 million fewer lbs of waste processed in 2009 vs 2006
+- **100+ articles** published in peer-reviewed journals, trade publications, and encyclopedias
+- Resident of Tamalpais Valley since 1989
 
 ---
 

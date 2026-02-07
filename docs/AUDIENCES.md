@@ -197,3 +197,20 @@ Who visits jamesajacobs.net, what they need, and how the site should serve them.
 3. **Contact must be frictionless.** Every high-priority audience needs to reach James in 1-2 clicks from any page.
 4. **Credentials matter.** Attorneys and regulators verify qualifications — keep post-nominals and affiliations visible.
 5. **Technical depth serves consultants and academics; plain language serves property owners and communities.** The site needs both registers.
+
+---
+
+## Implementation Status (Feb 2025)
+
+The following recommendations from this document have been implemented in the demo site:
+
+- **Expert Witness & Litigation Support** added as featured service on Services page (with 9-state P.G. licensing, 23-case track record)
+- **Audience routing section** added to Homepage ("Need an Expert Witness?", "Environmental Site Assessment?", "Research Collaboration?", "Professional Training?")
+- **"Who This Serves" section** on Services page with 6 audience cards, each with specific CTA
+- **Industries Served** tags on Services page (Oil & Gas, Mining, Real Estate, Government, Legal, Utilities, Insurance, Education, Construction, Railroads, Airports)
+- **Trust signals** added: "Why James Jacobs?" section with 5 key stats (40+ years, 23 cases, 1000+ projects, 100+ articles, 9 state licenses)
+- **Contact CTA** visible on every page via Header accent button and Footer
+- **Contact form** enhanced with required field indicators and response time note
+- **9-state P.G. licensing** prominently displayed on Services and About pages
+- **Environmental justice language** added to Community Support service description
+- **100+ articles** stat added to homepage hero and Services trust section

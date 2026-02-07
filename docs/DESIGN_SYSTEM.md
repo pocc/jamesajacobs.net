@@ -29,7 +29,7 @@ Cool geological slate for links and secondary interactive elements.
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--color-slate` | `#5a7d8a` | Links, secondary buttons |
+| `--color-slate` | `#4a6d7a` | Links, secondary buttons (darkened for WCAG contrast) |
 | `--color-slate-light` | `#7a9daa` | Link hover states |
 
 ### Surface — Sandstone
@@ -108,14 +108,14 @@ JetBrains Mono: wght 400-600
 
 ### Scroll Reveal
 - **Mechanism:** IntersectionObserver with `threshold: 0.1`
-- **Animation:** `fadeUp` — translate from 30px below + fade in, 600ms ease-out
-- **Stagger mode:** When `stagger` prop is set, child elements animate with 100ms delay between each (CSS `nth-child` selectors, up to 12 children)
+- **Animation:** `fadeUp` — translate from 16px below + fade in, 500ms ease-out
+- **Stagger mode:** When `stagger` prop is set, child elements animate with 80ms delay between each (CSS `nth-child` selectors, up to 12 children)
 - **Reduced motion:** All animations disabled when `prefers-reduced-motion: reduce` is set
 
 ### CSS Keyframes (defined in index.css)
 ```css
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -196,14 +196,14 @@ All content is extracted from components into typed data files:
 
 ```
 src/types/index.ts      — TypeScript interfaces (Book, Publication, ResearchArea, etc.)
-src/data/siteConfig.ts  — Site metadata, nav items (with nested children), contact info, hero stats
+src/data/siteConfig.ts  — Site metadata, nav items (with nested children), contact info, 5 hero stats
 src/data/books.ts       — 5 books with full metadata
 src/data/publications.ts — 3 publication groups (chapters, peer-reviewed, general)
 src/data/research.ts    — 4 research areas + geologyAndBeer standalone entry
 src/data/credentials.ts — Credentials, education, honors arrays
-src/data/projects.ts    — 6 selected projects with expandable details
-src/data/teaching.ts    — 3 teaching sections, stats, overview text
-src/data/services.ts    — 5 service categories with descriptions
+src/data/projects.ts    — 12 real projects with expandable details
+src/data/teaching.ts    — 3 teaching sections (graduate, short courses, workshops) with real course data
+src/data/services.ts    — 7 service categories + 11 industries served
 src/data/sponsors.ts    — Corporate sponsors, grants, donors, credibility badges
 ```
 

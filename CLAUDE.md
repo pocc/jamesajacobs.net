@@ -75,3 +75,5 @@ Each section is a directory with an `index.html`:
 3. **Keep `index_files/`:** Don't delete legacy asset directories until migration is verified in production.
 4. **Test locally:** Preview changes in a browser before pushing.
 5. **Docs update:** If site structure changes, update `docs/ARCHITECTURE.md`.
+
+- Do not include 'Co-Authored-By' trailers or any AI attribution in git commit messages.
