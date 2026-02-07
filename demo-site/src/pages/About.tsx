@@ -186,6 +186,31 @@ export default function About() {
                 </div>
             </section>
 
+            {/* Public Service */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">
+                            Public Service
+                        </h2>
+                        <SectionDivider />
+                        <div className="max-w-3xl space-y-6 text-text-secondary leading-relaxed text-base md:text-lg mt-6">
+                            <p>
+                                Since 2003, James has served as a publicly elected
+                                commissioner of a local wastewater treatment plant with
+                                a $14 million annual budget and $36 million in capital
+                                projects. He also served as director of a community
+                                services district overseeing an $11 million annual budget
+                                and over $19 million in capital projects. Under his
+                                leadership, the agency was certified as a green business
+                                and received the Marin County Green Business of the Year
+                                award in 2013.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
             {/* CV Download */}
             <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-16 md:py-24">
                 <div className="max-w-3xl mx-auto px-4 text-center">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { heroStats } from '../data/siteConfig'
-import { researchAreas, geologyAndBeer } from '../data/research'
+import { researchAreas } from '../data/research'
 import { books } from '../data/books'
 import { credibilityBadges } from '../data/sponsors'
 import StatBar from '../components/StatBar'
@@ -8,25 +8,69 @@ import ScrollReveal from '../components/ScrollReveal'
 import BookCard from '../components/BookCard'
 import BentoGrid from '../components/BentoGrid'
 
+const audienceRoutes = [
+    {
+        icon: '\u2696\uFE0F',
+        label: 'Expert Witness & Litigation',
+        desc: '23 court cases — groundwater contamination, remediation disputes, oil & gas valuation',
+        cta: 'Discuss Your Case',
+        to: '/contact',
+    },
+    {
+        icon: '\uD83D\uDD2C',
+        label: 'Environmental Site Assessment',
+        desc: 'Phase I/II, site characterization, groundwater monitoring, contamination forensics',
+        cta: 'Request Assessment',
+        to: '/services',
+    },
+    {
+        icon: '\uD83E\uDDEA',
+        label: 'Sewer Air & Vapor Intrusion',
+        desc: 'Indoor air testing, legacy sewer mapping, capital project prioritization for utilities',
+        cta: 'Schedule Testing',
+        to: '/services',
+    },
+    {
+        icon: '\uD83C\uDFDB\uFE0F',
+        label: 'Regulatory & Compliance',
+        desc: 'Vapor intrusion assessment, cost allocation studies, stormwater compliance training',
+        cta: 'Request Consultation',
+        to: '/contact',
+    },
+    {
+        icon: '\uD83C\uDF93',
+        label: 'Research & Collaboration',
+        desc: 'Sea level rise, constructed wetlands, safe water — peer-reviewed, field-tested science',
+        cta: 'Explore Research',
+        to: '/research',
+    },
+    {
+        icon: '\uD83D\uDCDA',
+        label: 'Workshops & Training',
+        desc: 'Professional development in 5+ countries — vapor intrusion, hydrogeology, remediation',
+        cta: 'View Programs',
+        to: '/teaching',
+    },
+]
+
 export default function Home() {
     return (
         <div>
             {/* Hero — Full Viewport */}
             <section className="min-h-[90vh] flex items-center bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
-                {/* Subtle texture overlay */}
                 <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_30%_70%,_white_1px,_transparent_1px)] bg-[length:24px_24px]" />
                 <div className="max-w-6xl mx-auto px-4 py-24 md:py-32 relative z-10">
                     <ScrollReveal>
                         <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">
-                            Geologist &middot; Environmental Scientist &middot; Expert Witness
+                            Expert Witness &middot; Environmental Consulting &middot; Forensic Geology
                         </p>
                         <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                             James A. Jacobs, Ph.D.
                         </h1>
-                        <p className="mt-6 text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
-                            Forensic analysis and science-based methods for environmental
-                            site characterization, groundwater monitoring, and contamination
-                            remediation — with over four decades of field experience.
+                        <p className="mt-6 text-white/70 text-lg md:text-xl max-w-xl leading-relaxed">
+                            Expert witness testimony, environmental site assessment,
+                            and sewer air testing — backed by 40+ years of field
+                            experience and 1,000+ completed projects.
                         </p>
                         <div className="mt-10 flex flex-col sm:flex-row gap-4">
                             <Link
@@ -39,7 +83,7 @@ export default function Home() {
                                 to="/services"
                                 className="inline-block border-2 border-white/30 hover:border-white/60 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-center no-underline"
                             >
-                                Explore Services
+                                View Services
                             </Link>
                         </div>
                     </ScrollReveal>
@@ -49,8 +93,67 @@ export default function Home() {
             {/* Stat Bar */}
             <StatBar stats={heroStats} dark />
 
+            {/* Credibility Strip — trust signals early */}
+            <section className="bg-white py-8 md:py-10 border-b border-surface-dark/30">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
+                        <span className="text-xs uppercase tracking-widest text-text-secondary font-medium">
+                            Affiliated With
+                        </span>
+                        {credibilityBadges.map((badge) => (
+                            <span
+                                key={badge}
+                                className="text-sm font-medium text-text-secondary/80"
+                            >
+                                {badge}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Audience Routing — the star of the page */}
+            <section className="bg-surface py-20 md:py-28">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="text-center mb-14">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold">
+                                How Can I Help?
+                            </h2>
+                            <p className="mt-3 text-text-secondary max-w-lg mx-auto">
+                                Over four decades of experience serving attorneys, agencies,
+                                utilities, and researchers. Find your path below.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal stagger>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {audienceRoutes.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    to={item.to}
+                                    className="group flex flex-col p-6 rounded-xl border border-surface-dark/50 bg-white hover:border-accent/50 hover:shadow-lg transition-all no-underline"
+                                >
+                                    <div className="text-2xl mb-3">{item.icon}</div>
+                                    <h3 className="font-serif font-semibold text-primary group-hover:text-accent-dark transition-colors leading-snug">
+                                        {item.label}
+                                    </h3>
+                                    <p className="mt-2 text-sm text-text-secondary leading-relaxed flex-1">
+                                        {item.desc}
+                                    </p>
+                                    <span className="mt-4 text-accent-dark text-sm font-semibold inline-flex items-center gap-1">
+                                        {item.cta}
+                                        <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
             {/* Bio Summary */}
-            <section className="bg-surface py-20 md:py-32">
+            <section className="bg-white py-20 md:py-28">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
@@ -61,25 +164,25 @@ export default function Home() {
                                     className="w-48 h-48 md:w-56 md:h-56 rounded-2xl object-cover shadow-xl ring-4 ring-accent/20"
                                 />
                             </div>
-                            <div>
+                            <div className="max-w-xl">
                                 <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4">
                                     About James Jacobs
                                 </h2>
                                 <p className="text-text-secondary leading-relaxed text-base md:text-lg">
-                                    James Jacobs has over 40 years of experience as a geologist
-                                    and environmental scientist with three degrees in geology
-                                    including a PhD from UC Santa Cruz. He is licensed as a
-                                    professional geologist and certified hydrogeologist. Honors
-                                    include four Fulbright Senior Specialist appointments, a NOAA
-                                    California Sea Grant Fellowship, and California Ocean Protection
-                                    Council Fellowship. He is a Fellow with the Geological Society
-                                    of London and the National Ground Water Association.
+                                    Principal Geologist at Clearwater Group with three
+                                    geology degrees including a PhD from UC Santa Cruz.
+                                    Licensed Professional Geologist (P.G.) and Certified
+                                    Hydrogeologist (C.H.G.). Four Fulbright Senior Specialist
+                                    appointments. Fellow of the Geological Society of London
+                                    and National Ground Water Association. 23 years as an
+                                    elected wastewater commissioner overseeing $50M+ in
+                                    capital projects.
                                 </p>
                                 <Link
                                     to="/about"
                                     className="inline-block mt-6 text-accent-dark hover:text-primary font-semibold transition-colors group no-underline"
                                 >
-                                    Read full biography
+                                    Full biography &amp; credentials
                                     <span className="inline-block ml-1 transition-transform group-hover:translate-x-1">
                                         &rarr;
                                     </span>
@@ -90,52 +193,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Audience Routing */}
-            <section className="bg-white py-20 md:py-32">
-                <div className="max-w-6xl mx-auto px-4">
-                    <ScrollReveal>
-                        <div className="text-center mb-12">
-                            <h2 className="font-serif text-2xl md:text-3xl font-bold">
-                                How Can I Help?
-                            </h2>
-                            <p className="mt-3 text-text-secondary max-w-lg mx-auto">
-                                Select the option that best describes your needs.
-                            </p>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-                            {[
-                                { label: 'Need an Expert Witness?', desc: '23 cases in groundwater contamination, remediation & environmental disputes', to: '/contact' },
-                                { label: 'Environmental Site Assessment?', desc: 'Site characterization, Phase I/II, groundwater monitoring & forensics', to: '/services' },
-                                { label: 'Research Collaboration?', desc: 'Sea level rise, sewer systems, constructed wetlands & safe water', to: '/research' },
-                                { label: 'Professional Training?', desc: 'Workshops on vapor intrusion, sewer air & environmental topics', to: '/teaching' },
-                            ].map((item) => (
-                                <Link
-                                    key={item.to}
-                                    to={item.to}
-                                    className="group flex items-start gap-4 p-5 rounded-xl border border-surface-dark/50 bg-surface hover:border-accent/50 hover:shadow-md transition-all no-underline"
-                                >
-                                    <div className="flex-1">
-                                        <h3 className="font-serif font-semibold text-primary group-hover:text-accent-dark transition-colors">
-                                            {item.label}
-                                        </h3>
-                                        <p className="mt-1 text-sm text-text-secondary leading-relaxed">
-                                            {item.desc}
-                                        </p>
-                                    </div>
-                                    <span className="text-accent-dark mt-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                                        &rarr;
-                                    </span>
-                                </Link>
-                            ))}
-                        </div>
-                    </ScrollReveal>
-                </div>
-            </section>
-
             {/* Research Bento Grid */}
-            <section className="bg-surface py-20 md:py-32">
+            <section className="bg-surface py-20 md:py-28">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="text-center mb-12">
@@ -143,37 +202,17 @@ export default function Home() {
                                 Research Areas
                             </h2>
                             <p className="mt-3 text-text-secondary max-w-xl mx-auto">
-                                Exploring critical environmental challenges through rigorous
-                                science and field-tested methodologies.
+                                Peer-reviewed, field-tested science addressing critical
+                                environmental challenges.
                             </p>
                         </div>
                     </ScrollReveal>
                     <BentoGrid areas={researchAreas} />
-                    {/* Geology & Beer — standalone card */}
-                    <ScrollReveal className="mt-5">
-                        <Link
-                            to="/geology-and-beer"
-                            className="group block rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 no-underline"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="text-3xl">{geologyAndBeer.icon}</div>
-                                <div>
-                                    <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-accent-dark transition-colors">
-                                        {geologyAndBeer.title}
-                                    </h3>
-                                    <p className="mt-1 text-sm text-text-secondary">{geologyAndBeer.description}</p>
-                                </div>
-                                <span className="ml-auto text-accent-dark text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
-                                    Read essay &rarr;
-                                </span>
-                            </div>
-                        </Link>
-                    </ScrollReveal>
                 </div>
             </section>
 
             {/* Featured Latest Book */}
-            <section className="bg-surface py-20 md:py-32">
+            <section className="bg-white py-20 md:py-28">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-10">
@@ -183,48 +222,38 @@ export default function Home() {
                         <div className="mt-10">
                             <Link
                                 to="/books"
-                                className="inline-block bg-primary hover:bg-primary-light text-white font-semibold px-8 py-3 rounded-xl transition-colors no-underline"
+                                className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors no-underline group"
                             >
-                                View All Books &amp; Publications
+                                View all 5 books &amp; publications
+                                <span className="inline-block ml-1 transition-transform group-hover:translate-x-1">
+                                    &rarr;
+                                </span>
                             </Link>
                         </div>
                     </ScrollReveal>
                 </div>
             </section>
 
-            {/* Credibility Strip */}
-            <section className="bg-white py-10 md:py-14">
-                <div className="max-w-6xl mx-auto px-4">
-                    <ScrollReveal>
-                        <p className="text-center text-xs uppercase tracking-widest text-text-secondary mb-6 font-medium">
-                            Affiliated With
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                            {credibilityBadges.map((badge) => (
-                                <div
-                                    key={badge}
-                                    className="bg-surface border border-surface-dark/50 rounded-lg px-5 py-3 text-sm font-medium text-text-secondary"
-                                >
-                                    {badge}
-                                </div>
-                            ))}
-                        </div>
-                    </ScrollReveal>
-                </div>
-            </section>
-
             {/* CTA */}
-            <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-20 md:py-32">
+            <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-20 md:py-28">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold text-white">
-                            Let&apos;s Work Together
+                            Ready to Get Started?
                         </h2>
                         <p className="mt-4 text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-                            Whether you need expert consulting for environmental site
-                            assessment, forensic geology analysis, or expert witness
-                            testimony — decades of hands-on experience, one conversation away.
+                            Whether you need expert witness testimony, site assessment,
+                            or environmental consulting — 40+ years of hands-on
+                            experience is one conversation away.
                         </p>
+                        <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm text-white/50 font-mono">
+                            <span>Ph.D.</span>
+                            <span>P.G.</span>
+                            <span>C.H.G.</span>
+                            <span>FGS</span>
+                            <span>FNGWA</span>
+                            <span>Fulbright</span>
+                        </div>
                         <Link
                             to="/contact"
                             className="inline-block mt-8 bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-10 py-4 rounded-xl transition-colors no-underline text-lg"

@@ -3,13 +3,38 @@ import ScrollReveal from '../components/ScrollReveal'
 import ContactForm from '../components/ContactForm'
 import { contact } from '../data/siteConfig'
 
+const trustBadges = [
+    'Ph.D., UC Santa Cruz',
+    'P.G., California',
+    'C.H.G.',
+    '4x Fulbright',
+    'FGS',
+    '23 Expert Witness Cases',
+]
+
 export default function Contact() {
     return (
         <div>
             <HeroPage
                 title="Contact"
-                subtitle="Let's discuss your project. I'm available for consulting, expert witness testimony, and research collaboration."
+                subtitle="Let's discuss your project. Available for consulting, expert witness testimony, site assessment, and research collaboration."
             />
+
+            {/* Trust Bar */}
+            <section className="bg-white py-6 md:py-8 border-b border-surface-dark/30">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        {trustBadges.map((badge) => (
+                            <span
+                                key={badge}
+                                className="text-xs font-mono font-medium text-text-secondary"
+                            >
+                                {badge}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
@@ -66,9 +91,6 @@ export default function Contact() {
                                         <p className="text-text-secondary">{contact.hours}</p>
                                     </div>
                                 </div>
-                                <p className="mt-8 text-sm text-text-secondary bg-white rounded-xl border border-surface-dark/50 p-4">
-                                    Typical response time is within 1–2 business days.
-                                </p>
                             </div>
 
                             {/* Contact Form */}

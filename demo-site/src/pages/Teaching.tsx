@@ -1,9 +1,17 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import HeroPage from '../components/HeroPage'
 import ScrollReveal from '../components/ScrollReveal'
 import SectionDivider from '../components/SectionDivider'
 import StatBar from '../components/StatBar'
 import { teachingSections, teachingStats, teachingOverview } from '../data/teaching'
+
+const availableFor = [
+    { label: 'Keynote Presentations', desc: 'Environmental geology, vapor intrusion, forensic analysis' },
+    { label: 'Professional Workshops', desc: 'Multi-day hands-on training for agencies and consultants' },
+    { label: 'Guest Lectures', desc: 'Graduate and undergraduate programs worldwide' },
+    { label: 'Conference Panels', desc: 'AIPG, GSA, NGWA, and international conferences' },
+]
 
 export default function Teaching() {
     const [openSection, setOpenSection] = useState<number | null>(0)
@@ -77,6 +85,52 @@ export default function Teaching() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Available For — Conference organizers */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Available For</h2>
+                        <SectionDivider />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8 max-w-3xl">
+                            {availableFor.map((item) => (
+                                <div key={item.label} className="bg-surface rounded-xl p-5 border border-surface-dark/50">
+                                    <h3 className="font-serif font-semibold text-primary mb-1">{item.label}</h3>
+                                    <p className="text-text-secondary text-sm">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mt-8">
+                            <Link
+                                to="/contact"
+                                className="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-6 py-3 rounded-xl transition-colors no-underline"
+                            >
+                                Inquire About Speaking
+                            </Link>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* AIPG Mentoring */}
+            <section className="bg-surface py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Student Mentoring</h2>
+                        <SectionDivider />
+                        <div className="max-w-2xl mt-6">
+                            <p className="text-text-secondary leading-relaxed text-base md:text-lg">
+                                Active sponsor of AIPG student chapters at UC Davis (since 2010),
+                                Sonoma State University (since 2016), UC Santa Cruz (since 2020),
+                                and the first AIPG International Student Chapter at SRTM University
+                                in Nanded, India (since 2017). Committed to advancing the next
+                                generation of professional geologists through mentorship and
+                                professional development opportunities.
+                            </p>
+                        </div>
+                    </ScrollReveal>
                 </div>
             </section>
         </div>

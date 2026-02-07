@@ -1,5 +1,14 @@
 import { useState, type FormEvent } from 'react'
 
+const inquiryTypes = [
+    'Expert Witness / Litigation Support',
+    'Environmental Site Assessment',
+    'Sewer Air Testing',
+    'Workshop / Training',
+    'Research Collaboration',
+    'Other',
+]
+
 export default function ContactForm() {
     const [submitted, setSubmitted] = useState(false)
 
@@ -41,6 +50,21 @@ export default function ContactForm() {
                         className={inputClasses}
                     />
                 </div>
+            </div>
+            <div>
+                <label htmlFor="inquiry" className="block text-sm font-medium text-text mb-1">How can I help? <span className="text-accent-dark">*</span></label>
+                <select
+                    id="inquiry"
+                    name="inquiry"
+                    required
+                    className={inputClasses}
+                    defaultValue=""
+                >
+                    <option value="" disabled>Select an inquiry type</option>
+                    {inquiryTypes.map((type) => (
+                        <option key={type} value={type}>{type}</option>
+                    ))}
+                </select>
             </div>
             <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-text mb-1">Subject <span className="text-accent-dark">*</span></label>
