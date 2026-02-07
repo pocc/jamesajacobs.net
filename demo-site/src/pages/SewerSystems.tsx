@@ -11,12 +11,12 @@ const buildingConditions = [
 ]
 
 const researchObjectives = [
-    'Characterize VOC concentrations in sewer air at contaminated sites',
-    'Map preferential vapor migration pathways through sewer networks',
-    'Evaluate building vulnerability based on plumbing condition',
-    'Develop screening tools for regulatory agencies',
-    'Assess effectiveness of mitigation measures',
-    'Create guidance documents for building inspectors and regulators',
+    'Working with local sewer agencies, document the presence of PCE outside the groundwater plume area and verify exposure vulnerability of upgradient occupants.',
+    'Screen and sample iteratively in sewer manholes and cleanouts for sewer gases and PCE in systems intercepting known groundwater PCE plumes.',
+    'Sample indoor air within accessible buildings in basements or crawl spaces, at each floor, and near vapor seals (bathrooms and kitchens).',
+    'Inspect and document plumbing fixtures and condition of vapor seals in buildings where PCE detections are observed.',
+    'Develop screening tools for regulatory agencies.',
+    'Create guidance documents for building inspectors and regulators.',
 ]
 
 const references = [
@@ -44,20 +44,63 @@ export default function SewerSystems() {
                         <div className="max-w-3xl">
                             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Overview</h2>
                             <SectionDivider />
-                            <p className="mt-6 text-text-secondary leading-relaxed text-lg">
-                                Sewers connect us in ways not considered decades ago when vapor intrusion
-                                models were developed. VOCs in sewer air are free to enter buildings when
-                                vapor seals and plumbing fixtures are compromised. Buildings might contain
-                                a musty, moldy or rotten-egg odor which could indicate degraded indoor
-                                air quality.
-                            </p>
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed text-base md:text-lg">
+                                <p>
+                                    Sewer system pipes are a potential alternate exposure pathway for
+                                    toxic sewer gases and volatile organic compounds (VOCs) like benzene
+                                    in gasoline, and tetrachloroethylene (PCE), a common dry cleaning
+                                    solvent, to migrate into indoor air. The US EPA (2002) vapor
+                                    intrusion model needs to be re-evaluated and updated to include
+                                    this important exposure pathway, especially in buildings located
+                                    upgradient and outside of mapped groundwater contaminant plumes
+                                    containing VOCs.
+                                </p>
+                                <p>
+                                    There are hundreds of thousands of shallow groundwater plumes
+                                    containing VOCs in urban areas in North America. There are also
+                                    countless urban sewer systems which leak significantly during
+                                    strong rain events. This research focuses on studying the migration
+                                    of VOCs into indoor air through legacy sewer-plumbing systems
+                                    and ineffective vapor seals.
+                                </p>
+                            </div>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Legacy Sewer Systems */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="max-w-3xl">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Legacy Sewer Systems</h2>
+                            <SectionDivider />
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                                <p>
+                                    Many urban sewer systems in North America are more than 100 years
+                                    old and well past their design life. Legacy sewer mains and
+                                    associated laterals frequently subside, fail, and develop cracks or
+                                    separations. These are evidenced as breaches in concrete, clay, or
+                                    transite pipes or corrosion in cast iron pipes. Tree and plant
+                                    roots commonly damage sewer pipe integrity.
+                                </p>
+                                <p>
+                                    Inflow and infiltration (I&amp;I) during significant rain events in
+                                    a northern California collection system was shown to contribute
+                                    8 to 33 times the amount of daily sewer flow shortly after a
+                                    downpour. Within structures, ineffective vapor seals in plumbing
+                                    systems &mdash; dry P-traps, breached toilet wax rings, cracked
+                                    plumbing drain pipes, loose fittings and gaskets &mdash; are common.
+                                </p>
+                            </div>
                         </div>
                     </ScrollReveal>
                 </div>
             </section>
 
             {/* How It Works */}
-            <section className="bg-white py-16 md:py-24">
+            <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">How Vapor Intrusion Works</h2>
@@ -70,7 +113,7 @@ export default function SewerSystems() {
                                 { step: '2', title: 'Sewer Transport', desc: 'VOCs travel through the sewer system, potentially migrating far from the original contamination source, transported by sewer air currents.' },
                                 { step: '3', title: 'Building Entry', desc: 'VOCs enter buildings through compromised plumbing fixtures, dried-out P-traps, cracked drain pipes, and unsealed utility penetrations.' },
                             ].map((s) => (
-                                <div key={s.step} className="bg-surface rounded-xl p-6 border border-surface-dark/50">
+                                <div key={s.step} className="bg-white rounded-xl p-6 border border-surface-dark/50">
                                     <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent-dark font-mono font-bold text-lg mb-4">
                                         {s.step}
                                     </div>
@@ -84,7 +127,7 @@ export default function SewerSystems() {
             </section>
 
             {/* Building Conditions */}
-            <section className="bg-surface py-16 md:py-24">
+            <section className="bg-white py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Building Conditions Assessment</h2>
@@ -106,6 +149,54 @@ export default function SewerSystems() {
                 </div>
             </section>
 
+            {/* Case Studies */}
+            <section className="bg-surface py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="max-w-3xl">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Case Studies</h2>
+                            <SectionDivider />
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                                <p>
+                                    Two recent PCE-specific vapor intrusion studies documented significant
+                                    indoor air contributions from plumbing-sewer systems within PCE
+                                    groundwater plume areas. In both studies, PCE vapors found in indoor
+                                    air were tracked back to sewer-plumbing systems intersecting a
+                                    delineated PCE groundwater plume, with concentrations orders of
+                                    magnitude higher than levels considered safe for long-term exposure.
+                                </p>
+                            </div>
+                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="bg-white rounded-xl border border-surface-dark/50 p-5">
+                                    <h4 className="font-semibold text-primary text-sm mb-2">Skuldelev, Denmark</h4>
+                                    <p className="text-text-secondary text-sm leading-relaxed">
+                                        PCE reported in indoor air near a kitchen drain as high as
+                                        <span className="font-mono font-semibold text-accent-dark"> 810 &mu;g/m&sup3;</span>.
+                                    </p>
+                                    <p className="text-xs text-text-secondary mt-2">Riis et al., 2010</p>
+                                </div>
+                                <div className="bg-white rounded-xl border border-surface-dark/50 p-5">
+                                    <h4 className="font-semibold text-primary text-sm mb-2">Boston, Massachusetts</h4>
+                                    <p className="text-text-secondary text-sm leading-relaxed">
+                                        Isolated bathroom air: 2.1 &mu;g/m&sup3;. With open sewer
+                                        connection:
+                                        <span className="font-mono font-semibold text-accent-dark"> 62&ndash;190 &mu;g/m&sup3;</span>.
+                                    </p>
+                                    <p className="text-xs text-text-secondary mt-2">Pennell et al., 2013</p>
+                                </div>
+                            </div>
+                            <div className="mt-4 bg-white rounded-xl border border-surface-dark/50 p-4">
+                                <p className="text-xs font-mono text-text-secondary">
+                                    Regulatory thresholds: MassDEP PCE = 1.4 &mu;g/m&sup3; &middot;
+                                    CA DTSC cancer risk = 0.41 &mu;g/m&sup3; &middot;
+                                    SF Bay RWQCB ESL (residential) = 0.41 &mu;g/m&sup3;
+                                </p>
+                            </div>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
             {/* Sewer Overflow Prediction */}
             <section className="bg-white py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
@@ -113,13 +204,25 @@ export default function SewerSystems() {
                         <div className="max-w-3xl">
                             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Sewer Overflow Prediction</h2>
                             <SectionDivider />
-                            <p className="mt-6 text-text-secondary leading-relaxed">
-                                Sanitary Sewer Overflows (SSOs) are discharges of raw sewage from sanitary
-                                sewer systems. A sewer overflow prediction monitoring network is proposed
-                                for older legacy sewer collection systems to understand how climate change,
-                                sea level rise, and aging sewer infrastructure combine to create conditions
-                                for more frequent overflows and surcharges.
-                            </p>
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                                <p>
+                                    Sanitary Sewer Overflows (SSOs) are caused by a variety of factors
+                                    and may increase with sea level rise, extreme storms, and groundwater
+                                    inundation, creating health risks and environmental hazards. Evidence
+                                    of groundwater inundation and sea level rise is apparent from
+                                    extremely high tides (commonly called &ldquo;King Tides&rdquo;) in
+                                    Tamalpais Valley, Mill Valley, California.
+                                </p>
+                                <p>
+                                    This research pilot project proposes using a network of surveyed
+                                    piezometers with battery-powered data loggers having remote telemetry
+                                    system (RTS) connections to provide real-time groundwater elevation,
+                                    conductivity, and temperature data. The data from the piezometer
+                                    network, sewer instruments, stilling wells, and rain gauges would be
+                                    integrated for real-time notifications to alert decision makers and
+                                    emergency workers at the start of conditions which can create SSOs.
+                                </p>
+                            </div>
                         </div>
                     </ScrollReveal>
                 </div>
@@ -131,10 +234,10 @@ export default function SewerSystems() {
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Research Objectives</h2>
                         <SectionDivider />
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-3xl">
+                        <div className="space-y-3 mt-6 max-w-3xl">
                             {researchObjectives.map((obj, i) => (
-                                <div key={i} className="flex gap-2 text-text-secondary text-sm">
-                                    <span className="text-accent font-mono font-bold flex-shrink-0">{i + 1}.</span>
+                                <div key={i} className="flex gap-3 text-text-secondary text-sm leading-relaxed">
+                                    <span className="text-accent-dark font-mono font-bold flex-shrink-0">{i + 1}.</span>
                                     {obj}
                                 </div>
                             ))}

@@ -101,16 +101,17 @@ export default function About() {
                         <SectionDivider />
                         <div className="max-w-3xl space-y-6 text-text-secondary leading-relaxed text-base md:text-lg mt-6">
                             <p>
-                                James A. Jacobs has over 35 years of experience as a geologist
-                                and environmental scientist specializing in forensic analysis,
-                                site characterization, and remediation of contaminated soil and
-                                groundwater. He is a licensed Professional Geologist and
-                                Certified Hydrogeologist who has served as an expert witness
-                                in numerous environmental litigation cases. Since 1990 he has
-                                been a co-owner of an environmental consulting company,
-                                managing over 1,000 projects involving petroleum hydrocarbons,
-                                chlorinated solvents, heavy metals, and emerging contaminants
-                                across the western United States and internationally.
+                                James A. Jacobs has more than thirty-five years of experience
+                                as a geologist. He is a certified hydrogeologist, professional
+                                geologist, licensed well driller and general engineering
+                                contractor. His most recent work includes forensic analysis
+                                related to subsurface events, including pipe breaks, contaminant
+                                spills, oil and gas resource valuation estimates, and groundwater
+                                contamination. He has worked on producing and redeveloped oil
+                                field properties, EPA Superfund sites, military bases, agricultural
+                                and industrial properties. Since 1990, he has been a co-owner of
+                                an environmental-engineering consulting and contracting company,
+                                where he has performed more than 1,000 projects.
                             </p>
                             <p>
                                 Since 2003, James has served as an elected official in local
@@ -196,15 +197,26 @@ export default function About() {
                         <SectionDivider />
                         <div className="max-w-3xl space-y-6 text-text-secondary leading-relaxed text-base md:text-lg mt-6">
                             <p>
-                                Since 2003, James has served as a publicly elected
-                                commissioner of a local wastewater treatment plant with
-                                a $14 million annual budget and $36 million in capital
-                                projects. He also served as director of a community
-                                services district overseeing an $11 million annual budget
-                                and over $19 million in capital projects. Under his
-                                leadership, the agency was certified as a green business
-                                and received the Marin County Green Business of the Year
-                                award in 2013.
+                                As a publicly elected community services district board
+                                member since 2003, he has evaluated numerous environmental
+                                challenges, solved sustainability problems, and worked with
+                                others as a team leader and member to develop agency policies.
+                                He has been a commissioner of a local wastewater treatment
+                                plant with a $14 million annual budget and $36 million in
+                                capital projects, and a director of a community services
+                                district (sewage collection, refuse/recycling, and park and
+                                recreation services) with an $11 million annual budget and
+                                over $19 million in capital projects.
+                            </p>
+                            <p>
+                                He has promoted and supported sustainable environmental
+                                practices within the agency, a certified green business
+                                which now offers residents recycling of electronic waste,
+                                fluorescent bulbs, medicines, batteries, paper and cardboard.
+                                In 2009, 1 million fewer lbs of waste were processed by the
+                                agency than in 2006. In 2013, the agency won the Marin County
+                                Green Business of the Year award due to successful recycling
+                                efforts and reduction in wastes shipped to local landfills.
                             </p>
                         </div>
                     </ScrollReveal>

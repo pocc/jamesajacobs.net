@@ -173,10 +173,13 @@ export default function Home() {
                                     geology degrees including a PhD from UC Santa Cruz.
                                     Licensed Professional Geologist (P.G.) and Certified
                                     Hydrogeologist (C.H.G.). Four Fulbright Senior Specialist
-                                    appointments. Fellow of the Geological Society of London
-                                    and National Ground Water Association. 23 years as an
-                                    elected wastewater commissioner overseeing $50M+ in
-                                    capital projects.
+                                    appointments and a U.S. State Department Virtual Fellow
+                                    advising on solar energy and sustainability for Cabo Verde.
+                                    Fellow of the Geological Society of London
+                                    and National Ground Water Association. From 2003 to 2026,
+                                    a publicly elected commissioner overseeing $50M+ in
+                                    capital projects. Interested in coastal hydrogeologic and
+                                    ocean interactions related to climate change and sea level rise.
                                 </p>
                                 <Link
                                     to="/about"

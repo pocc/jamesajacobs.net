@@ -2,45 +2,87 @@ import type { Project } from '../types'
 
 export const selectedProjects: Project[] = [
     {
-        title: 'Coastal Erosion and Sea Level Rise Assessment, San Francisco Bay',
+        title: 'Oil and Gas Field Environmental Projects',
         summary:
-            'Led multi-year assessment of coastal erosion hazards and sea level rise impacts along the San Francisco Bay shoreline, developing adaptation strategies for critical infrastructure.',
+            'Phase I Environmental Assessments at oil and gas production facilities for site restoration, property transfer, and regulatory compliance.',
         details:
-            'The project involved detailed geomorphological mapping, tide gauge analysis, and LiDAR-derived elevation modeling to project future inundation zones under multiple IPCC scenarios. Recommendations included nature-based solutions such as living shorelines and managed retreat planning for vulnerable areas. Partnered with NOAA California Sea Grant and local municipalities.',
+            'Environmental work associated with site restoration, property transfer back to land owners, bank refinancing and environmental regulatory responses. Site remediation occurred on several sites. Cost estimates were prepared for settlement purposes. Assessment and remediation of hydrocarbons at hundreds of sites was designed and implemented over the past twenty years.',
     },
     {
-        title: 'MTBE Groundwater Contamination Forensic Analysis',
+        title: 'Site Remediation and Closure',
         summary:
-            'Conducted forensic geochemistry analysis to identify sources of MTBE contamination in a multi-party groundwater plume affecting municipal water supply wells.',
+            'Project Manager for dozens of underground tank removal and soil/groundwater remediation projects across California.',
         details:
-            'Used compound-specific isotope analysis (CSIA) and multivariate statistical methods to differentiate MTBE sources from multiple petroleum release sites. Expert witness testimony was provided in subsequent litigation. The investigation supported remedial action decisions and allocation of cleanup costs among responsible parties.',
+            'After initial assessment, dozens of soil and groundwater remediation projects in California were performed for properties impacted with petroleum hydrocarbons or chlorinated solvents. Many projects were closed using in-situ remediation methods. Some used risk-based corrective action (RBCA) models or risk assessment data showing limited exposures. From this approach, dozens of sites were closed.',
     },
     {
-        title: 'Sanitary Sewer Overflow Monitoring Program, Northern California',
+        title: 'Bioremediation of Contaminated Soils',
         summary:
-            'Designed and implemented a real-time sewer overflow detection and monitoring system for a Northern California wastewater utility serving 200,000+ residents.',
+            'Managed bioremediation of approximately 800 cubic yards of hydrocarbon-contaminated soils, reducing diesel from 8,000 ppm to below 350 ppm in two months.',
         details:
-            'Deployed SmartCover flow monitoring sensors at 45 critical manholes with telemetry to a cloud-based dashboard for real-time alerts. The program reduced SSO events by over 60% in the first year through early detection and predictive analytics for capacity-related overflows during wet weather events.',
+            'Original diesel contamination exceeded 8,000 parts per million. After two months the levels of diesel in the soil were below 350 parts per million. On-site treatment lowered disposal costs by allowing for Class III landfill disposal rates instead of Class II rates.',
     },
     {
-        title: 'Acid Mine Drainage Remediation, Sierra Nevada Foothills',
+        title: 'In-Situ Chemical Oxidation of Diesel Free-Product',
         summary:
-            'Managed remediation of acid mine drainage from a historic gold mining site contaminating a perennial creek and downstream wetlands.',
+            'Directed injection of hydrogen peroxide and acetic acid to remove diesel free-product near a well in Oakland, California.',
         details:
-            'Designed a passive treatment system using successive alkalinity producing systems (SAPS) and constructed wetlands to neutralize acidic drainage and remove dissolved metals. Post-construction monitoring demonstrated consistent compliance with water quality objectives for pH, copper, zinc, and iron over a three-year period.',
+            'Directed the contracting portion of the project to inject hydrogen peroxide and acetic acid at high concentrations. After the treatment event, the free product was reduced from 5 cm to 0 cm.',
     },
     {
-        title: 'Vapor Intrusion Investigation, Former Dry Cleaner Site',
+        title: 'Soil Remediation — San Francisco',
         summary:
-            'Investigated vapor intrusion of chlorinated solvents into occupied commercial buildings overlying a PCE groundwater plume from a former dry cleaning facility.',
+            'Directed underground storage tank removal beneath a city sidewalk and remediation over a BART tunnel using bucket auger drilling.',
         details:
-            'Implemented a phased investigation including sub-slab soil gas sampling, indoor air monitoring, and groundwater characterization. Identified preferential vapor migration pathways through utility corridors and sewer laterals. Recommended and designed a sub-slab depressurization system that reduced indoor air concentrations below screening levels.',
+            'Directed removal of underground storage tanks beneath the sidewalk and undercutting a major street. Subsequent remediation used a three-foot diameter bucket auger rig to drill out contaminated areas adjacent to the street and over a BART tunnel. Holes were filled immediately with light neat cement grout. Supervised all field activities.',
     },
     {
-        title: 'Wetland Restoration, South San Francisco Bay Salt Ponds',
+        title: 'Aquifer Mapping and PRP Study — Federal Superfund Site',
         summary:
-            'Contributed geological and hydrogeological expertise to the restoration of former industrial salt evaporation ponds to tidal wetland habitat.',
+            'Task manager for a Preferred Pathways study over a two-square-mile industrial area at a Federal Superfund Site in Santa Clara, California.',
         details:
-            "Provided sediment characterization, groundwater-surface water interaction analysis, and geotechnical evaluation of levee breaching plans. The project restored over 200 acres of tidal marsh habitat, supporting endangered species recovery including the Ridgway's rail and salt marsh harvest mouse.",
+            'Designed the aquifer mapping study using thousands of groundwater monitoring wells and soil boring reports to define underground channel systems. Information was used to facilitate installation of remedial measures. A Potentially Responsible Party (PRP) study was designed and performed, evaluating over 400 businesses with a ranking system to help the client recover remediation costs.',
+    },
+    {
+        title: 'Pipeline Improvement Projects — Tamalpais CSD',
+        summary:
+            'As board president, prioritized sewer repair projects on a 29-mile network and secured $3 million in financing at favorable rates.',
+        details:
+            'Worked with general manager and board to prioritize sewer repair projects on the 29-mile sewer transportation network including several pump stations and aging facilities. Reviewed financing options and led the board to approve rate hikes. Later secured a $3,000,000 loan at 4.5% interest, allowing for a more gradual increase in sewer rates for ratepayers.',
+    },
+    {
+        title: 'In-Situ Chemical Geofixation of Chromium (VI)',
+        summary:
+            'Directed injection of calcium polysulfide to remediate chromium (VI) at a former wood treating plant in northern California.',
+        details:
+            'The chromated copper arsenic (CCA) chemicals found on-site included arsenic (V) oxide, chromium (VI) oxide and copper (II) oxide used in wood treating. Calcium polysulfide was used as the reducing agent, which successfully lowered the chromium (VI) concentration over a period of 18 months.',
+    },
+    {
+        title: 'In-Situ Perchlorate Pilot Study — Hollister, CA',
+        summary:
+            'Developed a field pilot study for a rocket fuel burn test site, injecting water to solubilize and extract perchlorate from vadose zone clays.',
+        details:
+            'Project designed to inject water into the shallow vadose zone at high pressure to solubilize perchlorate and pump it out. Groundwater was shallow (10-15 feet bgs). Water was injected using a high-pressure pump system connected to specialized rods driven by direct push rigs. Results indicated the clays were too tight for significant desorption of perchlorate from the clay matrix.',
+    },
+    {
+        title: 'Water Treatment Planning & Rate Negotiation',
+        summary:
+            'As elected board member, participated in negotiation of a long-term (10-year) contract with a treatment plant at favorable rates.',
+        details:
+            'Working with the board and two sewer plants, participated in evaluation and negotiation of a long-term contract with one treatment plant at favorable rates. Part of the agreement included successful financing of required improvements.',
+    },
+    {
+        title: 'Geological Feasibility Study — King City, CA',
+        summary:
+            'Performed a geological feasibility study and natural hazard assessment for an 800-acre university site.',
+        details:
+            'Project included compilation of historic aerial photographs, geologic and historic maps, soil surveys and previous engineering and architectural studies. The client was a private university.',
+    },
+    {
+        title: 'Environmental Impact Report — San Francisco Bay Area',
+        summary:
+            'Designed and wrote the geology and hydrogeology sections of an EIR for a proposed hazardous waste incineration facility.',
+        details:
+            'Wrote the geology and hydrogeology sections of an environmental impact report for a proposed hazardous waste incineration facility in the San Francisco Bay Area. The client was a municipality.',
     },
 ]

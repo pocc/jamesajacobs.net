@@ -15,9 +15,9 @@ export default function GeologyAndBeer() {
                 <div className="max-w-3xl mx-auto px-4">
                     <ScrollReveal>
                         <PullQuote>
-                            The water that makes your beer started as rain, filtered through rock
-                            and soil, picking up minerals that give it character. Every beer is a
-                            geological story.
+                            If I tell you that as a groundwater geologist, a 6% alcohol by volume
+                            beer has 94% water and that water must be studied with great gusto,
+                            I am sure you would agree.
                         </PullQuote>
                     </ScrollReveal>
                 </div>
@@ -28,46 +28,78 @@ export default function GeologyAndBeer() {
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Roman Connection</h2>
                         <SectionDivider />
-                        <p className="mt-6 text-text-secondary leading-relaxed">
-                            Ancient Romans chose brewery locations based on water sources. The
-                            mineral content of local springs and aquifers determined which styles
-                            of beer could be brewed successfully. This connection between geology
-                            and brewing persisted through the centuries, creating distinct regional
-                            brewing traditions that survive to this day.
-                        </p>
+                        <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                            <p>
+                                It turns out that because the Romans and the Greeks before them
+                                used lined street ditches as sewers to remove human wastes from
+                                the urban areas, we now have historic brewery styles as distinctive
+                                as pilsners are from stouts. It all relates to groundwater.
+                            </p>
+                            <p>
+                                The Greeks and Romans conceptualized about water resources and
+                                wastewater treatment in a centralized model &mdash; the water would
+                                be brought to the center city for local distribution, and the wastes
+                                would be generated in public toilets, and the pipes and open-channel
+                                sewers would lead to the river in a centralized discharge point.
+                                By allowing the Tiber River in Rome to become contaminated with
+                                human and animal wastes, the river became unusable as a source
+                                of potable water. Therefore, clean drinking water had to be brought
+                                in from far away. This was accomplished by the great Roman aqueducts
+                                and other engineering feats. Importing water to the center of Rome
+                                had the effect of centralizing water resources. Had the Romans kept
+                                the Tiber River clean, who knows whether we would have decentralized
+                                urban water and sewer systems today.
+                            </p>
+                        </div>
                     </ScrollReveal>
                 </div>
             </section>
 
             <section className="bg-surface py-16 md:py-24">
+                <div className="max-w-3xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Groundwater &amp; Brewing Water</h2>
+                        <SectionDivider />
+                        <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                            <p>
+                                Later, Europeans in England, Belgium, Germany and other beer drinking
+                                countries realized their waterways were too polluted to drink or use
+                                the water as brewing water, and most brewers preferred to use cleaner
+                                groundwater sources accessed through hand-dug wells. The water was
+                                much cleaner and contained local dissolved minerals which reflected
+                                geologic processes of deposition of the rocks in which the water
+                                flowed. In some cases, clean sandstone aquifers provided sand-filtered
+                                water of the highest quality. High sulfate levels in some groundwaters
+                                (think Burton-upon-Trent) indicates a source of gypsum, and evaporative
+                                depositional processes in the past.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            <section className="bg-white py-16 md:py-24">
                 <div className="max-w-3xl mx-auto px-4">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Centralized vs. Decentralized</h2>
                         <SectionDivider />
-                        <p className="mt-6 text-text-secondary leading-relaxed">
-                            Geology influenced whether brewing became centralized or distributed
-                            across a region. Areas with exceptional water sources — like the
-                            Burton-upon-Trent springs in England, with their high sulfate content —
-                            attracted large brewing operations. Meanwhile, regions with uniformly
-                            good water saw smaller breweries spread across the landscape.
-                        </p>
-                    </ScrollReveal>
-                </div>
-            </section>
-
-            <section className="bg-white py-16 md:py-24">
-                <div className="max-w-3xl mx-auto px-4">
-                    <ScrollReveal>
-                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Water-Beer Connection</h2>
-                        <SectionDivider />
-                        <p className="mt-6 text-text-secondary leading-relaxed">
-                            Specific minerals shape beer flavor in profound ways. Calcium promotes
-                            clarity and enzyme activity. Sulfate accentuates hop bitterness — the
-                            secret behind the famous India Pale Ales of Burton. Chloride enhances
-                            malt sweetness. Bicarbonate buffers acidity, favoring the dark roasted
-                            malts of Dublin stouts. Every great brewing region owes its character
-                            to the rocks beneath it.
-                        </p>
+                        <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                            <p>
+                                One last thing about centralized versus decentralized water and
+                                wastewater services &mdash; decentralized distribution of water and
+                                wastewater services in urban areas would have required individual
+                                hand-dug water wells and individual latrines or outhouses. The Greeks
+                                and Romans thought about these issues and both agreed on the
+                                centralized approach for water and wastewater services in urban
+                                settings. The centralized model for water and wastewater is still
+                                with us today in the urban centers over 2,000 years later. Rural
+                                areas have tended to go with a decentralized model. Future wastewater
+                                and water will likely require a combination of water recycling in
+                                urban homes or small communities and possibly some limited onsite
+                                treatment of wastewater. With sea level rise, we will need to
+                                rethink the coastal wastewater plants and the water sources.
+                            </p>
+                        </div>
                     </ScrollReveal>
                 </div>
             </section>
@@ -75,44 +107,30 @@ export default function GeologyAndBeer() {
             <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-3xl mx-auto px-4">
                     <ScrollReveal>
-                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">A Legacy Over 2,000 Years</h2>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Brewmaster&apos;s Art</h2>
                         <SectionDivider />
-                        <p className="mt-6 text-text-secondary leading-relaxed">
-                            Geological terroir created distinct regional brewing traditions that
-                            have endured for millennia. The pilsners of Bohemia owe their crisp
-                            character to the soft water filtered through Cretaceous sandstones.
-                            The ales of Belgium reflect the varied hydrogeology of the Ardennes
-                            and the Flanders plain. Understanding these geological foundations
-                            enriches our appreciation of the world&apos;s brewing heritage.
-                        </p>
+                        <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                            <p>
+                                Coming back to beer &mdash; the historic brewing styles in Europe
+                                reflect the decisions of thousands of brew masters working over
+                                hundreds of years with the specific groundwater at their brewery.
+                                These brewing chemists had to adjust their hops, yeasts, and cereal
+                                grains to the dissolved minerals, pH and other characteristics in
+                                the brewing water to yield a consistently tasty brew that locals
+                                would reliably purchase year after year. Having brewed a few batches,
+                                I understand how challenging it is for brewmasters to consistently
+                                deliver a terrific beer.
+                            </p>
+                        </div>
                     </ScrollReveal>
                 </div>
             </section>
 
             <section className="bg-white py-16 md:py-24">
-                <div className="max-w-3xl mx-auto px-4">
-                    <ScrollReveal>
-                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Brewing Heritage</h2>
-                        <SectionDivider />
-                        <p className="mt-6 text-text-secondary leading-relaxed">
-                            Modern craft brewers are reconnecting with local water character,
-                            rejecting the industrial approach of stripping water to a blank
-                            canvas and rebuilding it chemically. By understanding and embracing
-                            their local hydrogeology, today&apos;s brewers create beers with a
-                            genuine sense of place — a geological terroir that links each sip
-                            to the rocks and aquifers beneath the brewery.
-                        </p>
-                    </ScrollReveal>
-                </div>
-            </section>
-
-            <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <ScrollReveal>
                         <PullQuote>
-                            Next time you raise a glass, consider the journey of the water inside.
-                            From cloud to aquifer, through ancient rock formations, to the brewer&apos;s
-                            kettle — every beer tells a story written in stone.
+                            Cheers!
                         </PullQuote>
                     </ScrollReveal>
                 </div>

@@ -4,6 +4,19 @@ import ScrollReveal from '../components/ScrollReveal'
 import SectionDivider from '../components/SectionDivider'
 import { sponsors } from '../data/sponsors'
 
+const methodology = [
+    'Compile pre-development ecosystem, urban development history, and land subsidence data; obtain historic maps, aerial photographs, utility maps, geologic/soil maps, GIS agency maps, and topographic maps to identify sensor/logger locations.',
+    'Locate preferential pathways for groundwater (buried stream channels, leaky sewers, utility trenches) on GIS maps.',
+    'Install multiparameter loggers (water elevation, conductivity, temperature, pH) in driven piezometers in utility trenches, preferential pathways, and background fill (control) soil.',
+    'Position weather stations and touchless ultrasonic meters in sewer/stormdrain manholes; install tide and stream gauges.',
+    'Initiate public outreach and maintain data collection operations.',
+    'Train local volunteers to assist with equipment malfunctions and document flooding with notes and photographs.',
+    'Manage incoming data.',
+    'Provide quarterly progress reports for public meetings and distribution on websites, newsletters, and social media.',
+    'Review data, perform statistical analysis, develop Bayesian Network for predicting 2050, 2070, and 2100 SLR projections.',
+    'Prepare summary reports for technical publications, government forums, and public meetings.',
+]
+
 const references = [
     'Jacobs, J.A. (2020). Groundwater flooding and sea level rise: Infrastructure vulnerability assessment in coastal California communities. Journal of Coastal Research.',
     'Befus, K.M., et al. (2020). Increasing groundwater flood risk in coastal zones. Nature Climate Change.',
@@ -17,7 +30,7 @@ export default function SeaLevelRise() {
         <div>
             <HeroPage
                 title="Sea Level Rise & Groundwater Flooding"
-                subtitle="Documenting local sea level rise and climate change using real-time sensors in coastal California communities."
+                subtitle="Documenting local sea level rise and climate change using real-time flood sensors, groundwater data loggers, and storm drain/sewer sensors in coastal California communities."
                 breadcrumbs={[
                     { label: 'Home', to: '/' },
                     { label: 'Research', to: '/research' },
@@ -31,13 +44,24 @@ export default function SeaLevelRise() {
                         <div className="max-w-3xl">
                             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Overview</h2>
                             <SectionDivider />
-                            <p className="mt-6 text-text-secondary leading-relaxed text-lg">
-                                This project documents local sea level rise and climate change
-                                using real-time flood sensors, groundwater data loggers, and
-                                storm drain/sewer sensors. The focus is on evaluating flood
-                                vulnerabilities in low-elevation coastal communities, with
-                                particular attention to wastewater and transit infrastructure.
-                            </p>
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed text-base md:text-lg">
+                                <p>
+                                    Sea level rise (SLR) vulnerability analysis of critical wastewater
+                                    and transit infrastructure requires data collection at a temporal and
+                                    geospatial scale small enough for planning and mitigation efforts.
+                                    Flooding of wastewater infrastructure will increase with SLR, damaging
+                                    pipes, pumps and causing sewer overflows and pipe backflows, creating
+                                    human health exposure risks and environmental damage.
+                                </p>
+                                <p>
+                                    Capital Improvement Projects (CIPs) for future wastewater and transit
+                                    infrastructure are funded over 30-year cycles, and the next set of
+                                    projects requires detailed field measurements to calculate projected
+                                    SLR and groundwater flooding. Many general articles erroneously
+                                    equate small increases in SLR with the equivalent topographic land
+                                    contours.
+                                </p>
+                            </div>
                         </div>
                     </ScrollReveal>
                 </div>
@@ -55,21 +79,41 @@ export default function SeaLevelRise() {
                                 <h3 className="font-serif text-lg font-semibold text-primary mb-3">
                                     Atchison Village, Richmond, CA
                                 </h3>
-                                <p className="text-text-secondary text-sm leading-relaxed">
-                                    Low-income community with an aging wastewater collection system.
-                                    Approximately 450 residential units served by gravity sewer with
-                                    limited pump stations.
-                                </p>
+                                <div className="text-text-secondary text-sm leading-relaxed space-y-3">
+                                    <p>
+                                        A former WWII housing development, now a non-profit community
+                                        with 450 units. Atchison Village is &ldquo;severely economically
+                                        disadvantaged,&rdquo; where 27% of the houses regularly have
+                                        emergent groundwater in crawl spaces.
+                                    </p>
+                                    <p>
+                                        Surrounded by industrial sites (railyards, chemical plants, and a
+                                        refinery) within 1.6 km. Affiliated with Rosie the Riveter WWII
+                                        Home Front National Historic Park. &ldquo;Lake Curry&rdquo; forms
+                                        at the intersection of two streets during heavy storms, preventing
+                                        transit through the area.
+                                    </p>
+                                </div>
                             </div>
                             <div className="bg-surface rounded-xl p-6 border border-surface-dark/50">
                                 <h3 className="font-serif text-lg font-semibold text-primary mb-3">
                                     Tamalpais Valley, Marin County
                                 </h3>
-                                <p className="text-text-secondary text-sm leading-relaxed">
-                                    Manzanita Interchange (Highway 101-Route 1 junction) in southern Marin.
-                                    Focus on evaluating flood vulnerabilities related to wastewater
-                                    and transit infrastructure.
-                                </p>
+                                <div className="text-text-secondary text-sm leading-relaxed space-y-3">
+                                    <p>
+                                        An unincorporated area in southern Marin County that becomes
+                                        impassable at the Manzanita Interchange at U.S. Route 101.
+                                        Flooding results from a complex combination of high tides, heavy
+                                        rains, onshore winds, and subsidence.
+                                    </p>
+                                    <p>
+                                        The adjacent Fireside Apartments provides 50 affordable living
+                                        units for low-income seniors, families, and individuals with
+                                        special needs, including those transitioning from homelessness,
+                                        reflecting the &ldquo;multigenerational and diverse socioeconomic
+                                        character of the community.&rdquo;
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </ScrollReveal>
@@ -83,31 +127,81 @@ export default function SeaLevelRise() {
                             <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Research Question</h2>
                             <SectionDivider />
                             <p className="mt-6 text-text-secondary leading-relaxed text-lg italic">
-                                How much does groundwater flooding contribute to sanitary sewer
-                                overflows and property flooding in low-elevation coastal communities?
+                                How do we quantify, model and communicate the vulnerabilities of SLR
+                                and groundwater flooding on urban wastewater and transit infrastructure
+                                at a geospatial and temporal scale appropriate for local planning
+                                and mitigation?
                             </p>
 
                             <h3 className="font-serif text-xl font-semibold mt-10 mb-4">Goal</h3>
                             <p className="text-text-secondary leading-relaxed">
-                                Quantify the relationship between sea level rise, shallow groundwater,
-                                and increased frequency of sewer overflows and surface flooding.
+                                Collect field data, characterize subsurface preferential pathway flow,
+                                and develop a hydrogeologic model for emergent groundwater, sewer,
+                                stormdrain, and road flooding to better understand the short-term
+                                impacts of SLR. Provide real-time advance warnings to agencies and
+                                residents of impending sewer overflows and road flooding and to
+                                identify sources of floodwaters.
                             </p>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
 
-                            <h3 className="font-serif text-xl font-semibold mt-10 mb-4">Methodology</h3>
-                            <ul className="space-y-2 text-text-secondary">
-                                {[
-                                    'Deploy groundwater monitoring wells and data loggers',
-                                    'Install sewer flow monitors at critical infrastructure points',
-                                    'Collect tidal and precipitation data',
-                                    'Correlate high-tide and storm events with groundwater levels',
-                                    'Map vulnerable areas using GIS and LiDAR elevation data',
-                                ].map((item) => (
-                                    <li key={item} className="flex gap-2">
-                                        <span className="text-accent flex-shrink-0">&#x25CF;</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
+            {/* 10-Task Methodology */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Methodology</h2>
+                        <SectionDivider />
+                        <p className="mt-6 text-text-secondary leading-relaxed max-w-3xl mb-8">
+                            Effective measurement and management of SLR, groundwater flooding,
+                            and stormwater runoff requires quantification of various flood factors
+                            of the urban coastal water balance, such as precipitation,
+                            evapotranspiration, sewer flow, stormwater flow, surface flow, tidal
+                            elevations, barometric pressure, wind direction, and other factors.
+                        </p>
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-4xl">
+                            {methodology.map((task, i) => (
+                                <div key={i} className="flex gap-3 bg-surface rounded-lg border border-surface-dark/50 p-4">
+                                    <span className="text-accent-dark font-mono font-bold text-sm flex-shrink-0 mt-0.5">
+                                        {i + 1}.
+                                    </span>
+                                    <p className="text-text-secondary text-sm leading-relaxed">{task}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Broader Impacts */}
+            <section className="bg-surface py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="max-w-3xl">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Broader Impacts</h2>
+                            <SectionDivider />
+                            <div className="mt-6 space-y-5 text-text-secondary leading-relaxed">
+                                <p>
+                                    The methodology, approach, and tools developed during this research
+                                    will allow wastewater and transit agencies in California and
+                                    nationwide to make better choices on 30-year infrastructure plans
+                                    where small-scale flood outcomes and SLR cannot be predicted with
+                                    certainty.
+                                </p>
+                                <p>
+                                    A public agency project leadership team includes the executive
+                                    director of the San Francisco Bay Area clean water agency, the
+                                    mayor of the City of Richmond, the Atchison Village board of
+                                    directors, the supervisor for southern Marin County, the general
+                                    manager of the local sewer district (TCSD), the National Park
+                                    Service, and others. Public agency websites and jamesajacobs.net
+                                    will share real-time water elevation and flood warnings with
+                                    their communities.
+                                </p>
+                            </div>
                         </div>
                     </ScrollReveal>
                 </div>

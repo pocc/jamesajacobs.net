@@ -43,7 +43,7 @@ export const services: Service[] = [
     {
         title: 'Community Support Services',
         description:
-            'Support for community groups, government agencies, and individuals dealing with vapor intrusion and indoor air quality issues, including consultation and mitigation recommendations.',
+            'Sewer air contaminated with volatile industrial compounds can be an issue of environmental justice, as a disproportionate number of low-income, frequently minority residents live near impacted industrial urban areas. Clearwater Group provides public outreach, building inspections for sewer air intrusion, sampling design, and mitigation measures.',
         icon: '🤝',
     },
 ]
