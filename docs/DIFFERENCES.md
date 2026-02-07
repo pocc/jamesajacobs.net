@@ -602,21 +602,17 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
 
 **Negative Changes:**
 - ❌ No photos of field work, book covers, or research sites (profile photo is present)
-- ❌ Contact form doesn't work
-- ❌ Different brand colors/fonts
-- ❌ Weird `/demo/` URL
-- ❌ Missing 7 projects (12 vs. 19 in legacy)
-- ❌ Missing sidebar "Featured Focus Areas"
+- ❌ Contact form doesn't work (configured but needs first-time Formspree verification)
+- ❌ Different brand colors/fonts (geological theme vs. academic burgundy)
+- ❌ Weird `/demo/` URL (not yet promoted to root)
 
 ### If Coming From React Demo → Legacy
 
 **Positive Changes:**
 - ✅ Photos of field work, research sites, and equipment (demo only has profile photo)
-- ✅ Working contact form
-- ✅ More project details (19 vs. 12)
-- ✅ Clean URLs without `/demo/`
-- ✅ All 13 original sections available
-- ✅ Featured focus areas sidebar on homepage
+- ✅ Working contact form (GoDaddy-hosted, functional)
+- ✅ Clean URLs without `/demo/` subdirectory
+- ✅ All 13 original sections available (vs 12 merged routes in demo)
 
 **Negative Changes:**
 - ❌ Dated design (especially burgundy)
@@ -641,13 +637,14 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
    - Diagrams and infographics (Research pages)
    - Hero background images (Homepage)
    **Priority:** Book covers first, then research photos
+   **See:** [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md)
 
-2. **Connect contact form (CRITICAL):**
-   - Integrate with email service (Formspree, Netlify Forms, SendGrid, etc.)
-   - Test submission workflow
-   - Add confirmation message
-   - Add error handling
-   **Priority:** HIGH — site cannot function without working contact form
+2. **Activate contact form (HIGH):**
+   - ✅ Form configured with Formspree (geojimj@gmail.com)
+   - ⚠️ Needs first-time email verification (one-click activation)
+   - ✅ Confirmation message implemented
+   - ✅ Error handling implemented
+   **Status:** Ready to activate on first submission
 
 3. **Add social meta tags:**
    - OpenGraph images for each page
@@ -667,10 +664,10 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
    - Add canonical tags
 
 6. **Add missing content:**
-   - 7 missing projects (expand from 12 to 19)
-   - Restore sidebar "Featured Focus Areas"
-   - Add missing academic citations
-   - Include CV PDF for download
+   - ✅ All 19 projects already present
+   - ❌ Sidebar "Featured Focus Areas" intentionally not implemented (see [NOT_IMPLEMENTED.md](NOT_IMPLEMENTED.md))
+   - ⚠️ Academic citations limited to 3-5 key refs per page (see [NOT_IMPLEMENTED.md](NOT_IMPLEMENTED.md))
+   - Include CV PDF for download (future enhancement)
 
 7. **Test all functionality:**
    - Test all 12 routes
@@ -714,7 +711,7 @@ Until then, users encounter **two different versions** of the same professional,
 |--------|-------------|------------|------------|
 | **Total pages** | 13 | 12 | 1 fewer (merged pages) |
 | **Research pages** | 5 separate | 4 + hub | Reorganized under `/research/` |
-| **Selected projects** | 19 | 12 | 7 fewer (-37%) |
+| **Selected projects** | 19 | 19 | ✅ Same (all present) |
 | **Books listed** | 5 | 5 | Same |
 | **Services listed** | 5 | 7 | 2 more (+40%) |
 | **Total images** | 50-70 estimated | 1 | 49-69 missing (-98%) |
@@ -758,7 +755,11 @@ Until then, users encounter **two different versions** of the same professional,
 
 ---
 
-**Document Version:** 1.1
+**Document Version:** 1.2
 **Date:** February 7, 2026
-**Corrections:** Fixed profile photo status (present in demo, not missing)
+**Corrections:**
+- Fixed profile photo status (present in demo, not missing)
+- Fixed project count (all 19 present, not 12)
+- Updated contact form status (configured, needs activation)
+- Noted intentional design decisions (see [NOT_IMPLEMENTED.md](NOT_IMPLEMENTED.md))
 **Next Review:** When React demo replaces legacy site

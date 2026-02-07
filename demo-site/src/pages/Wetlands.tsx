@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import HeroPage from '../components/HeroPage'
 import ScrollReveal from '../components/ScrollReveal'
 import SectionDivider from '../components/SectionDivider'
+import ImageGallery from '../components/ImageGallery'
 
 const products = [
     { icon: '💧', title: 'Treated Water', desc: 'For irrigation, groundwater recharge, or wetland habitat.' },
@@ -99,8 +100,57 @@ export default function Wetlands() {
                 </div>
             </section>
 
-            {/* Background & Precedents */}
+            {/* Constructed Wetlands Gallery */}
             <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Constructed Wetlands Examples</h2>
+                        <SectionDivider />
+                        <p className="mt-6 text-text-secondary leading-relaxed mb-8">
+                            Examples of constructed wetlands and wastewater treatment farm concepts showing
+                            treatment processes, ecosystem integration, and resource recovery systems.
+                        </p>
+                    </ScrollReveal>
+                    <ImageGallery
+                        images={[
+                            {
+                                src: '/images/research/wetlands-01-front-slide.jpg',
+                                alt: 'Constructed Wetlands Overview',
+                                caption: 'Constructed wetlands wastewater treatment farm concept',
+                            },
+                            {
+                                src: '/images/research/wetlands-02.jpg',
+                                alt: 'Treatment process flow',
+                                caption: 'Multi-stage treatment process and water flow diagram',
+                            },
+                            {
+                                src: '/images/research/wetlands-03.jpg',
+                                alt: 'Ecosystem integration',
+                                caption: 'Integration of treatment zones with natural ecosystems',
+                            },
+                            {
+                                src: '/images/research/wetlands-04.jpg',
+                                alt: 'Resource recovery systems',
+                                caption: 'Resource recovery and product generation systems',
+                            },
+                            {
+                                src: '/images/research/wetlands-05.jpg',
+                                alt: 'Habitat and biodiversity',
+                                caption: 'Wildlife habitat and biodiversity benefits',
+                            },
+                            {
+                                src: '/images/research/wetlands-06.jpg',
+                                alt: 'Treatment farm layout',
+                                caption: 'Site layout showing treatment zones and product areas',
+                            },
+                        ]}
+                        columns={3}
+                    />
+                </div>
+            </section>
+
+            {/* Background & Precedents */}
+            <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="max-w-3xl">

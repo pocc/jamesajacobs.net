@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import HeroPage from '../components/HeroPage'
 import ScrollReveal from '../components/ScrollReveal'
 import SectionDivider from '../components/SectionDivider'
+import ImageGallery from '../components/ImageGallery'
 import { sponsors } from '../data/sponsors'
 
 const methodology = [
@@ -117,6 +118,75 @@ export default function SeaLevelRise() {
                             </div>
                         </div>
                     </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Field Research Images */}
+            <section className="bg-white py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Field Research</h2>
+                        <SectionDivider />
+                        <p className="mt-6 text-text-secondary leading-relaxed mb-8">
+                            Documentation of flooding conditions, sensor installations, and groundwater
+                            monitoring equipment deployed across study sites in California.
+                        </p>
+                    </ScrollReveal>
+                    <ImageGallery
+                        images={[
+                            {
+                                src: '/images/research/sea-level-rise-21.jpg',
+                                alt: 'Sea level rise study site',
+                                caption: 'Study site overview and monitoring locations',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-22.jpg',
+                                alt: 'Flooding conditions at Atchison Village',
+                                caption: 'Flooding conditions at Atchison Village, Richmond CA',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-24.jpg',
+                                alt: 'Groundwater monitoring data',
+                                caption: 'Groundwater level and tidal correlation data',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-25.jpg',
+                                alt: 'Sensor installation',
+                                caption: 'Solinst data logger and sensor installation',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-26.jpg',
+                                alt: 'Tamalpais Valley flooding',
+                                caption: 'Flooding at Tamalpais Valley Manzanita Interchange',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-27.jpg',
+                                alt: 'Manhole sensor monitoring',
+                                caption: 'SmartCover manhole sensor for sewer monitoring',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-28.jpg',
+                                alt: 'Real-time data collection',
+                                caption: 'Real-time data collection and analysis system',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-45.jpg',
+                                alt: 'Study area maps',
+                                caption: 'GIS maps showing preferential groundwater pathways',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-63.jpg',
+                                alt: 'Field equipment deployment',
+                                caption: 'Field equipment deployment and maintenance',
+                            },
+                            {
+                                src: '/images/research/sea-level-rise-67.jpg',
+                                alt: 'Community outreach and volunteer training',
+                                caption: 'Community outreach and volunteer training sessions',
+                            },
+                        ]}
+                        columns={3}
+                    />
                 </div>
             </section>
 
