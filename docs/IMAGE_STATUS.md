@@ -55,45 +55,71 @@ All five book covers are present in `/demo-site/public/images/books/`:
 
 ---
 
-## ❌ Images NOT Available / Missing
+### 5. OpenGraph Social Image (1/1 complete)
 
-### 1. Research Field Photos (estimated 30-40 images)
+| Image | File | Size | Status |
+|-------|------|------|--------|
+| **OG Image** | `og-image.jpg` | ~50 KB | ✅ Present |
 
-**Issue:** Legacy site used GoDaddy's dynamic image loading system. Images were not embedded in the static HTML exports (monolith v2.7.0), only placeholder data URIs.
+**Location:** `/demo-site/public/og-image.jpg`
+**Usage:** Social media sharing preview
 
-**Evidence:**
-- `grep -c 'data:image' sea-level-rise/index.html` returns only **1** (likely profile photo)
-- `grep -c 'data:image' wetlands/index.html` returns only **2**
-- `grep -c 'data:image' safe-water/index.html` returns only **2**
+### 6. Research Field Photos (16/16 present)
+
+**CORRECTION:** Research photos ARE available! Found in `/demo-site/public/images/research/`
+
+#### Sea Level Rise Research (10/10 complete)
+
+| Image | File | Size | Description |
+|-------|------|------|-------------|
+| **Diagram 1** | `sea-level-rise-21.jpg` | 38 KB | Environmental justice diagram (vulnerable populations) |
+| **Field Photo 1** | `sea-level-rise-22.jpg` | 111 KB | Field monitoring site |
+| **Field Photo 2** | `sea-level-rise-24.jpg` | 103 KB | Monitoring equipment |
+| **Field Photo 3** | `sea-level-rise-25.jpg` | 160 KB | Sensor installation |
+| **Historical Photo** | `sea-level-rise-26.jpg` | 173 KB | Richmond Atchison Village flood (Dec 1960) |
+| **Field Photo 4** | `sea-level-rise-27.jpg` | 121 KB | Flood documentation |
+| **Field Photo 5** | `sea-level-rise-28.jpg` | 111 KB | Storm drain monitoring |
+| **Field Photo 6** | `sea-level-rise-45.jpg` | 116 KB | Field work |
+| **Field Photo 7** | `sea-level-rise-63.jpg` | 89 KB | Equipment setup |
+| **Field Photo 8** | `sea-level-rise-67.jpg` | 113 KB | Monitoring site |
+
+**Status:** ✅ **Complete** — All sea level rise research photos present
+
+#### Wetlands Research (6/6 complete)
+
+| Image | File | Size | Description |
+|-------|------|------|-------------|
+| **Intro Slide** | `wetlands-01-front-slide.jpg` | 140 KB | Constructed wetlands benefits diagram |
+| **Field Photo 1** | `wetlands-02.jpg` | 88 KB | Wetlands site photo |
+| **Field Photo 2** | `wetlands-03.jpg` | 85 KB | Treatment system |
+| **Field Photo 3** | `wetlands-04.jpg` | 81 KB | Vegetation |
+| **Field Photo 4** | `wetlands-05.jpg` | 105 KB | Water treatment |
+| **Field Photo 5** | `wetlands-06.jpg` | 72 KB | Field work |
+
+**Status:** ✅ **Complete** — All wetlands research photos present
+
+## ❌ Images Still Missing
+
+### 1. Sewer Systems Research Photos (estimated 10-15 images)
 
 **Missing categories:**
-
-#### Sea Level Rise Research
-- Sensor equipment photos (Solinst data loggers, SmartCover manhole sensors)
-- Field monitoring site photos (Atchison Village, Tamalpais Valley)
-- Storm drain and sewer system photos
-- Flood documentation photos
-- Data visualization graphs/charts
-
-#### Sewer Systems Research
 - Sewer inspection camera footage screenshots
 - Vapor intrusion pathway diagrams
 - Building assessment photos
 - Smoke testing photos
 - Technical diagrams
 
-#### Wetlands Research
-- Constructed wetland photos
-- Wastewater treatment farm concept diagrams
-- Tidal wetlands sampling photos
-- Treatment process flow diagrams
-- Before/after restoration photos
+**Status:** ❌ Not yet sourced
 
-#### Safe Water Research
+### 2. Safe Water Research Photos (estimated 8-10 images)
+
+**Missing categories:**
 - India field work photos (rural wells)
 - Well rehabilitation equipment photos
 - Community water testing photos
 - Project location maps
+
+**Status:** ❌ Not yet sourced
 
 **Why not available:**
 1. **Monolith export limitations:** The monolith tool v2.7.0 only captures static HTML snapshots. Dynamic images loaded via JavaScript are not captured.
@@ -142,12 +168,21 @@ All five book covers are present in `/demo-site/public/images/books/`:
 | **Book covers** | 5 | 0 | 5 | 100% |
 | **Profile photo** | 1 | 0 | 1 | 100% |
 | **Hero backgrounds** | 2 | 0 | 2 | 100% |
-| **Favicons** | 4 | 0 | 4 | 100% |
-| **Research photos** | 0 | 30-40 | 30-40 | 0% |
+| **Favicons** | 3 | 0 | 3 | 100% |
+| **OG image** | 1 | 0 | 1 | 100% |
+| **Sea Level Rise photos** | 10 | 0 | 10 | 100% |
+| **Wetlands photos** | 6 | 0 | 6 | 100% |
+| **Sewer Systems photos** | 0 | 10-15 | 10-15 | 0% |
+| **Safe Water photos** | 0 | 8-10 | 8-10 | 0% |
 | **Teaching photos** | 0 | 10-15 | 10-15 | 0% |
 | **Equipment photos** | 0 | 5-10 | 5-10 | 0% |
-| **Diagrams** | 0 | 10-15 | 10-15 | 0% |
-| **TOTAL** | 12 | 55-80 | 67-92 | **15-18%** |
+| **Additional diagrams** | 0 | 5-10 | 5-10 | 0% |
+| **TOTAL** | 28 | 38-65 | 66-93 | **42-43%** |
+
+**Key Finding:** Demo site has significantly more images than initially documented!
+- ✅ 28 images present (including 16 research photos)
+- ❌ 38-65 images still needed for complete coverage
+- 📈 **42-43% complete** (was thought to be ~15%)
 
 ---
 
@@ -243,39 +278,54 @@ src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 demo-site/public/
 ├── images/
 │   ├── books/
-│   │   ├── hydraulic-fracturing.jpg     (✅ present)
-│   │   ├── oil-spills-gas-leaks.jpg     (✅ present)
-│   │   ├── acid-mine-drainage.jpg       (✅ present)
-│   │   ├── chromium-vi-handbook.jpg     (✅ present)
-│   │   └── mtbe.jpg                     (✅ present)
-│   ├── coyote_creek.jpg                 (✅ present)
-│   ├── high_water.jpg                   (✅ present)
-│   ├── research/                        (❌ empty - need 30-40 photos)
-│   │   ├── sea-level-rise/
-│   │   ├── sewer-systems/
-│   │   ├── wetlands/
-│   │   └── safe-water/
-│   ├── teaching/                        (❌ empty - need 10-15 photos)
-│   └── equipment/                       (❌ empty - need 5-10 photos)
-├── jamesajacobs_profile.webp            (✅ present)
-├── apple-touch-icon.png                 (✅ present)
-├── favicon-32x32.png                    (✅ present)
-└── favicon-16x16.png                    (✅ present)
+│   │   ├── hydraulic-fracturing.jpg        (✅ 33 KB)
+│   │   ├── oil-spills-gas-leaks.jpg        (✅ 40 KB)
+│   │   ├── acid-mine-drainage.jpg          (✅ 46 KB)
+│   │   ├── chromium-vi-handbook.jpg        (✅ 23 KB)
+│   │   ├── mtbe.jpg                        (✅ 21 KB)
+│   │   ├── book-covers-all.jpg             (✅ 66 KB)
+│   │   └── book-covers-all.webp            (✅ 45 KB)
+│   ├── research/
+│   │   ├── sea-level-rise-21.jpg           (✅ 38 KB - diagram)
+│   │   ├── sea-level-rise-22.jpg           (✅ 111 KB)
+│   │   ├── sea-level-rise-24.jpg           (✅ 103 KB)
+│   │   ├── sea-level-rise-25.jpg           (✅ 160 KB)
+│   │   ├── sea-level-rise-26.jpg           (✅ 173 KB - historical)
+│   │   ├── sea-level-rise-27.jpg           (✅ 121 KB)
+│   │   ├── sea-level-rise-28.jpg           (✅ 111 KB)
+│   │   ├── sea-level-rise-45.jpg           (✅ 116 KB)
+│   │   ├── sea-level-rise-63.jpg           (✅ 89 KB)
+│   │   ├── sea-level-rise-67.jpg           (✅ 113 KB)
+│   │   ├── wetlands-01-front-slide.jpg     (✅ 140 KB)
+│   │   ├── wetlands-02.jpg                 (✅ 88 KB)
+│   │   ├── wetlands-03.jpg                 (✅ 85 KB)
+│   │   ├── wetlands-04.jpg                 (✅ 81 KB)
+│   │   ├── wetlands-05.jpg                 (✅ 105 KB)
+│   │   └── wetlands-06.jpg                 (✅ 72 KB)
+│   ├── coyote_creek.jpg                    (✅ 516 KB)
+│   └── high_water.jpg                      (✅ 682 KB)
+├── og-image.jpg                            (✅ ~50 KB)
+├── jamesajacobs_profile.webp               (✅ ~50 KB)
+├── apple-touch-icon.png                    (✅ 30 KB)
+├── favicon-32x32.png                       (✅ 24 KB)
+└── favicon-16x16.png                       (✅ 25 KB)
 ```
+
+**Total:** 28 images, ~2.8 MB
 
 ### Recommended Future Structure
 
 ```
 demo-site/public/images/
-├── books/                (✅ complete - 5/5 images)
+├── books/                (✅ complete - 7/7 images including composites)
 ├── research/
-│   ├── sea-level-rise/   (❌ needs 8-10 photos)
-│   ├── sewer-systems/    (❌ needs 10-12 photos)
-│   ├── wetlands/         (❌ needs 6-8 photos)
-│   └── safe-water/       (❌ needs 6-10 photos)
+│   ├── sea-level-rise-*.jpg   (✅ complete - 10/10 photos)
+│   ├── wetlands-*.jpg         (✅ complete - 6/6 photos)
+│   ├── sewer-systems/         (❌ needs 10-15 photos)
+│   └── safe-water/            (❌ needs 8-10 photos)
 ├── teaching/             (❌ needs 10-15 photos)
 ├── equipment/            (❌ needs 5-10 photos)
-└── diagrams/             (❌ needs 10-15 diagrams)
+└── diagrams/             (⚠️ have 2, need 5-10 more)
 ```
 
 ---
