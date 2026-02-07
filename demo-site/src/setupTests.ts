@@ -11,7 +11,7 @@ afterEach(() => {
 if (typeof window !== 'undefined') {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: vi.fn().mockImplementation((query) => ({
+    value: vi.fn().mockImplementation(query => ({
       matches: false,
       media: query,
       onchange: null,
@@ -28,9 +28,9 @@ if (typeof window !== 'undefined') {
     constructor() {}
     disconnect() {}
     observe() {}
-    takeRecords(): IntersectionObserverEntry[] {
+    takeRecords() {
       return []
     }
     unobserve() {}
-  } as unknown as typeof IntersectionObserver
+  } as any // eslint-disable-line @typescript-eslint/no-explicit-any
 }
