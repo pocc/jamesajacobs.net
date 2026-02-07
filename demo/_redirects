@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects for React Router (BrowserRouter)
+# This allows client-side routing to work properly
+
+# Serve index.html for all /demo/* routes (React Router handles routing)
+/demo/* /demo/index.html 200

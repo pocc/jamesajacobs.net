@@ -58,6 +58,11 @@ export default function Home() {
         <div>
             {/* Hero — Full Viewport */}
             <section className="min-h-[90vh] flex items-center bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
+                {/* Background Image Overlay */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-20"
+                    style={{ backgroundImage: 'url(/images/coyote_creek.jpg)' }}
+                />
                 <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_30%_70%,_white_1px,_transparent_1px)] bg-[length:24px_24px]" />
                 <div className="max-w-6xl mx-auto px-4 py-24 md:py-32 relative z-10">
                     <ScrollReveal>
@@ -196,8 +201,51 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Research Bento Grid */}
+            {/* Featured Focus Areas */}
             <section className="bg-surface py-20 md:py-28">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="flex flex-col md:flex-row gap-10">
+                            <div className="flex-1">
+                                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
+                                    Featured Focus Areas
+                                </h2>
+                                <p className="text-text-secondary mb-8">
+                                    Specialized expertise across water resources,
+                                    environmental site characterization, and
+                                    infrastructure assessment.
+                                </p>
+                            </div>
+                            <div className="flex-1">
+                                <ul className="space-y-3">
+                                    {[
+                                        'Water Resources',
+                                        'VOCs in Sewer-Plumbing',
+                                        'Resource Evaluations (Water, Oil & Gas, Coal, Renewable Energy)',
+                                        'Basin Analysis',
+                                        'Water Supply Assessments',
+                                        'Stormwater Recovery and Flood Control',
+                                        'Wastewater Recycling',
+                                    ].map((area) => (
+                                        <li
+                                            key={area}
+                                            className="flex items-start gap-3 text-text-secondary"
+                                        >
+                                            <span className="text-accent-dark mt-1 flex-shrink-0">
+                                                ✓
+                                            </span>
+                                            <span>{area}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Research Bento Grid */}
+            <section className="bg-white py-20 md:py-28">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="text-center mb-12">
