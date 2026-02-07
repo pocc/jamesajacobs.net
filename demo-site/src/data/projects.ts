@@ -134,11 +134,4 @@ export const selectedProjects: Project[] = [
         details:
             'Wrote the geology and hydrogeology sections of an environmental impact report for a proposed hazardous waste incineration facility in the San Francisco Bay Area. The client was a municipality.',
     },
-    {
-        title: 'Regulatory Guidelines for Water Treatment — Jamaica',
-        summary:
-            'As a Fulbright award winner, taught graduate environmental engineering and led workshops on water treatment goals for regulatory officials and professionals.',
-        details:
-            'Taught at the University of the West Indies in Kingston, teaching a graduate class in Environmental Engineering. Also taught workshops related to establishing water treatment goals in Jamaica. Participants included regulatory officials, environmental consultants, students, petroleum company employees and others. Organized for others to participate in teaching the materials.',
-    },
 ]

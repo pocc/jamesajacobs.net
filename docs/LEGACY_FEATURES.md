@@ -624,6 +624,197 @@ Existing documentation files as of Jan 31, 2026:
 
 ---
 
-**Document Version:** 1.0
+## Monolith Export Tool Reference
+
+### What is Monolith?
+
+[Monolith](https://github.com/Y2Z/monolith) is a CLI tool that saves complete web pages (HTML, CSS, JavaScript, images, fonts) as a single HTML file by inlining all external resources as base64 data URIs.
+
+**Version Used:** `v2.7.0` (February 2024)
+
+**Installation:**
+```bash
+# macOS (Homebrew)
+brew install monolith
+
+# Or download binary from GitHub releases
+https://github.com/Y2Z/monolith/releases
+```
+
+### Export Commands Used
+
+**Homepage:**
+```bash
+monolith https://jamesajacobs.net/ > index.html
+```
+
+**Section Pages:**
+```bash
+monolith https://jamesajacobs.net/about > about/index.html
+monolith https://jamesajacobs.net/books > books/index.html
+monolith https://jamesajacobs.net/contact > contact/index.html
+monolith https://jamesajacobs.net/geology-and-beer > geology-and-beer/index.html
+monolith https://jamesajacobs.net/publications > publications/index.html
+monolith https://jamesajacobs.net/safe-water > safe-water/index.html
+monolith https://jamesajacobs.net/sea-level-rise > sea-level-rise/index.html
+monolith https://jamesajacobs.net/services > services/index.html
+monolith https://jamesajacobs.net/sewer-air-%26-vi > sewer-air-%26-vi/index.html
+monolith https://jamesajacobs.net/sewer-overflows > sewer-overflows/index.html
+monolith https://jamesajacobs.net/wetlands > wetlands/index.html
+monolith https://jamesajacobs.net/workshops-%2F-classes > workshops-%2F-classes/index.html
+```
+
+### Monolith Behavior
+
+**Default behavior:**
+- ✅ Inlines all CSS (external and `<link>` stylesheets)
+- ✅ Inlines all JavaScript (external and `<script src="">`)
+- ✅ Inlines all images as base64 data URIs
+- ✅ Inlines all fonts as base64 data URIs
+- ✅ Preserves page structure and functionality
+- ❌ Does NOT execute JavaScript (static snapshot only)
+
+**Result:** Single self-contained HTML file with no external dependencies
+
+---
+
+## Detailed GoDaddy UX Framework
+
+### Component Breakdown
+
+The `index_files/` directories contain these JavaScript modules:
+
+| File | Size | Purpose |
+|------|------|---------|
+| **UX.4.37.7.js** | 316 KB | Core GoDaddy UX framework (React-based rendering engine) |
+| **bs-Component-564b6432.js** | 14.5 KB | Base Bootstrap component wrapper |
+| **bs-FlyoutMenu-Component-bd43c5d0.js** | 3.5 KB | Dropdown/flyout navigation menus |
+| **bs-LinkAwareComponent-ed6872ee.js** | 1.9 KB | Active link state management |
+| **bs-Toggle-37f740c7.js** | 2.4 KB | Toggle button component (mobile nav) |
+| **Carousel-3d82957b.js** | 24.4 KB | Image carousel/slider component |
+| **ColorSwatch-4196a0a9.js** | 1.3 KB | Color picker component |
+| **badge-e542c4f1.js** | 486 B | Badge/label component |
+| **_commonjsHelpers-67085353.js** | 960 B | CommonJS module polyfills |
+| **_react_commonjs-external-a1351e34.js** | 266 B | React external reference |
+| **_rollupPluginBabelHelpers-8ce54c82.js** | 586 B | Babel transpilation helpers |
+
+**Total JavaScript:** ~370 KB for framework alone (before page-specific code)
+
+**React Version:** GoDaddy UX 4.37.7 bundles React 16.x (legacy version as of 2025)
+
+### Rendering Model
+
+- **Server-side:** GoDaddy generates initial HTML structure
+- **Client-side:** React hydrates and takes over rendering
+- **Components:** Page content defined as React component props in `<script>` tags
+
+---
+
+## Lessons Learned: GoDaddy Migration
+
+### What Worked Well
+
+1. **Monolith Tool for Exports**
+   - ✅ Reliable single-file archival of GoDaddy pages
+   - ✅ Preserved all content, styles, and functionality
+   - ✅ No dependency on GoDaddy CDN after export
+   - ✅ Easy to commit to Git (one file per page)
+
+2. **Hand-Written HTML/CSS for About Page**
+   - ✅ 92% reduction in file size (263 KB → 22 KB)
+   - ✅ Dramatically faster load times (<1s vs. 3–5s)
+   - ✅ Clean, semantic, maintainable code
+   - ✅ Full control over design and layout
+   - ✅ Excellent Lighthouse scores (95–100)
+
+3. **Cloudflare Pages for Hosting**
+   - ✅ Zero-config deployment (just push to `master`)
+   - ✅ Global CDN with sub-second propagation
+   - ✅ Free SSL/TLS certificates
+   - ✅ No build step required for static files
+
+4. **CSS Custom Properties**
+   - ✅ Easy to maintain consistent colors
+   - ✅ Single source of truth for design tokens
+   - ✅ No need for Sass/Less/PostCSS
+
+5. **Google Fonts**
+   - ✅ High-quality web fonts (Lora, Yellowtail)
+   - ✅ `font-display: optional` prevents layout shift
+
+### What Didn't Work
+
+1. **Chrome "Save Page As" Method**
+   - ❌ Inconsistent results across pages
+   - ❌ Sometimes missed assets or broke JavaScript
+   - **Solution:** Switched to monolith exclusively
+
+2. **Editing GoDaddy Exports Directly**
+   - ❌ Auto-generated code is obfuscated
+   - ❌ Nested divs with cryptic class names
+   - ❌ Removing tracking scripts broke rendering
+   - **Solution:** Complete rewrite instead of patching
+
+3. **GoDaddy UX Framework Dependency**
+   - ❌ 316 KB of React runtime for static content
+   - ❌ No benefit for non-interactive pages
+   - **Solution:** Remove entirely during migration
+
+4. **Base64-Encoded Images**
+   - ❌ Bloated HTML files (1.8 MB homepage)
+   - ❌ Images not cached separately
+   - **Solution:** Extract to `.webp` files
+
+5. **Inconsistent Navigation**
+   - ❌ Each page has different navigation
+   - ❌ Difficult to update site-wide
+   - **Solution:** Standardize in migrated pages
+
+### Key Technical Insights
+
+1. **GoDaddy Website Builder uses React** for client-side rendering (overkill for static content)
+2. **URL encoding issues** persist from GoDaddy exports (`%26`, `%2F`)
+3. **Semantic HTML matters** for SEO and accessibility
+4. **Font loading:** `font-display: optional` achieves same result as base64 embedding
+5. **Migration reduces page weight by 92%** with hand-written HTML/CSS
+
+### Migration Strategy Recommendations
+
+**For Future Page Migrations:**
+
+1. ✅ Always preserve original as `old_index.html`
+2. ✅ Extract content first to `CONTENT.md`
+3. ✅ Use About page as template
+4. ✅ Optimize images (extract base64, convert to WebP)
+5. ✅ Test locally before deploying
+6. ✅ Keep `index_files/` temporarily
+
+**Priority Order:**
+1. Contact (business-critical)
+2. Services (business-critical)
+3. Books (simpler content)
+4. Publications
+5. Research pages
+6. Homepage (most complex, do last)
+
+### Cost-Benefit Analysis
+
+**GoDaddy Website Builder:**
+- 💰 Cost: ~$10–15/month
+- ⏱️ Build: Fast (WYSIWYG)
+- 🎨 Design: Limited (templates)
+- 🚀 Performance: Poor (5 MB pages)
+
+**Static HTML + Cloudflare:**
+- 💰 Cost: $0
+- ⏱️ Build: Slower (hand-code)
+- 🎨 Design: Unlimited
+- 🚀 Performance: Excellent (22 KB)
+
+**Migration ROI:** Saves $120–180/year, 92% smaller pages, 75% faster load times
+
+---
+
+**Document Version:** 1.1
 **Date:** February 7, 2026
 **Purpose:** Historical reference for legacy site features before React demo site development
