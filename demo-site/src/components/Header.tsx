@@ -15,11 +15,10 @@ export default function Header() {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
+    // Close mobile menu when route changes
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     useEffect(() => {
-        // Close mobile menu when route changes
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMobileOpen(false)
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setOpenDropdown(null)
     }, [location.pathname])
 
