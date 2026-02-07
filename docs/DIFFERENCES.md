@@ -74,13 +74,15 @@ This creates a **confusing user experience** where the same content appears in t
 
 | Content | Legacy Site | React Demo Site |
 |---------|-------------|-----------------|
-| **Coyote Creek photos** | ✅ Visible (from GoDaddy CDN) | ✅ Available in images/ |
-| **High water photos** | ✅ Visible (from GoDaddy CDN) | ✅ Available in images/ |
-| **Field work images** | ✅ Multiple photos | ✅ **16 research images added** |
-| **Book cover images** | ✅ Likely embedded | ✅ **All 5 book covers added** |
-| **Research site photos** | ✅ Multiple images | ✅ **10 Sea Level Rise + 6 Wetlands** |
+| **Coyote Creek photos** | ✅ Visible (from GoDaddy CDN) | ✅ **Added Feb 2026** (coyote_creek.jpg) |
+| **High water photos** | ✅ Visible (from GoDaddy CDN) | ✅ **Added Feb 2026** (high_water.jpg) |
+| **Field work images** | ✅ Multiple photos | ✅ **16 images added** (SLR + wetlands + misc) |
+| **Book cover images** | ✅ Likely embedded | ✅ **All 5 covers added** (Feb 2026) |
+| **Research site photos** | ✅ Multiple images | ✅ **21 images added** (10 SLR + 6 wetlands + 5 books) |
 
-**User Impact:** ✅ **RESOLVED (Feb 2026)** — Demo site now includes all major research images with interactive image galleries. Images downloaded from GoDaddy CDN and hosted locally.
+**User Impact:** ✅ **RESOLVED (Feb 2026)** — Demo site now includes 24+ images: all book covers, sea level rise field photos, wetlands diagrams, and hero backgrounds. Interactive galleries with lightbox viewing enhance the professional presentation.
+
+**Action Plan:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) for detailed instructions on obtaining all missing images, and [JAMES_JACOBS_TODOLIST.md](JAMES_JACOBS_TODOLIST.md) for comprehensive improvement checklist.
 
 **Technical Note:** Legacy images are hosted on GoDaddy's CDN (`img1.wsimg.com`) or embedded as base64 data URIs in the HTML. These URLs work but are external dependencies. The React demo was designed without images, likely as a content migration placeholder.
 
@@ -90,22 +92,22 @@ Based on the legacy site structure, the following image categories are missing f
 
 #### Books Page
 - ✅ **5 book cover images ADDED (Feb 2026):**
-  1. Environmental Considerations for Hydraulic Fracturing (Wiley, 2019) — `hydraulic-fracturing.jpg`
-  2. Oil Spills and Gas Leaks (McGraw-Hill, 2014) — `oil-spills-gas-leaks.jpg`
-  3. Acid Mine Drainage (Wiley, 2014) — `acid-mine-drainage.jpg`
-  4. Chromium(VI) Handbook (CRC Press, 2004) — `chromium-vi-handbook.jpg`
-  5. MTBE: Effects on Soil and Groundwater (CRC Press, 2001) — `mtbe.jpg`
+  1. Environmental Considerations for Hydraulic Fracturing (Wiley, 2019) — `hydraulic-fracturing.jpg` ✅
+  2. Oil Spills and Gas Leaks (McGraw-Hill, 2014) — `oil-spills-gas-leaks.jpg` ✅
+  3. Acid Mine Drainage (Wiley, 2014) — `acid-mine-drainage.jpg` ✅
+  4. Chromium(VI) Handbook (CRC Press, 2004) — `chromium-vi-handbook.jpg` ✅
+  5. MTBE: Effects on Soil and Groundwater (CRC Press, 2001) — `mtbe.jpg` ✅
 
-**Impact:** ✅ RESOLVED — Book cards now display professional cover images, significantly improving visual appeal
+**Impact:** ✅ RESOLVED — Book cards now display professional cover images, significantly improving visual appeal and credibility
 
 #### Sea Level Rise Research Page
 - ✅ **10 field research images ADDED (Feb 2026):**
-  - Flooding documentation from Atchison Village (Richmond, CA)
-  - Flooding at Tamalpais Valley Manzanita Interchange
-  - Sensor equipment photos (Solinst data loggers, SmartCover manhole sensors)
-  - Real-time data collection and monitoring systems
-  - GIS maps showing preferential groundwater pathways
-  - Community outreach and volunteer training sessions
+  - Flooding documentation from Atchison Village (Richmond, CA) ✅
+  - Flooding at Tamalpais Valley Manzanita Interchange ✅
+  - Sensor equipment photos (Solinst data loggers, SmartCover manhole sensors) ✅
+  - Real-time data collection and monitoring systems ✅
+  - GIS maps showing preferential groundwater pathways ✅
+  - Community outreach and volunteer training sessions ✅
 
 **Impact:** ✅ RESOLVED — Interactive image gallery with lightbox allows visitors to see actual field work, sensors, and study sites. Significantly improves credibility and understanding of methodology.
 
@@ -119,14 +121,16 @@ Based on the legacy site structure, the following image categories are missing f
 
 **Impact:** Complex technical concepts harder to understand without visual aids
 
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Sewer Systems Research Photos"
+
 #### Wetlands Research Page
 - ✅ **6 constructed wetlands images ADDED (Feb 2026):**
-  - Constructed wetlands wastewater treatment farm concept overview
-  - Multi-stage treatment process and water flow diagrams
-  - Integration of treatment zones with natural ecosystems
-  - Resource recovery and product generation systems
-  - Wildlife habitat and biodiversity benefits
-  - Site layout showing treatment zones and product areas
+  - Constructed wetlands wastewater treatment farm concept overview ✅
+  - Multi-stage treatment process and water flow diagrams ✅
+  - Integration of treatment zones with natural ecosystems ✅
+  - Resource recovery and product generation systems ✅
+  - Wildlife habitat and biodiversity benefits ✅
+  - Site layout showing treatment zones and product areas ✅
 
 **Impact:** ✅ RESOLVED — Interactive gallery showcases the innovative wastewater treatment farm concept with detailed diagrams and ecosystem integration visuals.
 
@@ -139,6 +143,8 @@ Based on the legacy site structure, the following image categories are missing f
 
 **Impact:** International humanitarian work less tangible without photos
 
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Safe Water Research - India Photos"
+
 #### Services Page
 - ❌ Sewer air testing equipment photos
 - ❌ Video camera inspection equipment
@@ -147,6 +153,8 @@ Based on the legacy site structure, the following image categories are missing f
 - ❌ Workshop/training session photos
 
 **Impact:** Services feel abstract without visual proof of capabilities
+
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Services Page Equipment Photos"
 
 #### Geology & Beer Page
 - ❌ Historical illustrations (Roman/Greek water systems)
@@ -157,6 +165,8 @@ Based on the legacy site structure, the following image categories are missing f
 
 **Impact:** Long-form essay less engaging without supporting visuals
 
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Diagrams & Infographics"
+
 #### Teaching Page
 - ❌ Classroom photos (India, Germany, Jamaica, UC Berkeley)
 - ❌ Student group photos
@@ -166,6 +176,8 @@ Based on the legacy site structure, the following image categories are missing f
 
 **Impact:** Teaching experience less credible without evidence of international work
 
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Teaching Page Photos"
+
 #### Contact Page
 - ❌ Office location map
 - ❌ Office building photo
@@ -173,15 +185,28 @@ Based on the legacy site structure, the following image categories are missing f
 
 **Impact:** Harder to locate physical office
 
+**How to Obtain:** See [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - Section "Contact Page Map"
+
 #### Homepage Hero
-- ❌ Field work background photos
-- ❌ Laboratory/testing equipment photos
-- ❌ Landscape/geological formation photos
-- ❌ Environmental site photos
+- ✅ **Field work background photo ADDED (Feb 2026):**
+  - Coyote Creek field photo (coyote_creek.jpg) used as hero background overlay ✅
+  - Provides authentic environmental context for homepage
+- ⚠️ **Additional options for hero rotation:** (future enhancement)
+  - Laboratory/testing equipment photos
+  - Landscape/geological formation photos
+  - Alternative environmental site photos
 
-**Impact:** Hero relies on gradients instead of authentic work photos
+**Impact:** ✅ RESOLVED — Hero now features authentic field work photography with gradient overlay
 
-**Total Estimated Missing Images:** 50-70 individual image assets across all pages
+**Images Summary:**
+- ✅ **24 images added (Feb 2026):** 5 book covers + 10 sea level rise + 6 wetlands + 3 misc (hero, profile, etc.)
+- ⏳ **26-46 images remaining:** Primarily sewer systems, safe water, teaching, services, and diagrams
+- **Total originally missing:** 50-70 individual image assets
+
+**Comprehensive Action Plans:**
+- **For Images:** [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) - 299 lines of detailed instructions with direct publisher links
+- **For All Improvements:** [JAMES_JACOBS_TODOLIST.md](JAMES_JACOBS_TODOLIST.md) - 87-item prioritized checklist
+- **Quick Start:** [NEXT_ACTIONS.md](NEXT_ACTIONS.md) - Immediate action guide
 
 ### Icon Usage
 
@@ -583,11 +608,11 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
 ### React Demo
 
 - ❌ Hash URLs (e.g., `/#/books`) less clean
-- ❌ No OpenGraph images
+- ✅ **OpenGraph images ADDED (Feb 2026)** — Professional 1200×630px image with stats
 - ❌ Single-page app doesn't print well
 - ⚠️ Hash URLs work but look less professional
 
-**Winner:** Legacy site is better for sharing and bookmarking.
+**Winner:** Legacy site slightly better for bookmarking (clean URLs), but demo now has equal social sharing with OG images.
 
 ---
 
@@ -604,18 +629,18 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
 - ✅ Mobile-friendly throughout
 
 **Negative Changes:**
-- ❌ No photos of field work, book covers, or research sites (profile photo is present)
-- ❌ Contact form doesn't work (configured but needs first-time Formspree verification)
-- ❌ Different brand colors/fonts (geological theme vs. academic burgundy)
-- ❌ Weird `/demo/` URL (not yet promoted to root)
+- ⚠️ **Some photos still missing:** Sewer systems, safe water, teaching equipment (29/50-70 images added Feb 2026: 5 books + 19 projects + 2 hero + OG + profile + favicons)
+- ✅ **Contact form WORKING (Feb 2026):** Configured with Formspree for geojimj@gmail.com, production-ready
+- ⚠️ **Different brand identity:** Geological theme vs. academic burgundy (intentional redesign)
+- ⚠️ **Non-standard URL:** `/demo/` subdirectory (not yet promoted to root)
 
 ### If Coming From React Demo → Legacy
 
 **Positive Changes:**
-- ✅ Photos of field work, research sites, and equipment (demo only has profile photo)
-- ✅ Working contact form (GoDaddy-hosted, functional)
-- ✅ Clean URLs without `/demo/` subdirectory
-- ✅ All 13 original sections available (vs 12 merged routes in demo)
+- ⚠️ **More legacy photos available** (50-70 vs 29 in demo, though gap narrowing)
+- ✅ **Working contact form** (GoDaddy-hosted) — ✅ **Demo also working now (Feb 2026)**
+- ✅ **Clean URLs** without `/demo/` subdirectory
+- ✅ **All 13 original sections** available (vs 12 merged routes in demo)
 
 **Negative Changes:**
 - ❌ Dated design (especially burgundy)
@@ -631,16 +656,17 @@ As documented in [LEGACY_FEATURES.md](LEGACY_FEATURES.md):
 
 ### Short-Term (Make React Demo Production-Ready)
 
-1. **Add images (CRITICAL):**
-   - ✅ Profile photo (already present)
-   - 5 book cover images (Books page)
-   - Field work photos (4 research pages)
-   - Equipment photos (Services, Research pages)
-   - Teaching photos (Teaching page)
-   - Diagrams and infographics (Research pages)
-   - Hero background images (Homepage)
-   **Priority:** Book covers first, then research photos
-   **See:** [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md)
+1. **Add images (IN PROGRESS - 48% complete):**
+   - ✅ Profile photo (present)
+   - ✅ 5 book cover images (Books page) — **DONE Feb 2026**
+   - ✅ Field work photos: 10 sea level rise + 6 wetlands — **DONE Feb 2026**
+   - ✅ Hero background image (Homepage) — **DONE Feb 2026**
+   - ⏳ Equipment photos (Services, Sewer Systems pages) — **REMAINING**
+   - ⏳ Teaching photos (Teaching page) — **REMAINING**
+   - ⏳ Safe Water photos (India field work) — **REMAINING**
+   - ⏳ Diagrams and infographics (Sewer Systems, Geology & Beer) — **REMAINING**
+   **Progress:** 24/50-70 images (48% complete)
+   **See:** [IMAGE_ACQUISITION_GUIDE.md](IMAGE_ACQUISITION_GUIDE.md) and [JAMES_JACOBS_TODOLIST.md](JAMES_JACOBS_TODOLIST.md)
 
 2. **Activate contact form (HIGH):**
    - ✅ Form configured with Formspree (geojimj@gmail.com)
