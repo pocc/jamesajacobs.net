@@ -74,13 +74,13 @@ This creates a **confusing user experience** where the same content appears in t
 
 | Content | Legacy Site | React Demo Site |
 |---------|-------------|-----------------|
-| **Coyote Creek photos** | ✅ Visible (from GoDaddy CDN) | ❌ No photos |
-| **High water photos** | ✅ Visible (from GoDaddy CDN) | ❌ No photos |
-| **Field work images** | ✅ Multiple photos | ❌ No photos |
-| **Book cover images** | ✅ Likely embedded | ❌ No book covers |
-| **Research site photos** | ✅ Multiple images | ❌ No photos |
+| **Coyote Creek photos** | ✅ Visible (from GoDaddy CDN) | ✅ Available in images/ |
+| **High water photos** | ✅ Visible (from GoDaddy CDN) | ✅ Available in images/ |
+| **Field work images** | ✅ Multiple photos | ✅ **16 research images added** |
+| **Book cover images** | ✅ Likely embedded | ✅ **All 5 book covers added** |
+| **Research site photos** | ✅ Multiple images | ✅ **10 Sea Level Rise + 6 Wetlands** |
 
-**User Impact:** The legacy site is visually rich with field photos, while the React demo is text-only. This makes it harder to understand the hands-on nature of the work.
+**User Impact:** ✅ **RESOLVED (Feb 2026)** — Demo site now includes all major research images with interactive image galleries. Images downloaded from GoDaddy CDN and hosted locally.
 
 **Technical Note:** Legacy images are hosted on GoDaddy's CDN (`img1.wsimg.com`) or embedded as base64 data URIs in the HTML. These URLs work but are external dependencies. The React demo was designed without images, likely as a content migration placeholder.
 
@@ -89,24 +89,25 @@ This creates a **confusing user experience** where the same content appears in t
 Based on the legacy site structure, the following image categories are missing from the React demo:
 
 #### Books Page
-- ❌ **5 book cover images:**
-  1. Environmental Considerations for Hydraulic Fracturing (Wiley, 2019)
-  2. Oil Spills and Gas Leaks (McGraw-Hill, 2014)
-  3. Acid Mine Drainage (Wiley, 2014)
-  4. Chromium(VI) Handbook (CRC Press, 2004)
-  5. MTBE: Effects on Soil and Groundwater (CRC Press, 2001)
+- ✅ **5 book cover images ADDED (Feb 2026):**
+  1. Environmental Considerations for Hydraulic Fracturing (Wiley, 2019) — `hydraulic-fracturing.jpg`
+  2. Oil Spills and Gas Leaks (McGraw-Hill, 2014) — `oil-spills-gas-leaks.jpg`
+  3. Acid Mine Drainage (Wiley, 2014) — `acid-mine-drainage.jpg`
+  4. Chromium(VI) Handbook (CRC Press, 2004) — `chromium-vi-handbook.jpg`
+  5. MTBE: Effects on Soil and Groundwater (CRC Press, 2001) — `mtbe.jpg`
 
-**Impact:** Book cards are text-only, reducing visual appeal and professional presentation
+**Impact:** ✅ RESOLVED — Book cards now display professional cover images, significantly improving visual appeal
 
 #### Sea Level Rise Research Page
-- ❌ Field photos from Atchison Village (Richmond, CA)
-- ❌ Field photos from Tamalpais Valley (Marin County)
-- ❌ Sensor equipment photos (Solinst data loggers, SmartCover manhole sensors)
-- ❌ Storm drain and sewer monitoring photos
-- ❌ Maps of study areas
-- ❌ Data visualization graphs/charts
+- ✅ **10 field research images ADDED (Feb 2026):**
+  - Flooding documentation from Atchison Village (Richmond, CA)
+  - Flooding at Tamalpais Valley Manzanita Interchange
+  - Sensor equipment photos (Solinst data loggers, SmartCover manhole sensors)
+  - Real-time data collection and monitoring systems
+  - GIS maps showing preferential groundwater pathways
+  - Community outreach and volunteer training sessions
 
-**Impact:** Cannot visualize the real-time monitoring systems or study locations
+**Impact:** ✅ RESOLVED — Interactive image gallery with lightbox allows visitors to see actual field work, sensors, and study sites. Significantly improves credibility and understanding of methodology.
 
 #### Sewer Systems Research Pages
 - ❌ Sewer inspection photos (camera footage)
@@ -119,13 +120,15 @@ Based on the legacy site structure, the following image categories are missing f
 **Impact:** Complex technical concepts harder to understand without visual aids
 
 #### Wetlands Research Page
-- ❌ Constructed wetland photos
-- ❌ Wastewater treatment farm concept diagrams
-- ❌ Tidal wetlands sampling photos
-- ❌ Treatment process flow diagrams
-- ❌ Before/after restoration photos
+- ✅ **6 constructed wetlands images ADDED (Feb 2026):**
+  - Constructed wetlands wastewater treatment farm concept overview
+  - Multi-stage treatment process and water flow diagrams
+  - Integration of treatment zones with natural ecosystems
+  - Resource recovery and product generation systems
+  - Wildlife habitat and biodiversity benefits
+  - Site layout showing treatment zones and product areas
 
-**Impact:** Cannot see the innovative treatment farm concept or wetland work
+**Impact:** ✅ RESOLVED — Interactive gallery showcases the innovative wastewater treatment farm concept with detailed diagrams and ecosystem integration visuals.
 
 #### Safe Water Research Page
 - ❌ India field work photos (rural wells)
@@ -714,8 +717,8 @@ Until then, users encounter **two different versions** of the same professional,
 | **Selected projects** | 19 | 19 | ✅ Same (all present) |
 | **Books listed** | 5 | 5 | Same |
 | **Services listed** | 5 | 7 | 2 more (+40%) |
-| **Total images** | 50-70 estimated | 1 | 49-69 missing (-98%) |
-| **Working forms** | 1 (functional) | 1 (placeholder) | Contact form broken |
+| **Total images** | 50-70 estimated | 24 | ✅ 24 added (Feb 2026): 5 books + 10 SLR + 6 wetlands + 3 misc |
+| **Working forms** | 1 (functional) | 1 (working) | ✅ Contact form fixed (Formspree, Feb 2026) |
 | **Homepage file size** | 1.8 MB | ~100 KB | 94% smaller |
 | **Navigation items** | 13 top-level | 9 top-level | 4 fewer (better hierarchy) |
 
@@ -723,29 +726,29 @@ Until then, users encounter **two different versions** of the same professional,
 
 | Status | Count | Pages |
 |--------|-------|-------|
-| ✅ **Redesigned (complete)** | 7 | Home, About, Services, Geology & Beer, Teaching, Books, Research Hub |
-| ⚠️ **Redesigned (missing images)** | 4 | Sea Level Rise, Sewer Systems, Wetlands, Safe Water |
+| ✅ **Redesigned (complete with images)** | 9 | Home, About, Services, Geology & Beer, Teaching, Books, Research Hub, **Sea Level Rise**, **Wetlands** |
+| ⚠️ **Redesigned (missing images)** | 2 | Sewer Systems, Safe Water |
 | ⚠️ **Partial (merged)** | 2 | Books & Publications, Sewer Systems |
-| ❌ **Critical issue** | 1 | Contact (non-functional form) |
+| ✅ **Contact form fixed** | 1 | Contact (Formspree backend configured, Feb 2026) |
 
 ### Missing Asset Inventory
 
-| Asset Type | Estimated Count | Priority |
-|------------|----------------|----------|
-| Book cover images | 5 | **HIGH** |
-| Research field photos | 20-30 | **HIGH** |
-| Equipment/sensor photos | 10-15 | Medium |
-| Teaching/workshop photos | 5-10 | Medium |
-| Diagrams/infographics | 10-15 | Medium |
-| Maps & charts | 5-10 | Low |
-| Logos & badges | 5-10 | Low |
-| Hero background images | 2-5 | Low |
+| Asset Type | Estimated Count | Priority | Status (Feb 2026) |
+|------------|----------------|----------|-------------------|
+| Book cover images | 5 | **HIGH** | ✅ **COMPLETE** (5/5 added) |
+| Research field photos | 20-30 | **HIGH** | ✅ **PARTIAL** (16/30 added: SLR + Wetlands) |
+| Equipment/sensor photos | 10-15 | Medium | ✅ **PARTIAL** (included in SLR gallery) |
+| Teaching/workshop photos | 5-10 | Medium | ❌ Still missing |
+| Diagrams/infographics | 10-15 | Medium | ✅ **PARTIAL** (wetlands diagrams added) |
+| Maps & charts | 5-10 | Low | ✅ **PARTIAL** (GIS maps in SLR gallery) |
+| Logos & badges | 5-10 | Low | ❌ Still missing |
+| Hero background images | 2-5 | Low | ❌ Still missing |
 
 ### Functionality Status
 
 | Feature | Legacy | Demo | Notes |
 |---------|--------|------|-------|
-| Contact form | ✅ Works | ❌ Broken | **CRITICAL** |
+| Contact form | ✅ Works | ✅ **Works** | ✅ Fixed Feb 2026 (Formspree → geojimj@gmail.com) |
 | Navigation menu | ✅ Works | ✅ Works | Demo is better organized |
 | Mobile menu | ⚠️ Varies | ✅ Works | Demo is more consistent |
 | Search | ❌ None | ❌ None | Not implemented in either |
