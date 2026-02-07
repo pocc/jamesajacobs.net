@@ -51,7 +51,7 @@ export default function Wetlands() {
                         <SectionDivider />
                     </ScrollReveal>
                     <ScrollReveal stagger>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                             {products.map((p) => (
                                 <div key={p.title} className="bg-surface rounded-xl border border-surface-dark/50 p-5 text-center">
                                     <div className="text-3xl mb-3">{p.icon}</div>

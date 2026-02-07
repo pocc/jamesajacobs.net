@@ -24,7 +24,7 @@ export default function HeroPage({ title, subtitle, breadcrumbs }: Props) {
                     {title}
                 </h1>
                 {subtitle && (
-                    <p className="mt-4 text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed">
+                    <p className="mt-4 text-white/70 text-lg md:text-xl max-w-xl leading-relaxed">
                         {subtitle}
                     </p>
                 )}

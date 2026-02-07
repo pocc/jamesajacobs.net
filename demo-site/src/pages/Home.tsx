@@ -30,16 +30,16 @@ export default function Home() {
                         </p>
                         <div className="mt-10 flex flex-col sm:flex-row gap-4">
                             <Link
-                                to="/services"
+                                to="/contact"
                                 className="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-3.5 rounded-xl transition-colors text-center no-underline"
                             >
-                                View Services
+                                Request a Consultation
                             </Link>
                             <Link
-                                to="/contact"
+                                to="/services"
                                 className="inline-block border-2 border-white/30 hover:border-white/60 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-center no-underline"
                             >
-                                Get in Touch
+                                Explore Services
                             </Link>
                         </div>
                     </ScrollReveal>
@@ -50,7 +50,7 @@ export default function Home() {
             <StatBar stats={heroStats} dark />
 
             {/* Bio Summary */}
-            <section className="bg-surface py-16 md:py-24">
+            <section className="bg-surface py-20 md:py-32">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
@@ -90,8 +90,52 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Audience Routing */}
+            <section className="bg-white py-20 md:py-32">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="text-center mb-12">
+                            <h2 className="font-serif text-2xl md:text-3xl font-bold">
+                                How Can I Help?
+                            </h2>
+                            <p className="mt-3 text-text-secondary max-w-lg mx-auto">
+                                Select the option that best describes your needs.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                            {[
+                                { label: 'Need an Expert Witness?', desc: '23 cases in groundwater contamination, remediation & environmental disputes', to: '/contact' },
+                                { label: 'Environmental Site Assessment?', desc: 'Site characterization, Phase I/II, groundwater monitoring & forensics', to: '/services' },
+                                { label: 'Research Collaboration?', desc: 'Sea level rise, sewer systems, constructed wetlands & safe water', to: '/research' },
+                                { label: 'Professional Training?', desc: 'Workshops on vapor intrusion, sewer air & environmental topics', to: '/teaching' },
+                            ].map((item) => (
+                                <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    className="group flex items-start gap-4 p-5 rounded-xl border border-surface-dark/50 bg-surface hover:border-accent/50 hover:shadow-md transition-all no-underline"
+                                >
+                                    <div className="flex-1">
+                                        <h3 className="font-serif font-semibold text-primary group-hover:text-accent-dark transition-colors">
+                                            {item.label}
+                                        </h3>
+                                        <p className="mt-1 text-sm text-text-secondary leading-relaxed">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                    <span className="text-accent-dark mt-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                                        &rarr;
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
             {/* Research Bento Grid */}
-            <section className="bg-white py-16 md:py-24">
+            <section className="bg-surface py-20 md:py-32">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <div className="text-center mb-12">
@@ -129,7 +173,7 @@ export default function Home() {
             </section>
 
             {/* Featured Latest Book */}
-            <section className="bg-surface py-16 md:py-24">
+            <section className="bg-surface py-20 md:py-32">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-10">
@@ -170,32 +214,23 @@ export default function Home() {
             </section>
 
             {/* CTA */}
-            <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-16 md:py-24">
+            <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-20 md:py-32">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <ScrollReveal>
                         <h2 className="font-serif text-2xl md:text-3xl font-bold text-white">
                             Let&apos;s Work Together
                         </h2>
-                        <p className="mt-4 text-white/70 text-base md:text-lg leading-relaxed">
+                        <p className="mt-4 text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
                             Whether you need expert consulting for environmental site
                             assessment, forensic geology analysis, or expert witness
-                            testimony, James Jacobs brings decades of hands-on experience
-                            to every project.
+                            testimony — decades of hands-on experience, one conversation away.
                         </p>
-                        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link
-                                to="/contact"
-                                className="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-3.5 rounded-xl transition-colors no-underline"
-                            >
-                                Contact James
-                            </Link>
-                            <Link
-                                to="/services"
-                                className="inline-block border-2 border-white/30 hover:border-white/60 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors no-underline"
-                            >
-                                Explore Services
-                            </Link>
-                        </div>
+                        <Link
+                            to="/contact"
+                            className="inline-block mt-8 bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-10 py-4 rounded-xl transition-colors no-underline text-lg"
+                        >
+                            Request a Consultation
+                        </Link>
                     </ScrollReveal>
                 </div>
             </section>

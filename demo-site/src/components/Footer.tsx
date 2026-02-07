@@ -100,6 +100,12 @@ export default function Footer() {
                             </p>
                             <p className="text-xs leading-relaxed">{contact.address}</p>
                             <p className="text-xs text-white/40">{contact.hours}</p>
+                            <Link
+                                to="/contact"
+                                className="inline-block mt-3 text-accent hover:text-accent-light text-sm font-semibold no-underline transition-colors"
+                            >
+                                Request Consultation &rarr;
+                            </Link>
                         </div>
                     </div>
                 </div>

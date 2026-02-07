@@ -5,6 +5,12 @@ export const servicesIntro =
 
 export const services: Service[] = [
     {
+        title: 'Expert Witness & Litigation Support',
+        description:
+            'Forensic geology analysis and expert witness testimony for groundwater contamination, remediation cost disputes, oil & gas valuation, and environmental contracting cases. Over 23 cases with experience in depositions, court testimony, and technical report preparation.',
+        icon: '⚖️',
+    },
+    {
         title: 'Sewer Air Testing Services',
         description:
             'Individual buildings are tested after a site inspection defines plumbing layout and utility conduit locations. Air sampling can include vapor meters, sorbent tube samplers, active samplers and passive samplers to evaluate whether sewer air is entering an occupied space.',
@@ -15,6 +21,12 @@ export const services: Service[] = [
         description:
             'Maps of sewer line conditions based on video camera inspection and smoke testing, overlaid with known soil contamination and groundwater plumes. Allows agencies to prioritize multi-million dollar sewer replacement projects.',
         icon: '🗺️',
+    },
+    {
+        title: 'Environmental Site Assessment',
+        description:
+            'Comprehensive site characterization, Phase I/II assessments, groundwater monitoring, and contamination forensics for property transactions, regulatory compliance, and remediation planning.',
+        icon: '🔬',
     },
     {
         title: 'Workshops & Training',
@@ -34,4 +46,15 @@ export const services: Service[] = [
             'Support for community groups, government agencies, and individuals dealing with vapor intrusion and indoor air quality issues, including consultation and mitigation recommendations.',
         icon: '🤝',
     },
+]
+
+export const industriesServed = [
+    'Oil & Gas',
+    'Mining',
+    'Real Estate',
+    'Government',
+    'Legal',
+    'Utilities',
+    'Insurance',
+    'Education',
 ]

@@ -85,6 +85,18 @@ export default function Header() {
                                     </div>
                                 )}
                             </div>
+                        ) : item.label === 'Contact' ? (
+                            <Link
+                                key={item.to}
+                                to={item.to}
+                                className={`ml-2 px-4 py-1.5 text-sm font-semibold rounded-lg transition-colors no-underline ${
+                                    location.pathname === item.to
+                                        ? 'bg-accent text-primary-dark'
+                                        : 'bg-accent/90 text-primary-dark hover:bg-accent'
+                                }`}
+                            >
+                                {item.label}
+                            </Link>
                         ) : (
                             <Link
                                 key={item.to}
