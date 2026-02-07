@@ -1,0 +1,10 @@
+# Cloudflare Pages Configuration
+# This file is not used by Cloudflare, but documents the correct settings
+
+# Build Settings (configure in Cloudflare Dashboard):
+# - Build command: npm run build
+# - Build output directory: dist
+# - Root directory: (leave blank)
+# - Environment variables: none needed for static build
+
+# DO NOT set a "deploy command" - Pages will automatically serve the dist folder
