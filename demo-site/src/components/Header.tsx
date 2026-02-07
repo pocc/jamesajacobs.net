@@ -4,7 +4,7 @@ import { navItems } from '../data/siteConfig'
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false)
-    const [researchOpen, setResearchOpen] = useState(false)
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null)
     const [scrolled, setScrolled] = useState(false)
     const location = useLocation()
     const isHome = location.pathname === '/'
@@ -17,7 +17,7 @@ export default function Header() {
 
     useEffect(() => {
         setMobileOpen(false)
-        setResearchOpen(false)
+        setOpenDropdown(null)
     }, [location.pathname])
 
     const headerBg = scrolled || !isHome
@@ -44,13 +44,13 @@ export default function Header() {
                             <div
                                 key={item.label}
                                 className="relative"
-                                onMouseEnter={() => setResearchOpen(true)}
-                                onMouseLeave={() => setResearchOpen(false)}
+                                onMouseEnter={() => setOpenDropdown(item.label)}
+                                onMouseLeave={() => setOpenDropdown(null)}
                             >
                                 <Link
                                     to={item.to}
                                     className={`px-3 py-2 text-sm font-medium transition-colors no-underline rounded-md ${
-                                        location.pathname.startsWith('/research')
+                                        location.pathname === item.to || location.pathname.startsWith(item.to + '/')
                                             ? 'text-accent'
                                             : 'text-white/80 hover:text-white'
                                     }`}
@@ -65,7 +65,7 @@ export default function Header() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </Link>
-                                {researchOpen && (
+                                {openDropdown === item.label && (
                                     <div className="absolute top-full left-0 pt-1">
                                         <div className="bg-white rounded-xl shadow-xl border border-surface-dark/30 py-2 min-w-[220px]">
                                             {item.children.map((child) => (

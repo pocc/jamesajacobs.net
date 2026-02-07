@@ -17,13 +17,16 @@ export const navItems: NavItem[] = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     {
-        label: 'For Your Industry',
+        label: 'Services',
         to: '/services',
         children: [
             { label: 'Attorneys & Legal Teams', to: '/expert-witness' },
             { label: 'Environmental Consultants', to: '/for-consultants' },
-            { label: 'Water & Sewer Utilities', to: '/utilities' },
-            { label: 'Property Owners', to: '/real-estate' },
+            { label: 'Utilities & Infrastructure', to: '/utilities' },
+            { label: 'Property Owners & Real Estate', to: '/real-estate' },
+            { label: 'Oil & Gas Industry', to: '/oil-gas' },
+            { label: 'Community Support', to: '/community' },
+            { label: 'Speaking & Workshops', to: '/speaking' },
             { label: 'All Services', to: '/services' },
         ],
     },
@@ -31,15 +34,22 @@ export const navItems: NavItem[] = [
         label: 'Research',
         to: '/research',
         children: [
+            { label: 'Overview', to: '/research' },
             { label: 'Sea Level Rise', to: '/research/sea-level-rise' },
             { label: 'Sewer Systems', to: '/research/sewer-systems' },
             { label: 'Wetlands', to: '/research/wetlands' },
             { label: 'Safe Water', to: '/research/safe-water' },
         ],
     },
-    { label: 'Books', to: '/books' },
-    { label: 'Teaching', to: '/teaching' },
-    { label: 'Geology & Beer', to: '/geology-and-beer' },
+    {
+        label: 'Publications',
+        to: '/books',
+        children: [
+            { label: 'Books', to: '/books' },
+            { label: 'Teaching & Workshops', to: '/teaching' },
+            { label: 'Geology & Beer', to: '/geology-and-beer' },
+        ],
+    },
     { label: 'Contact', to: '/contact' },
 ]
 

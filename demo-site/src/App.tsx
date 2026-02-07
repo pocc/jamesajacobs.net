@@ -20,13 +20,6 @@ import OilGas from './pages/OilGas'
 import RealEstate from './pages/RealEstate'
 import Speaking from './pages/Speaking'
 import ForConsultants from './pages/ForConsultants'
-// New audience pages under /audiences/
-import Attorneys from './pages/audiences/Attorneys'
-import AudienceUtilities from './pages/audiences/Utilities'
-import AudienceRealEstate from './pages/audiences/RealEstate'
-import Regulators from './pages/audiences/Regulators'
-import Researchers from './pages/audiences/Researchers'
-import AudienceOilGas from './pages/audiences/OilGas'
 
 export default function App() {
     return (
@@ -53,13 +46,6 @@ export default function App() {
                     <Route path="/oil-gas" element={<OilGas />} />
                     <Route path="/real-estate" element={<RealEstate />} />
                     <Route path="/speaking" element={<Speaking />} />
-                    {/* New audience-specific pages under /audiences/ */}
-                    <Route path="/audiences/attorneys" element={<Attorneys />} />
-                    <Route path="/audiences/utilities" element={<AudienceUtilities />} />
-                    <Route path="/audiences/real-estate" element={<AudienceRealEstate />} />
-                    <Route path="/audiences/regulators" element={<Regulators />} />
-                    <Route path="/audiences/researchers" element={<Researchers />} />
-                    <Route path="/audiences/oil-gas" element={<AudienceOilGas />} />
                 </Route>
             </Routes>
         </BrowserRouter>
