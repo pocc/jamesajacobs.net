@@ -246,6 +246,144 @@ export default function SewerSystems() {
                 </div>
             </section>
 
+            {/* Practical Applications */}
+            <section className="bg-gradient-to-b from-surface to-surface-light py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="text-center mb-12">
+                            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Practical Applications</h2>
+                            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+                                How this research applies to vapor intrusion investigations and sewer system management
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {/* For Utilities */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-600">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🚰</span>
+                                    For Water & Sewer Utilities
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    Apply this research to sewer system operations and vapor intrusion complaint response
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sewer air testing protocols (EPA Method TO-15)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Manhole monitoring for VOCs and methane detection</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>System-wide vulnerability assessment and hot spot identification</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Capital project prioritization for sewer line rehabilitation</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Expert opinion for litigation/insurance claims</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/utilities"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Vapor Intrusion Assessment →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* For Regulators */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-600">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🏛️</span>
+                                    For Regulatory Agencies
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    Research contributions to EPA vapor intrusion guidance and state protocols
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>EPA vapor intrusion investigation protocols</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sewer system pathway assessment methodologies</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Indoor air quality screening tools for building inspectors</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Regulatory compliance documentation and reporting</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Technical training for agency staff on vapor intrusion assessment</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/services"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Technical Consultation →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* For Consultants */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🏢</span>
+                                    For Environmental Consultants
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    Expert review and sub-consulting for vapor intrusion investigations
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Peer review of conceptual site models for vapor intrusion</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Expert opinion on sewer system pathways vs. subslab sources</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Building plumbing inspection protocols and risk assessment</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sub-consulting for specialized sewer air testing programs</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Expert witness testimony for vapor intrusion litigation</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/for-consultants"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Expert Review →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+                </div>
+            </section>
+
             {/* References */}
             <section className="bg-white py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
