@@ -17,6 +17,17 @@ export const navItems: NavItem[] = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     {
+        label: 'For Your Industry',
+        to: '/services',
+        children: [
+            { label: 'Attorneys & Legal Teams', to: '/expert-witness' },
+            { label: 'Environmental Consultants', to: '/for-consultants' },
+            { label: 'Water & Sewer Utilities', to: '/utilities' },
+            { label: 'Property Owners', to: '/real-estate' },
+            { label: 'All Services', to: '/services' },
+        ],
+    },
+    {
         label: 'Research',
         to: '/research',
         children: [
@@ -28,7 +39,6 @@ export const navItems: NavItem[] = [
     },
     { label: 'Books', to: '/books' },
     { label: 'Teaching', to: '/teaching' },
-    { label: 'Services', to: '/services' },
     { label: 'Geology & Beer', to: '/geology-and-beer' },
     { label: 'Contact', to: '/contact' },
 ]

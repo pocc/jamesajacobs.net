@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import TrustSignalFooter from './TrustSignalFooter'
 
 export default function Layout() {
     const { pathname } = useLocation()
@@ -16,6 +17,7 @@ export default function Layout() {
             <main className="flex-1 pt-16">
                 <Outlet />
             </main>
+            <TrustSignalFooter />
             <Footer />
         </div>
     )

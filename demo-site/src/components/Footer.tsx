@@ -22,6 +22,22 @@ const researchLinks = [
 export default function Footer() {
     return (
         <footer className="bg-primary-dark text-white/80">
+            {/* Trust Signal Bar */}
+            <div className="bg-primary text-white/90 border-b border-white/10">
+                <div className="max-w-6xl mx-auto px-4 py-4">
+                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs md:text-sm text-center">
+                        <span className="font-medium">Licensed Professional Geologist (P.G.) in 9 states</span>
+                        <span className="hidden md:inline text-white/30">|</span>
+                        <span className="font-medium">40+ years experience</span>
+                        <span className="hidden md:inline text-white/30">|</span>
+                        <span className="font-medium">1,000+ projects completed</span>
+                        <span className="hidden md:inline text-white/30">|</span>
+                        <span className="font-medium">5 published books</span>
+                        <span className="hidden md:inline text-white/30">|</span>
+                        <span className="font-medium">Adjunct Faculty, UC Santa Cruz</span>
+                    </div>
+                </div>
+            </div>
             <div className="max-w-6xl mx-auto px-4 py-12 md:py-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
                     {/* Bio Column */}

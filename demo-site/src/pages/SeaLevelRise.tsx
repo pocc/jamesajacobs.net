@@ -328,6 +328,132 @@ export default function SeaLevelRise() {
                 </div>
             </section>
 
+            {/* Practical Applications */}
+            <section className="bg-gradient-to-b from-white to-surface-light py-16 md:py-24">
+                <div className="max-w-6xl mx-auto px-4">
+                    <ScrollReveal>
+                        <div className="text-center mb-12">
+                            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Practical Applications</h2>
+                            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+                                How this research applies to real-world infrastructure planning and operational decision-making
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {/* For Utilities */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-600">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🚰</span>
+                                    For Water & Sewer Utilities
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    Apply this research to wastewater district planning and climate resilience strategies
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sea level rise vulnerability assessment for treatment plants and collection systems</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Real-time monitoring networks (Solinst Level Loggers, SmartCover sensors)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Bayesian network modeling for 2050-2100 overflow prediction</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Capital improvement prioritization and SB 1 compliance</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/utilities"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Assessment for Your District →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* For Regulators */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-600">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🏛️</span>
+                                    For Regulatory Agencies
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    How this research informs regulatory guidance and policy development
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Wastewater infrastructure planning requirements (California SB 1)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sea level rise adaptation planning methodologies</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Groundwater flooding assessment protocols</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Technical training for agency staff on monitoring techniques</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/services"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Technical Consultation →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* For Consultants */}
+                        <ScrollReveal>
+                            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent">
+                                <h3 className="text-xl font-bold mb-3 text-primary flex items-center gap-2">
+                                    <span className="text-2xl">🏢</span>
+                                    For Environmental Consultants
+                                </h3>
+                                <p className="text-text-secondary text-sm mb-4">
+                                    Apply these methods to client projects and access sub-consulting support
+                                </p>
+                                <ul className="space-y-2 text-sm mb-6">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Deployment of multiparameter data loggers and sensor networks</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Bayesian network modeling training and implementation</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Expert review of sea level rise vulnerability assessments</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-accent">•</span>
+                                        <span>Sub-consulting for specialized climate resilience projects</span>
+                                    </li>
+                                </ul>
+                                <Link
+                                    to="/for-consultants"
+                                    className="inline-block text-accent-dark hover:text-primary font-semibold transition-colors text-sm no-underline"
+                                >
+                                    Request Expert Review →
+                                </Link>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+                </div>
+            </section>
+
             <section className="bg-surface py-16 md:py-24">
                 <div className="max-w-6xl mx-auto px-4">
                     <ScrollReveal>

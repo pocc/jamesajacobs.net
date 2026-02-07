@@ -7,49 +7,43 @@ import StatBar from '../components/StatBar'
 import ScrollReveal from '../components/ScrollReveal'
 import BookCard from '../components/BookCard'
 import BentoGrid from '../components/BentoGrid'
+import AudienceCards from '../components/AudienceCards'
 
 const audienceRoutes = [
     {
-        icon: '\u2696\uFE0F',
-        label: 'Expert Witness & Litigation',
-        desc: '23 court cases — groundwater contamination, remediation disputes, oil & gas valuation',
-        cta: 'Discuss Your Case',
-        to: '/contact',
+        icon: '⚖️',
+        label: 'Attorneys & Legal Teams',
+        desc: 'Expert witness testimony and litigation support — 23 court cases, licensed P.G. in 9 states',
+        cta: 'View Expert Witness Services',
+        to: '/expert-witness',
     },
     {
-        icon: '\uD83D\uDD2C',
-        label: 'Environmental Site Assessment',
-        desc: 'Phase I/II, site characterization, groundwater monitoring, contamination forensics',
-        cta: 'Request Assessment',
+        icon: '🏛️',
+        label: 'Regulatory Agencies',
+        desc: 'Technical guidance and compliance support — EPA methods, policy development, staff training',
+        cta: 'Request Technical Consultation',
         to: '/services',
     },
     {
-        icon: '\uD83E\uDDEA',
-        label: 'Sewer Air & Vapor Intrusion',
-        desc: 'Indoor air testing, legacy sewer mapping, capital project prioritization for utilities',
-        cta: 'Schedule Testing',
-        to: '/services',
+        icon: '🚰',
+        label: 'Water & Sewer Utilities',
+        desc: 'Vapor intrusion and sea level rise planning — 23 years as wastewater commissioner',
+        cta: 'Schedule Utility Assessment',
+        to: '/utilities',
     },
     {
-        icon: '\uD83C\uDFDB\uFE0F',
-        label: 'Regulatory & Compliance',
-        desc: 'Vapor intrusion assessment, cost allocation studies, stormwater compliance training',
-        cta: 'Request Consultation',
-        to: '/contact',
+        icon: '🏢',
+        label: 'Environmental Consultants',
+        desc: 'Expert review and sub-consulting services — we support your firm, we don\'t compete',
+        cta: 'Request Expert Opinion',
+        to: '/for-consultants',
     },
     {
-        icon: '\uD83C\uDF93',
-        label: 'Research & Collaboration',
-        desc: 'Sea level rise, constructed wetlands, safe water — peer-reviewed, field-tested science',
-        cta: 'Explore Research',
-        to: '/research',
-    },
-    {
-        icon: '\uD83D\uDCDA',
-        label: 'Workshops & Training',
-        desc: 'Professional development in 5+ countries — vapor intrusion, hydrogeology, remediation',
-        cta: 'View Programs',
-        to: '/teaching',
+        icon: '🏗️',
+        label: 'Property Owners & Developers',
+        desc: 'Site assessment and transaction support — protect your investment, avoid unexpected liability',
+        cta: 'Get Assessment Quote',
+        to: '/real-estate',
     },
 ]
 
@@ -243,6 +237,9 @@ export default function Home() {
                     </ScrollReveal>
                 </div>
             </section>
+
+            {/* Audience Cards */}
+            <AudienceCards />
 
             {/* Research Bento Grid */}
             <section className="bg-white py-20 md:py-28">

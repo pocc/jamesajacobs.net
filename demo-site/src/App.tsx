@@ -12,6 +12,21 @@ import Teaching from './pages/Teaching'
 import Services from './pages/Services'
 import GeologyAndBeer from './pages/GeologyAndBeer'
 import Contact from './pages/Contact'
+// Audience-specific landing pages
+import ExpertWitness from './pages/ExpertWitness'
+import Community from './pages/Community'
+import Utilities from './pages/Utilities'
+import OilGas from './pages/OilGas'
+import RealEstate from './pages/RealEstate'
+import Speaking from './pages/Speaking'
+import ForConsultants from './pages/ForConsultants'
+// New audience pages under /audiences/
+import Attorneys from './pages/audiences/Attorneys'
+import AudienceUtilities from './pages/audiences/Utilities'
+import AudienceRealEstate from './pages/audiences/RealEstate'
+import Regulators from './pages/audiences/Regulators'
+import Researchers from './pages/audiences/Researchers'
+import AudienceOilGas from './pages/audiences/OilGas'
 
 export default function App() {
     return (
@@ -30,6 +45,21 @@ export default function App() {
                     <Route path="/services" element={<Services />} />
                     <Route path="/geology-and-beer" element={<GeologyAndBeer />} />
                     <Route path="/contact" element={<Contact />} />
+                    {/* Audience-specific landing pages */}
+                    <Route path="/expert-witness" element={<ExpertWitness />} />
+                    <Route path="/for-consultants" element={<ForConsultants />} />
+                    <Route path="/utilities" element={<Utilities />} />
+                    <Route path="/community" element={<Community />} />
+                    <Route path="/oil-gas" element={<OilGas />} />
+                    <Route path="/real-estate" element={<RealEstate />} />
+                    <Route path="/speaking" element={<Speaking />} />
+                    {/* New audience-specific pages under /audiences/ */}
+                    <Route path="/audiences/attorneys" element={<Attorneys />} />
+                    <Route path="/audiences/utilities" element={<AudienceUtilities />} />
+                    <Route path="/audiences/real-estate" element={<AudienceRealEstate />} />
+                    <Route path="/audiences/regulators" element={<Regulators />} />
+                    <Route path="/audiences/researchers" element={<Researchers />} />
+                    <Route path="/audiences/oil-gas" element={<AudienceOilGas />} />
                 </Route>
             </Routes>
         </BrowserRouter>
