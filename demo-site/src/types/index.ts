@@ -7,6 +7,7 @@ export interface Book {
     year: number
     description: string
     isbn?: string
+    coverImage?: string
 }
 
 export interface Publication {

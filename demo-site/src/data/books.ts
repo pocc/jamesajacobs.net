@@ -10,6 +10,7 @@ export const books: Book[] = [
         year: 2019,
         description:
             'Covers historical development of hydraulic fracturing, current technology, risk assessment, prevention, mitigation, legal cases, regulatory issues, and cost recovery.',
+        coverImage: '/images/books/hydraulic-fracturing.jpg',
     },
     {
         title: 'Oil Spills and Gas Leaks: Environmental Response, Prevention and Cost Recovery',
@@ -20,6 +21,7 @@ export const books: Book[] = [
         year: 2014,
         description:
             'Addresses assessment, exposure pathway analysis, sensitive receptor evaluation, sampling methods, remediation, impact mitigation, engineering techniques, biological effects, litigation, and legislation.',
+        coverImage: '/images/books/oil-spills-gas-leaks.jpg',
     },
     {
         title: 'Acid Mine Drainage, Rock Drainage, and Acid Sulfate Soils: Causes, Assessment, Prediction, Prevention, and Remediation',
@@ -30,6 +32,7 @@ export const books: Book[] = [
         year: 2014,
         description:
             'Comprehensive coverage of the causes, assessment, prediction, prevention, and remediation of acid mine drainage and acid sulfate soils.',
+        coverImage: '/images/books/acid-mine-drainage.jpg',
     },
     {
         title: 'Chromium(VI) Handbook',
@@ -40,6 +43,7 @@ export const books: Book[] = [
         year: 2004,
         description:
             'Comprehensive resource on hexavalent chromium, addressing naturally occurring and anthropogenic sources, geology and geochemistry, toxicity, treatment, regulatory issues, and legal cases.',
+        coverImage: '/images/books/chromium-vi-handbook.jpg',
     },
     {
         title: 'MTBE: Effects on Soil and Groundwater Resources',
@@ -50,5 +54,6 @@ export const books: Book[] = [
         year: 2001,
         description:
             'Historic document covering MTBE investigation and remediation approaches, highlighting a compound used as an unintended consequence of adding a highly soluble compound to gasoline.',
+        coverImage: '/images/books/mtbe.jpg',
     },
 ]
