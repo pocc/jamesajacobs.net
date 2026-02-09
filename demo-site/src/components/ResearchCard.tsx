@@ -27,7 +27,7 @@ export default function ResearchCard({ to, icon, title, description, status }: P
                                 ? 'bg-green-500'
                                 : status === 'ongoing'
                                   ? 'bg-amber-500'
-                                  : 'bg-slate'
+                                  : 'bg-slate-500'
                         }`}
                     />
                     {status === 'active' ? 'Active Research' : status === 'ongoing' ? 'Ongoing' : 'Completed'}

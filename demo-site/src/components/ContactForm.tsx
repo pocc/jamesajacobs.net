@@ -42,6 +42,8 @@ export default function ContactForm() {
             })
 
             if (response.ok) {
+                form.reset()
+                setInquiryType('')
                 setSubmitted(true)
             } else {
                 const data = await response.json()

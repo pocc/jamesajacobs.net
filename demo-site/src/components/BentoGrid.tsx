@@ -34,7 +34,7 @@ export default function BentoGrid({ areas, basePath = '/research' }: Props) {
                                             ? 'bg-green-500'
                                             : area.status === 'ongoing'
                                               ? 'bg-amber-500'
-                                              : 'bg-slate'
+                                              : 'bg-slate-500'
                                     }`}
                                 />
                                 {area.status === 'active'
